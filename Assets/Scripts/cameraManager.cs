@@ -10,7 +10,7 @@ public class cameraManager : MonoBehaviour
     [SerializeField] private Camera P1P2Camera;
     [SerializeField] private Transform player1;
     [SerializeField] private Transform player2;
-    [SerializeField] private float maxRange = 5f;
+    [SerializeField] private float maxRange = 15f;
     [SerializeField] private Image screenSplitter;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,6 @@ public class cameraManager : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(player1.position, player2.position - player1.position);
-        Debug.DrawRay(ray.origin, ray.direction * maxRange);
         if (Physics.Raycast(ray, out hit, maxRange))
         {
             if (hit.transform == player2)

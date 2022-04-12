@@ -36,7 +36,6 @@ public class playerController : MonoBehaviour
         float curSpeed = velocidadChar * moverAction.ReadValue<Vector2>().y;
         curSpeed = curSpeed < 0 ? curSpeed / 4 : curSpeed;
         transform.Translate(Vector3.forward * (curSpeed) * Time.deltaTime);
-        Debug.Log(curSpeed);
         if (curSpeed > 0)
         {
             animator.SetBool("isRunning", true);
