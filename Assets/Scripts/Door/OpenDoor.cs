@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-
     [SerializeField]
+    Vector3 vectorTranslacionCerrada;
+
     Vector3 _posicionAbierta;
-
-
-    [SerializeField]
     Vector3 _posicionCerrada;
 
     [Range(0.01f, 10f)]
     [SerializeField]
     float _velicidadApertura = 2;
 
-    [SerializeField]
     bool _abriendo = false;
 
-    [SerializeField]
     bool _cerrando = false;
 
     float _progresoLerp = 1;
@@ -32,19 +28,15 @@ public class OpenDoor : MonoBehaviour
         if (empiezaCerrada)
         {
             _progresoLerp = 1;
-            //this.transform.localPosition = _posicionCerrada;
+            _posicionAbierta = this.transform.localPosition - vectorTranslacionCerrada;
+            _posicionCerrada = this.transform.localPosition;
         }
         else
         {
             _progresoLerp = 0;
-            this.transform.localPosition = _posicionAbierta;
+            _posicionAbierta = this.transform.localPosition;
+            _posicionCerrada = this.transform.localPosition + vectorTranslacionCerrada;
         }
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
 
     }
 
@@ -58,7 +50,7 @@ public class OpenDoor : MonoBehaviour
             {
                 _abriendo = false;
             }
-            Debug.Log("actual " + this.transform.localPosition);
+            //Debug.Log("actual "+this.transform.localPosition);
         }
 
 
@@ -70,20 +62,21 @@ public class OpenDoor : MonoBehaviour
             {
                 _cerrando = false;
             }
-            Debug.Log("actual " + this.transform.localPosition);
+            //Debug.Log("actual "+this.transform.localPosition);
         }
     }
 
-    public void moverPuerta()
+
+    public void Abrir()
     {
-        if(this.transform.localPosition.y<-3)
-        {
-            _cerrando = true;
-        }
-        else
-        {
-            _abriendo = true;
-        }
+        _abriendo = true;
+        _cerrando = false;
+    }
+
+    public void Cerrar()
+    {
+        _abriendo = false;
+        _cerrando = true;
     }
 
 }
