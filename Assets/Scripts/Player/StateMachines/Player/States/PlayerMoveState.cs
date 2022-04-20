@@ -38,8 +38,14 @@ public class PlayerMoveState : PlayerBaseState
 
 
         // Movimiento y rotación
-        stateMachine.rb.transform.LookAt(stateMachine.rb.transform.position + inputDirection);
-        stateMachine.rb.MovePosition(stateMachine.rb.position + inputDirection.normalized* stateMachine.speed * Time.deltaTime);
+        //stateMachine.rb.transform.LookAt(stateMachine.rb.transform.position + inputDirection);
+        //stateMachine.rb.MovePosition(stateMachine.rb.position + inputDirection.normalized* stateMachine.speed * Time.deltaTime);
+
+        float rotationDirection = inputDirection.x;
+        stateMachine.rb.transform.Rotate(0, rotationDirection * 130 * Time.deltaTime, 0);
+        float curSpeed = stateMachine.speed * inputDirection.z;
+        curSpeed = curSpeed < 0 ? curSpeed / 4 : curSpeed;
+        stateMachine.rb.transform.Translate(Vector3.forward * (curSpeed) * Time.deltaTime);
 
         /* Character controller
          
