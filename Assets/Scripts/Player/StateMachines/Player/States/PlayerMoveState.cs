@@ -25,6 +25,11 @@ public class PlayerMoveState : PlayerBaseState
             return;
         }
 
+        if (stateMachine.isPushing)
+        {
+            stateMachine.SwitchState(new PlayerPushState(stateMachine));
+        }
+
         /*
         if (!stateMachine.IsGrounded()) {
             stateMachine.SwitchState(new PlayerFallState(stateMachine));
@@ -44,7 +49,6 @@ public class PlayerMoveState : PlayerBaseState
         float rotationDirection = inputDirection.x;
         stateMachine.rb.transform.Rotate(0, rotationDirection * 130 * Time.deltaTime, 0);
         float curSpeed = stateMachine.speed * inputDirection.z;
-        curSpeed = curSpeed < 0 ? curSpeed / 4 : curSpeed;
         stateMachine.rb.transform.Translate(Vector3.forward * (curSpeed) * Time.deltaTime);
 
         /* Character controller
