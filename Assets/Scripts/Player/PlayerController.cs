@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("GHasd");
+        //Debug.Log("GHasd");
         if(other.gameObject.tag == "ColliderPuerta")
         {
             Debug.Log("Estoy en la zona");

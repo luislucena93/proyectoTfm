@@ -7,15 +7,14 @@ public class PlayerIdleState : PlayerBaseState
     public PlayerIdleState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        Debug.Log("Enter Idle");
+     //   Debug.Log("Enter Idle");
     }
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Idle");
+       // Debug.Log("Ejecutando estado Idle");
         if (stateMachine.inputReader.repairAction.triggered) {
             stateMachine.SwitchState(new PlayerRepairState(stateMachine));
         }
-
         if (stateMachine.inputReader.moveAction.ReadValue<Vector2>() != Vector2.zero) {
             stateMachine.SwitchState(new PlayerMoveState(stateMachine));
         }
@@ -26,7 +25,7 @@ public class PlayerIdleState : PlayerBaseState
     }
 
     public override void Exit() {
-        Debug.Log("Exit Idle");
+       // Debug.Log("Exit Idle");
     }
 
 }

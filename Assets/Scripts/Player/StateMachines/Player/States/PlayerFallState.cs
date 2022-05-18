@@ -6,13 +6,13 @@ public class PlayerFallState : PlayerBaseState {
     public PlayerFallState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        Debug.Log("Enter Fall");
+       // Debug.Log("Enter Fall");
         stateMachine.animator.SetBool("isFalling", true);
 
     }
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Fall");
+       // Debug.Log("Ejecutando estado Fall");
 
         if (!stateMachine.IsGrounded()) {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
@@ -20,20 +20,20 @@ public class PlayerFallState : PlayerBaseState {
 
         /* Character controller
          
-        // Añadir gravedad
+        // Aï¿½adir gravedad
         movement += Physics.gravity;
 
         // Movimiento
         stateMachine.characterController.Move(movement * stateMachine.MovementSpeed * deltaTime);
 
-        // Rotación
+        // Rotaciï¿½n
         stateMachine.transform.rotation = Quaternion.LookRotation(movement);
 
        */
     }
 
     public override void Exit() {
-        Debug.Log("Exit Fall");
+        //Debug.Log("Exit Fall");
         stateMachine.animator.SetBool("isFalling", false);
 
     }

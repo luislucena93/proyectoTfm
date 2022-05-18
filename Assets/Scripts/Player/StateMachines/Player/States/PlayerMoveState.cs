@@ -7,14 +7,14 @@ public class PlayerMoveState : PlayerBaseState
     public PlayerMoveState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        Debug.Log("Enter Move");
+        //Debug.Log("Enter Move");
         stateMachine.animator.SetBool("isMoving", true);
 
     }
 
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Move");
+        //Debug.Log("Ejecutando estado Move");
 
         // Obtengo el valor del movimiento en cada momento
         Vector2 movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();
@@ -37,7 +37,7 @@ public class PlayerMoveState : PlayerBaseState
         inputDirection.z = movementValue.y;
 
 
-        // Movimiento y rotación
+        // Movimiento y rotaciï¿½n
         //stateMachine.rb.transform.LookAt(stateMachine.rb.transform.position + inputDirection);
         //stateMachine.rb.MovePosition(stateMachine.rb.position + inputDirection.normalized* stateMachine.speed * Time.deltaTime);
 
@@ -52,14 +52,14 @@ public class PlayerMoveState : PlayerBaseState
         // Movimiento
         stateMachine.characterController.Move(movement * stateMachine.MovementSpeed * deltaTime);
 
-        // Rotación
+        // Rotaciï¿½n
         stateMachine.transform.rotation = Quaternion.LookRotation(movement);
 
         */
     }
 
     public override void Exit() {
-        Debug.Log("Exit Move");
+        //Debug.Log("Exit Move");
         stateMachine.animator.SetBool("isMoving", false);
     }
 
