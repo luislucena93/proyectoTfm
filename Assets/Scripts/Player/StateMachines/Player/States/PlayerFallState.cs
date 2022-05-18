@@ -14,22 +14,15 @@ public class PlayerFallState : PlayerBaseState {
     public override void Tick(float deltaTime) {
         Debug.Log("Ejecutando estado Fall");
 
-        if (!stateMachine.IsGrounded()) {
+        if (stateMachine.characterController.isGrounded) {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
         }
 
-        /* Character controller
-         
-        // Añadir gravedad
-        movement += Physics.gravity;
-
-        // Movimiento
-        stateMachine.characterController.Move(movement * stateMachine.MovementSpeed * deltaTime);
-
-        // Rotación
-        stateMachine.transform.rotation = Quaternion.LookRotation(movement);
-
-       */
+        /*
+        if (!stateMachine.IsGrounded()) {
+            stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+        }
+        */
     }
 
     public override void Exit() {

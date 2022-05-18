@@ -20,9 +20,17 @@ public class PlayerIdleState : PlayerBaseState
             stateMachine.SwitchState(new PlayerMoveState(stateMachine));
         }
 
+        /*
+        if (!stateMachine.characterController.isGrounded) {
+            stateMachine.SwitchState(new PlayerFallState(stateMachine));
+        }
+        */
+
+        /*
         if (!stateMachine.IsGrounded()) {
             stateMachine.SwitchState(new PlayerFallState(stateMachine));
         }
+        */
     }
 
     public override void Exit() {
