@@ -9,6 +9,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Collider playerCollider { get; private set; }
     [field: SerializeField] public float minDistanceToGround { get; private set; }
 
+    [field: SerializeField] public bool isPushing { get; private set; }
+
     //[field: SerializeField] public CharacterController characterController { get; private set; }
     //[field: SerializeField] public BoxCollider boxCollider { get; private set; }
 
@@ -20,5 +22,21 @@ public class PlayerStateMachine : StateMachine
     public bool IsGrounded() {
         Vector3 targetCenter = playerCollider.bounds.center;
         return Physics.Raycast(targetCenter, Vector3.down, minDistanceToGround);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Pushable")
+        {
+            isPushing = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Pushable")
+        {
+            isPushing = false;
+        }
     }
 }

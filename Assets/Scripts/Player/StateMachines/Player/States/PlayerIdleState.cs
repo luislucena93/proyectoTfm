@@ -16,6 +16,11 @@ public class PlayerIdleState : PlayerBaseState
             stateMachine.SwitchState(new PlayerRepairState(stateMachine));
         }
 
+        if (stateMachine.isPushing)
+        {
+            stateMachine.SwitchState(new PlayerPushState(stateMachine));
+        }
+
         if (stateMachine.inputReader.moveAction.ReadValue<Vector2>() != Vector2.zero) {
             stateMachine.SwitchState(new PlayerMoveState(stateMachine));
         }
