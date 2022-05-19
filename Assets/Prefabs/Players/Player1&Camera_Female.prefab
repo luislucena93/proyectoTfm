@@ -1238,6 +1238,7 @@ MonoBehaviour:
   <characterController>k__BackingField: {fileID: 5106482572539097097}
   <ForceReceiver>k__BackingField: {fileID: 5106482572539097098}
   <MainCameraTransform>k__BackingField: {fileID: 8320386462111597913}
+  <isPushing>k__BackingField: 0
 --- !u!114 &5106482572539097102
 MonoBehaviour:
   m_ObjectHideFlags: 0
