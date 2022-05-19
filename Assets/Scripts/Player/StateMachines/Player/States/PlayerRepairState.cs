@@ -7,13 +7,13 @@ public class PlayerRepairState : PlayerBaseState
     public PlayerRepairState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        Debug.Log("Enter Repair");
+        //Debug.Log("Enter Repair");
         stateMachine.animator.SetBool("isRepairing", true);
 
     }
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Repair");
+        //Debug.Log("Ejecutando estado Repair");
 
         if (stateMachine.inputReader.repairAction.triggered) {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
@@ -21,7 +21,7 @@ public class PlayerRepairState : PlayerBaseState
     }
 
     public override void Exit() {
-        Debug.Log("Exit Repair");
+        //Debug.Log("Exit Repair");
         stateMachine.animator.SetBool("isRepairing", false);
 
     }
