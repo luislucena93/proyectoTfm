@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class boxInArea : MonoBehaviour
 {
+    [SerializeField]
+    GameObject _puerta;
+
+    [SerializeField]
+    TipoLlaveEnum _tipoLlave;
+
     private bool boxIn = false;
     public GameObject light;
     private Renderer renderer;
@@ -26,6 +32,13 @@ public class boxInArea : MonoBehaviour
         {
             boxIn = true;
             renderer.material.SetColor("_TintColor", Color.green);
+
+            IPuerta iPuerta = _puerta.GetComponent<IPuerta>();
+            if(iPuerta != null){
+                iPuerta.Abrir(_tipoLlave); 
+            } else{
+                Debug.LogError("No se encuentra iPuerta");
+            }
         }
     }
 

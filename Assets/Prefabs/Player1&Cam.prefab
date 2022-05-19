@@ -829,8 +829,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2423317836016749873}
-  m_LocalRotation: {x: 0.2615602, y: -0.12501402, z: 0.0341877, w: 0.95644605}
-  m_LocalPosition: {x: -1.6960001, y: 1.93, z: -1.6100006}
+  m_LocalRotation: {x: 0.26156023, y: -0.1250138, z: 0.034187645, w: 0.9564461}
+  m_LocalPosition: {x: 29.490002, y: 1.9300001, z: -42.15001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2423317837109609620}
@@ -1051,8 +1051,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2423317837765868171}
-  m_LocalRotation: {x: 0.2615602, y: -0.12501402, z: 0.0341877, w: 0.95644605}
-  m_LocalPosition: {x: -1.6960001, y: 1.93, z: -1.6100006}
+  m_LocalRotation: {x: 0.26156023, y: -0.1250138, z: 0.034187645, w: 0.9564461}
+  m_LocalPosition: {x: 29.490002, y: 1.9300001, z: -42.15001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7821513107604623966}
@@ -1753,12 +1753,13 @@ GameObject:
   - component: {fileID: 6789874552938797419}
   - component: {fileID: 6789874552938797416}
   - component: {fileID: 6789874552938797418}
+  - component: {fileID: 2965524340833379045}
   - component: {fileID: 257134634195491241}
   - component: {fileID: 6789874552938797422}
   - component: {fileID: 6789874552938797421}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1771,7 +1772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6789874552938797417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.196, y: -0.77, z: 0.27}
+  m_LocalPosition: {x: 28.99, y: -0.77, z: -40.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3711222571714556649}
@@ -1796,9 +1797,14 @@ MonoBehaviour:
   <inputReader>k__BackingField: {fileID: 6789874552938797416}
   <animator>k__BackingField: {fileID: 257134634195491241}
   <speed>k__BackingField: 2
+  <RotationDamping>k__BackingField: 0
   <rb>k__BackingField: {fileID: 6789874552938797421}
   <playerCollider>k__BackingField: {fileID: 6789874552938797422}
   <minDistanceToGround>k__BackingField: 2.5
+  <characterController>k__BackingField: {fileID: 0}
+  <ForceReceiver>k__BackingField: {fileID: 0}
+  <MainCameraTransform>k__BackingField: {fileID: 0}
+  <isPushing>k__BackingField: 0
 --- !u!114 &6789874552938797416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,6 +1844,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  lookAction:
+    m_Name: Look
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 90686553-f767-4ab4-b472-dc7b6254fe28
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &6789874552938797418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,25 +1888,45 @@ MonoBehaviour:
     m_ActionName: Player/Repair[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 83c40a7e-e7fb-4997-9ee8-7b045337c3b6
-    m_ActionName: Player2/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ae977861-d1a7-4636-bbe4-d2705b4d51d9
-    m_ActionName: Player2/Repair[/Keyboard/l]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: fbc55348-bc64-4d83-8ab7-8617e451bfa3
     m_ActionName: Player1/Interact[/Keyboard/f]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 69087eb2-6c61-4ba8-9484-658fc27d4a00
-    m_ActionName: Player2/Interact[/Keyboard/m]
+    m_ActionId: 1c2b9264-247e-4b16-a31a-c20226b1b0f2
+    m_ActionName: Player1/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d01541ae-8aa6-4458-9615-6c7eb935456d
+    m_ActionName: Player2/Move[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 404cf39c-ae72-4478-9369-3ab5486887cf
+    m_ActionName: Player2/Repair
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b979644b-7826-4cd7-a6a4-d5a4f6fc9235
+    m_ActionName: Player2/Interact
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58c46273-a622-4a2f-bfc9-7166ec17ed55
+    m_ActionName: Player2/Look[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2965524340833379045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789874552938797417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4c0b83469f92a4a9e420798461838a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &257134634195491241
 Animator:
   serializedVersion: 3
@@ -2112,7 +2147,7 @@ GameObject:
   - component: {fileID: 260010937700918343}
   m_Layer: 0
   m_Name: SK_Chr_SpaceSoldier_Female_01
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2125,7 +2160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7287087934699917018}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 4.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6156889369926026195}
@@ -2365,7 +2400,7 @@ GameObject:
   - component: {fileID: 7821513107604623966}
   m_Layer: 0
   m_Name: Player1&Cam
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
