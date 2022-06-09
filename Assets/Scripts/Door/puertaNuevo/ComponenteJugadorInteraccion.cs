@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComponenteJugadorInteraccion : MonoBehaviour
 {
-    private IInteraccionable _objetoInteraccionable;
+    public IInteraccionable _objetoInteraccionable;
 
     private InputReader _inputReader;
 

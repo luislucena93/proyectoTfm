@@ -16,7 +16,7 @@ public class InputReader : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         repairAction = playerInput.actions["Repair"];
         interactAction = playerInput.actions["Interact"];
-        interactAction = playerInput.actions["Look"];
+        lookAction = playerInput.actions["Look"];
 
     }
 }

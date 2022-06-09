@@ -67,6 +67,7 @@ public class TriggerTextoPuertaLlave : MonoBehaviour
             if(_puerta.isBloqueada()){
                 MostrarMensaje();
             }   else{
+                _puerta.Abrir();
                 OcultarMensaje();
             }
         }
@@ -77,6 +78,7 @@ public class TriggerTextoPuertaLlave : MonoBehaviour
             if(_puerta.isBloqueada()){
                 MostrarMensaje();
             }   else{
+                _puerta.Abrir();
                 OcultarMensaje();
             }
         }

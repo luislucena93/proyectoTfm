@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 
-public class MaquinaReparar : MonoBehaviour, IInteraccionable
+public class MaquinaReparar : MonoBehaviour, IInteraccionable, IReparable
 {
     [SerializeField]
     UnityEvent _eventoFinReparar;
@@ -15,12 +15,16 @@ public class MaquinaReparar : MonoBehaviour, IInteraccionable
     [Range(1,50)]
     private float _tiempoReparar = 10;
 
-    private bool _reparando;
+    private bool _reparando = false;
 
-    private bool _reparado;
+    private bool _reparado = false;
 
     private float _tiempoActualReparar = 0;
 
+    [SerializeField]
+    ParticleSystem _particleSystem;
+
+    float _emissionRateOverTimeMultiplier = 0;
 
     [SerializeField]
     TMP_Text _textoReparando;
@@ -48,11 +52,24 @@ public class MaquinaReparar : MonoBehaviour, IInteraccionable
 
     bool _interaccionando;
 
+    private void Awake() {
+       // _particleSystem.Stop();
+    }
+    
+    private void OnEnable() {
+                //_particleSystem.Play();
+        //_particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        ParticleSystem.MainModule mainSettingsParticles = _particleSystem.main;
+        //mainSettingsParticles.loop = true;
+        _emissionRateOverTimeMultiplier = _particleSystem.emission.rateOverTimeMultiplier;
+       // _particleSystem.Play();
+    }
 
     void Start()
     {
         CalcularProgresoReparacion();
         OcultarInterfaces();
+        _particleSystem.Play();
     }
 
     void Update(){
@@ -87,6 +104,7 @@ public class MaquinaReparar : MonoBehaviour, IInteraccionable
 
     private void FinReparacion(){
         _reparado = true;
+        _particleSystem.Stop();
         _eventoFinReparar.Invoke();
     }
     
@@ -119,6 +137,11 @@ public class MaquinaReparar : MonoBehaviour, IInteraccionable
         _slider.value = porcentaje;
         Color color = _gradienteColorSlider.Evaluate(porcentaje);
         _imagenSlider.color = color;
+        //_particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        var emission = _particleSystem.emission;
+        emission.rateOverTime = (1-porcentaje)*(1-porcentaje)*_emissionRateOverTimeMultiplier;
+        Debug.Log("calculo rate"+ emission.rateOverTimeMultiplier);
+        //_particleSystem.Play();
     }
 
 
@@ -181,5 +204,14 @@ public class MaquinaReparar : MonoBehaviour, IInteraccionable
         if(other.CompareTag(Tags.TAG_PLAYER)) {
             OcultarInterfaces();
         }
+    }
+
+    public 
+    Transform GetTransform(){
+        return gameObject.transform;
+    }
+
+    public bool IsReparado(){
+        return _reparado;
     }
 }

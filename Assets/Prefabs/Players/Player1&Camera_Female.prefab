@@ -281,6 +281,7 @@ Transform:
   - {fileID: 213839036446061495}
   - {fileID: 6928588102571944946}
   - {fileID: 5976519178612354000}
+  - {fileID: 1033949998125255888}
   m_Father: {fileID: 6891225702771567241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1240,6 +1241,7 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 5106482572539097098}
   <MainCameraTransform>k__BackingField: {fileID: 8320386462111597913}
   <isPushing>k__BackingField: 0
+  _pistolaReparacion: {fileID: 0}
 --- !u!114 &5106482572539097102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,7 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: -8}
+  m_FollowOffset: {x: 0, y: 0, z: -8}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2126,7 +2128,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 84.82001
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -2451,7 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: -8}
+  m_FollowOffset: {x: 0, y: 0, z: -8}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2471,7 +2473,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 84.82001
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -2728,7 +2730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: -8}
+  m_FollowOffset: {x: 0, y: 0, z: -8}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2748,7 +2750,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 84.82001
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -3364,3 +3366,65 @@ Transform:
   m_Father: {fileID: 2946593274344250562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5023628894920542619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1198020726073962809}
+    m_Modifications:
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.167
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.036
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.59067273
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.3113816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.37490785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6431107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 173.433
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -121.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 88.783
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474338161147493251, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+      propertyPath: m_Name
+      value: SM_Wep_Pistol_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+--- !u!4 &1033949998125255888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
+  m_PrefabInstance: {fileID: 5023628894920542619}
+  m_PrefabAsset: {fileID: 0}

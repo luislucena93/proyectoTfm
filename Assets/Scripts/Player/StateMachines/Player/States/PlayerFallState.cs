@@ -6,13 +6,13 @@ public class PlayerFallState : PlayerBaseState {
     public PlayerFallState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        Debug.Log("Enter Fall");
+        //Debug.Log("Enter Fall");
         stateMachine.animator.SetBool("isFalling", true);
 
     }
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Fall");
+        //Debug.Log("Ejecutando estado Fall");
 
         if (stateMachine.characterController.isGrounded) {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));

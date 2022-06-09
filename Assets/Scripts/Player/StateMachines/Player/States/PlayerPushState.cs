@@ -6,11 +6,11 @@ public class PlayerPushState : PlayerBaseState {
     public PlayerPushState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        Debug.Log("Enter Push");
+        //Debug.Log("Enter Push");
     }
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Push");
+        //Debug.Log("Ejecutando estado Push");
 
         if (!stateMachine.isPushing) {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
@@ -37,7 +37,7 @@ public class PlayerPushState : PlayerBaseState {
     }
 
     public override void Exit() {
-        Debug.Log("Exit Push");
+        //Debug.Log("Exit Push");
         stateMachine.animator.SetBool("isPushing", false);
 
     }

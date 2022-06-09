@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IReparable{
 
-    void FinReparacion();
+
+    bool IsReparado();
 }

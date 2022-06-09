@@ -10,13 +10,13 @@ public class PlayerMoveState : PlayerBaseState
     private float velocityY = 0.0f;
 
     public override void Enter() {
-        Debug.Log("Enter Move");
+        //Debug.Log("Enter Move");
         stateMachine.animator.SetBool(GameConstants.isMovingHash, true);
 
     }
 
     public override void Tick(float deltaTime) {
-        Debug.Log("Ejecutando estado Move");
+        //Debug.Log("Ejecutando estado Move");
 
         // Obtengo el valor del movimiento en cada momento
         Vector2 movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();
@@ -42,7 +42,7 @@ public class PlayerMoveState : PlayerBaseState
        inputDirection.z = movementValue.y;
        */
 
-        // Movimiento y rotación
+        // Movimiento y rotaciï¿½n
         //stateMachine.rb.transform.LookAt(stateMachine.rb.transform.position + inputDirection);
         //stateMachine.rb.MovePosition(stateMachine.rb.position + inputDirection.normalized* stateMachine.speed * Time.deltaTime);
 

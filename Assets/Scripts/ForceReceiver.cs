@@ -14,12 +14,12 @@ public class ForceReceiver : MonoBehaviour
     {
         if(verticalVelocity < 0f && Controller.isGrounded) 
         {
-            Debug.Log("Sin gravedad");
+            //Debug.Log("Sin gravedad");
             verticalVelocity = Physics.gravity.y * Time.deltaTime;
         }
         else 
         {
-            Debug.Log("Aplicar gravedad" + verticalVelocity);
+            //Debug.Log("Aplicar gravedad" + verticalVelocity);
 
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
         }

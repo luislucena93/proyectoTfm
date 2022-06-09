@@ -10,4 +10,6 @@ public interface IInteraccionable
     void PausarInteraccion();
 
     void FinalizarInteraccion();
+
+    Transform GetTransform();
 }

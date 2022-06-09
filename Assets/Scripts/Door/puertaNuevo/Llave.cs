@@ -22,15 +22,30 @@ public class Llave : MonoBehaviour
     AudioSource _audioSource; 
 
 
+    [SerializeField]
+    Light _luz;
+
+    [SerializeField]
+    [Range(0.1f, 30)]
+    float _atenuacionLuz=1;
+
+    float _intensidadOrigen = 0;
+
+    [SerializeField]
+    [Range(0.1f, 30)]
+    float _velocidadLuz;
 
     void Start()
-    {
+    {        
+        _intensidadOrigen =_luz.intensity;
      //   _audioSource = GetComponent<AudioSource>(); 
     }
 
     void Update()
     {
         this.transform.Rotate(Vector3.up*_velocidadGiro*Time.deltaTime, Space.Self);  
+    
+        _luz.intensity =  _intensidadOrigen + Mathf.Sin(Time.time*_velocidadLuz) * _atenuacionLuz;
     }
 
 

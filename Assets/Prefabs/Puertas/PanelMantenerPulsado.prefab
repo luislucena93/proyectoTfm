@@ -86,8 +86,8 @@ GameObject:
   - component: {fileID: 5093386565183745127}
   - component: {fileID: 5099820249759022761}
   - component: {fileID: 5110270194834539119}
-  - component: {fileID: 7810478505229812801}
   - component: {fileID: 5054217957717113526}
+  - component: {fileID: 219954167122597450}
   m_Layer: 0
   m_Name: PanelMantenerPulsado
   m_TagString: Interaccionable
@@ -159,19 +159,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7810478505229812801
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5096872264296026197}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4376602, y: 1.8309743, z: 0.67622375}
-  m_Center: {x: 0.0065784454, y: -0.6197121, z: 0.3958149}
 --- !u!114 &5054217957717113526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +173,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goCanvasTextoPulsador: {fileID: 8169585157356011768}
   _textoAccion: {fileID: 1319343337955846851}
-  _goPuerta: {fileID: 0}
+  _goPuertaIPuerta: {fileID: 0}
+--- !u!65 &219954167122597450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096872264296026197}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8250927, y: 1.59, z: 0.47}
+  m_Center: {x: 0, y: -0.51, z: 0.27}
 --- !u!1 &8169585157356011768
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8870494326214829013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 747641897878916707}
@@ -322,7 +322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5}
+  m_AnchoredPosition: {x: 0, y: -4.88}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1213835776624216432

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class PlayerBaseState : State
 {
-    // Solo las clases que hereden de aquí podran acceder a esta variable
+    // Solo las clases que hereden de aquï¿½ podran acceder a esta variable
     protected PlayerStateMachine stateMachine;
 
     // Constructor

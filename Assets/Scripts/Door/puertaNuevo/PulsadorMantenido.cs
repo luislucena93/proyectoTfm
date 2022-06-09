@@ -122,4 +122,8 @@ public class PulsadorMantenido : MonoBehaviour, IInteraccionable
         _goCanvasTextoPulsador.SetActive(false);
         _textoAccion.text = MENSAJE_VACIO;
     }
+
+    public Transform GetTransform(){
+        return gameObject.transform;
+    }
 }
