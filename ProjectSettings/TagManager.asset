@@ -7,6 +7,8 @@ TagManager:
   - Door
   - ColliderPuerta
   - Interaccionable
+  - Pushable
+  - Ground
   layers:
   - Default
   - TransparentFX

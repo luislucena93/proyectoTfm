@@ -8,6 +8,7 @@ public class InputReader : MonoBehaviour
     public InputAction repairAction;
     public InputAction interactAction;
     public InputAction lookAction;
+    public InputAction jumpAction;
 
 
     void Awake() 
@@ -17,6 +18,6 @@ public class InputReader : MonoBehaviour
         repairAction = playerInput.actions["Repair"];
         interactAction = playerInput.actions["Interact"];
         lookAction = playerInput.actions["Look"];
-
+        jumpAction = playerInput.actions["Jump"];
     }
 }

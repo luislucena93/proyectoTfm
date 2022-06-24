@@ -12,33 +12,50 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float minDistanceToGround { get; private set; }
     [field: SerializeField] public CharacterController characterController { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
-
     [field: SerializeField] public Transform MainCameraTransform { get; private set; }
-
     [field: SerializeField] public bool isPushing { get; private set; }
-
-
-    public IInteraccionable _objetoInteraccionable;
-
-    public GameObject _pistolaReparacion;
-
+    [field: SerializeField] public float jumpForce { get; private set; }
     [field: SerializeField] public GameObject _ikReferenciaMano { get; private set; }
-
     [field: SerializeField] public Rig _ikRigMano { get; private set; }
+    [field: SerializeField] public float distanceToGround { get; private set; }
 
-    //[field: SerializeField] public BoxCollider boxCollider { get; private set; }
+    public bool isGrounded;
+    public bool isJumping;
+    public float gravity;
+    public Vector3 velocity;
+    public Vector3 inputDirection;
+    public Vector2 movementValue;
+    public IInteraccionable _objetoInteraccionable;
+    public GameObject _pistolaReparacion;
+    RaycastHit hit;
 
     private void Start() 
     {
-        //MainCameraTransform = Camera.main.transform;
-
         // Estado inicial, dando como referencia este PlayerStateMachine
-        SwitchState(new PlayerMoveState(this));
+        SwitchState(new PlayerIdleState(this));
     }
 
-    public bool IsGrounded() {
-        Vector3 targetCenter = playerCollider.bounds.center;
-        return Physics.Raycast(targetCenter, Vector3.down, minDistanceToGround);
+    private void FixedUpdate() 
+    {
+        GroundCheck();
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit) 
+    {
+        if (hit.transform.CompareTag("Ground") && !isGrounded) 
+        {
+            isGrounded = true;
+            animator.SetBool("isFalling", false);
+        }
+    }
+   
+    public void GroundCheck() 
+    {
+        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround)) 
+        {            
+            isGrounded = false;
+            animator.SetBool("isFalling", true);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -55,9 +72,7 @@ public class PlayerStateMachine : StateMachine
         {
             isPushing = false;
         }
-        
     }
-
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag(Tags.TAG_INTERACCIONABLE)){

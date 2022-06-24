@@ -140,7 +140,7 @@ public class MaquinaReparar : MonoBehaviour, IInteraccionable, IReparable
         //_particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         var emission = _particleSystem.emission;
         emission.rateOverTime = (1-porcentaje)*(1-porcentaje)*_emissionRateOverTimeMultiplier;
-        Debug.Log("calculo rate"+ emission.rateOverTimeMultiplier);
+        //Debug.Log("calculo rate"+ emission.rateOverTimeMultiplier);
         //_particleSystem.Play();
     }
 
