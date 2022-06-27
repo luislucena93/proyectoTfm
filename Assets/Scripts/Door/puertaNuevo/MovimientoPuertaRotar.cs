@@ -26,6 +26,8 @@ public class MovimientoPuertaRotar : MonoBehaviour, IMovimientoPuerta
 
     bool _isAbierta;
 
+    List<IListenerAbrir> _listaListenersAbrir = new List<IListenerAbrir>();
+
     private void Awake() {
         if(empiezaCerrada){
             _isAbierta = false;
@@ -59,12 +61,14 @@ public class MovimientoPuertaRotar : MonoBehaviour, IMovimientoPuerta
         _abriendo = true;
         _cerrando = false;
         _isAbierta = _progresoLerp <= 0;
+        NotificaComienzaAbrir();
     }
 
     public void MovimientoCerrar(){
         _abriendo = false;
         _cerrando = true;
         _isAbierta = _progresoLerp > 0;
+        NotificaComienzaCerrar();
     }
 
     private void AbreCierraPuerta(){
@@ -74,6 +78,7 @@ public class MovimientoPuertaRotar : MonoBehaviour, IMovimientoPuerta
             if(_progresoLerp<0){
                 _abriendo = false;
                 _isAbierta = true;
+                NotificaFinalizaAbrir();
             }
         }
 
@@ -83,11 +88,57 @@ public class MovimientoPuertaRotar : MonoBehaviour, IMovimientoPuerta
             this.transform.localRotation = Quaternion.Euler(Vector3.Lerp(_posicionAbierta, _posicionCerrada, _progresoLerp));
             if(_progresoLerp>1){
                 _cerrando = false;
+                NotificaFinalizaCerrar();
             }
         }
     }
 
     public bool IsAbierta(){
         return _isAbierta;
+    }
+
+    public void SetIListenerAbrir(IListenerAbrir listener){
+        _listaListenersAbrir.Add(listener);
+    }
+
+
+    private void NotificaComienzaAbrir(){
+        if(_listaListenersAbrir != null){
+            int longitud = _listaListenersAbrir.Count;
+            for(int i = 0; i<longitud; i++){
+                _listaListenersAbrir[i].ComienzaAbrir();
+            }
+        }
+    }
+    private void NotificaComienzaCerrar(){
+        if(_listaListenersAbrir != null){
+            int longitud = _listaListenersAbrir.Count;
+            for(int i = 0; i<longitud; i++){
+                _listaListenersAbrir[i].ComienzaCerrar();
+            }
+        }
+    }
+    private void NotificaFinalizaAbrir(){
+        if(_listaListenersAbrir != null){
+            int longitud = _listaListenersAbrir.Count;
+            for(int i = 0; i<longitud; i++){
+                _listaListenersAbrir[i].FinalizaAbrir();
+            }
+        }
+    }
+    private void NotificaFinalizaCerrar(){
+        if(_listaListenersAbrir != null){
+            int longitud = _listaListenersAbrir.Count;
+            for(int i = 0; i<longitud; i++){
+                _listaListenersAbrir[i].FinalizaCerrar();
+            }
+        }
+    }
+
+    public bool isAbriendo(){
+        return _abriendo;
+    }
+    public bool isCerrando(){
+        return _cerrando;
     }
 }

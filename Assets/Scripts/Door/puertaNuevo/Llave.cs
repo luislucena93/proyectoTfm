@@ -73,4 +73,4 @@ public class Llave : MonoBehaviour
 }
 
 
-public enum TipoLlaveEnum {Oro,Plata, Bronce, Titanio, RepararA, RepararB, RepararC, Bloque1, Bloque2};
+public enum TipoLlaveEnum {Oro,Verde,Roja,Plata, Bronce, Titanio, RepararA, RepararB, RepararC, Bloque1, Bloque2};

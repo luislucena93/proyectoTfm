@@ -7,6 +7,11 @@ TagManager:
   - Door
   - ColliderPuerta
   - Interaccionable
+  - Pushable
+  - Bot
+  - IgnoreNavMesh
+  - UIJ1
+  - UIJ2
   layers:
   - Default
   - TransparentFX
@@ -18,8 +23,8 @@ TagManager:
   - P1&P2
   - P1
   - P2
-  - 
-  - 
+  - IgnoreNavMesh
+  - bloqueaPlayers
   - 
   - 
   - 

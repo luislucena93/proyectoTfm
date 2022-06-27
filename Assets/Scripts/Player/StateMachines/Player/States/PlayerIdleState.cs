@@ -12,6 +12,12 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Tick(float deltaTime) {
         //Debug.Log("Ejecutando estado Idle");
+
+        if(stateMachine._nivelSalud<=0){
+            stateMachine.SwitchState(new PlayerDeadState(stateMachine));
+            return;
+        }
+
         if (stateMachine.inputReader.repairAction.triggered) {
             CheckReparando();
         }

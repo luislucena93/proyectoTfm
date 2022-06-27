@@ -59,7 +59,7 @@ public class TriggerTextoPuertaAveriada : MonoBehaviour
     }
 
     private void CheckEnter(GameObject other){
-        if(other.CompareTag(Tags.TAG_PLAYER)) {
+        if(other.CompareTag(Tags.TAG_PLAYER) || other.CompareTag(Tags.TAG_BOT)) {
             if(!_puerta.isAbierta()){
                 MostrarMensaje();
             }   else{
@@ -69,7 +69,7 @@ public class TriggerTextoPuertaAveriada : MonoBehaviour
     }
 
     private void CheckStay(GameObject other){
-        if(other.CompareTag(Tags.TAG_PLAYER)) {
+        if(other.CompareTag(Tags.TAG_PLAYER) || other.CompareTag(Tags.TAG_BOT)) {
             if(!_puerta.isAbierta()){
                 MostrarMensaje();
             }   else{
@@ -79,7 +79,7 @@ public class TriggerTextoPuertaAveriada : MonoBehaviour
     }
 
     private void CheckExit(GameObject other){
-        if(other.CompareTag(Tags.TAG_PLAYER)) {
+        if(other.CompareTag(Tags.TAG_PLAYER) || other.CompareTag(Tags.TAG_BOT)) {
             OcultarMensaje();
         }
     }

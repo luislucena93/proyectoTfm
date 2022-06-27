@@ -8,34 +8,12 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
     [SerializeField]
     TipoLlaveEnum[] _tiposLlaves;
 
-    [SerializeField]
-    Vector3 _vectorTranslacionCerrada;
-
 
     //Tabla para controlar si las llaves se han recogido
     // Par "TipoLlaveEnum" y "Bool" true para recogida
     Hashtable _tablaLlaves = new Hashtable();
 
     bool _bloqueada = false;
-
-
-    bool _abriendo = false;
-
-    bool _cerrando = false;
-
-    [SerializeField]
-    bool empiezaCerrada = true;
-
-    float _progresoLerp = 1;
-
-    Vector3 _posicionAbierta;
-    Vector3 _posicionCerrada;
-
-
-     [Range(0.01f, 10f)]
-    [SerializeField]
-    float _velicidadApertura = 2;
-
 
 
     [SerializeField]
@@ -48,19 +26,11 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
 
     IMovimientoPuerta _iMovimientoPuerta;
 
-    private void Awake() {
-        if(empiezaCerrada){
-            _progresoLerp = 1;
-            _posicionAbierta = this.transform.localPosition - _vectorTranslacionCerrada;
-            _posicionCerrada = this.transform.localPosition;
-        }   else{
-            _progresoLerp = 0;
-            _posicionAbierta = this.transform.localPosition;
-            _posicionCerrada = this.transform.localPosition + _vectorTranslacionCerrada;
-        }
 
+    [SerializeField]
+    bool _empiezaAbierta;
+    private void Awake() {
         _iMovimientoPuerta =  GetComponent<IMovimientoPuerta>();
-        
     }
 
     // Start is called before the first frame update
@@ -74,13 +44,16 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
         }   else{
             _bloqueada = false;
         }
+
+        if(_empiezaAbierta){
+            Abrir();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         ComprobarCerrarPuerta();
-        //AbreCierraPuerta();
     }
 
 
@@ -92,8 +65,6 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
         ComprobarLlaves();
         if(!_bloqueada){
              _iMovimientoPuerta.MovimientoAbrir();
-            //_abriendo = true;
-            //_cerrando = false;
         }
     }
 
@@ -116,8 +87,6 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
         return _iMovimientoPuerta.IsAbierta();
     }
 
-
-
     private void ComprobarLlaves(){
         bool todasRecogidas = true;
         for(int i= 0; i < _tiposLlaves.Length; i++){
@@ -132,7 +101,6 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
         }
     }
 
-
     private void ComprobarCerrarPuerta(){
         if(_checkCerrarPuerta){
             _tiempoActualEsperarCerrarPuerta -= Time.deltaTime;
@@ -142,31 +110,21 @@ public class PuertaCompuestaLlaves : MonoBehaviour, IPuerta
             }
         }
     }
-    
-    private void AbreCierraPuerta(){
-        if(!_bloqueada &&_abriendo){
-             _progresoLerp -= _velicidadApertura*Time.deltaTime;
-            this.transform.localPosition = Vector3.Lerp(_posicionAbierta, _posicionCerrada, _progresoLerp);
-            if(_progresoLerp<0){
-                _abriendo = false;
-            } 
-            //Debug.Log("actual "+this.transform.localPosition);
-        }
-
-
-        if(_cerrando){
-            _progresoLerp += _velicidadApertura*Time.deltaTime;
-            this.transform.localPosition = Vector3.Lerp(_posicionAbierta, _posicionCerrada, _progresoLerp);
-            if(_progresoLerp>1){
-                _cerrando = false;
-            } 
-            //Debug.Log("actual "+this.transform.localPosition);
-        }
-    }
-
 
     public bool isBloqueada(){
         return _bloqueada;
+    }
+
+
+    public  void SetIListenerAbrir(IListenerAbrir listener){
+        _iMovimientoPuerta.SetIListenerAbrir(listener);
+    }
+
+    public bool isAbriendo(){
+        return _iMovimientoPuerta.isAbriendo();
+    }
+    public bool isCerrando(){
+        return _iMovimientoPuerta.isCerrando();
     }
     
 }

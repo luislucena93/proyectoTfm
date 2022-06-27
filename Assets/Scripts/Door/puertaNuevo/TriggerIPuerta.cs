@@ -20,7 +20,7 @@ public class TriggerIPuerta : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             _puerta.Abrir();
         }
@@ -29,14 +29,14 @@ public class TriggerIPuerta : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             _puerta.Cerrar();
         }
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             _puerta.Abrir();
         }
@@ -44,7 +44,7 @@ public class TriggerIPuerta : MonoBehaviour
 
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             _puerta.Abrir();
         }
@@ -52,7 +52,7 @@ public class TriggerIPuerta : MonoBehaviour
 
     private void OnCollisionExit(Collision other) {
         
-        if (other.gameObject.CompareTag("Player"))      
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))     
         {
             _puerta.Cerrar();
         }
@@ -60,7 +60,7 @@ public class TriggerIPuerta : MonoBehaviour
     }
 
     private void OnCollisionStay(Collision other) {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             _puerta.Abrir();
         }

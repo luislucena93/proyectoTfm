@@ -30,6 +30,20 @@ public class MovimientoPuertaDeslizanteDoble : MonoBehaviour, IMovimientoPuerta
     }
 
     public bool IsAbierta(){
-        return _iMovPuertaA.IsAbierta() &&  IsAbierta();
+        return _iMovPuertaA.IsAbierta() &&  _iMovPuertaB.IsAbierta();
+    }
+
+
+    public void SetIListenerAbrir(IListenerAbrir listener){
+        _iMovPuertaA.SetIListenerAbrir(listener);
+        _iMovPuertaB.SetIListenerAbrir(listener);
+    }
+
+
+    public bool isAbriendo(){
+        return  _iMovPuertaA.isAbriendo() &&  _iMovPuertaB.isAbriendo();
+    }
+    public bool isCerrando(){
+        return _iMovPuertaA.isCerrando() && _iMovPuertaB.isCerrando();
     }
 }

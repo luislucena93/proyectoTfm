@@ -39,17 +39,16 @@ public class TriggerPuerta : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             _puerta.Abrir();
-            Debug.Log("Entro en la zona");
         }
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag(Tags.TAG_PLAYER) || other.gameObject.CompareTag(Tags.TAG_BOT))
         {
             CerrarConRetraso();
         }

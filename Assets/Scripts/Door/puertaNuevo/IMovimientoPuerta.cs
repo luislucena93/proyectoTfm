@@ -9,4 +9,9 @@ public interface  IMovimientoPuerta
     public void MovimientoCerrar();
 
     public bool IsAbierta();
+
+    void SetIListenerAbrir(IListenerAbrir listener);
+
+    bool isAbriendo();
+    bool isCerrando();
 }

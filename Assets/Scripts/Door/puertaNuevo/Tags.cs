@@ -7,6 +7,8 @@ public class Tags
     public static string TAG_GAME_CONTROLLER = "GameController";
     public static string TAG_PLAYER = "Player";
 
+     public static string TAG_BOT = "Bot";
+
 
 
 }

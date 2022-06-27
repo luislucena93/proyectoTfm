@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class PlayerStateMachine : StateMachine 
+public class PlayerStateMachine : StateMachine , IDanhable
 {
     [field: SerializeField] public InputReader inputReader { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
@@ -25,6 +25,11 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public GameObject _ikReferenciaMano { get; private set; }
 
     [field: SerializeField] public Rig _ikRigMano { get; private set; }
+
+    [SerializeField]
+    public int _nivelSalud = 100;
+    [SerializeField]
+    HUDJugador hudJugador;
 
     //[field: SerializeField] public BoxCollider boxCollider { get; private set; }
 
@@ -76,5 +81,14 @@ public class PlayerStateMachine : StateMachine
             _objetoInteraccionable.FinalizarInteraccion();
             _objetoInteraccionable = null;
         }
+    }
+
+
+    public void RecibirDanho(int danho){
+        _nivelSalud-=danho;
+        if(_nivelSalud<0){
+            _nivelSalud = 0;
+        }
+        hudJugador.SetNivelSalud(_nivelSalud);
     }
 }

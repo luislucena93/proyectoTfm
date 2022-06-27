@@ -12,4 +12,9 @@ public interface IPuerta{
     bool isAbierta();
 
     bool isBloqueada();
+
+    void SetIListenerAbrir(IListenerAbrir listener);
+
+    bool isAbriendo();
+    bool isCerrando();
 }

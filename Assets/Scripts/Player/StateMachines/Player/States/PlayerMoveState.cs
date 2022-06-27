@@ -18,6 +18,12 @@ public class PlayerMoveState : PlayerBaseState
     public override void Tick(float deltaTime) {
         //Debug.Log("Ejecutando estado Move");
 
+        if(stateMachine._nivelSalud<=0){
+            stateMachine.SwitchState(new PlayerDeadState(stateMachine));
+            return;
+        }
+
+
         // Obtengo el valor del movimiento en cada momento
         Vector2 movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();
 

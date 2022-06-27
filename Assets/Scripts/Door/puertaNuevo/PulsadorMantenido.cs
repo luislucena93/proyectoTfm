@@ -24,7 +24,7 @@ public class PulsadorMantenido : MonoBehaviour, IInteraccionable
 
     void Start()
     {
-        _textoAccion.text = "";
+        _textoAccion.text = MENSAJE_MANTENER_ABRIR;
         _iPuerta = _goPuertaIPuerta.GetComponent<IPuerta>();
         if(_iPuerta == null){
             Debug.Log("IPuerta no encontrada "+this.name);
