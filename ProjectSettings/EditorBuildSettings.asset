@@ -9,16 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d9e3df950a7b1a94e8c42eb3c84a698c
   - enabled: 1
-    path: Assets/Scenes/TestPlayerMeclaEscenas.unity
+    path: Assets/Scenes/Others/TestPlayerMeclaEscenas.unity
     guid: d6987ba8217e65d49a87e0604d93aba2
   - enabled: 1
-    path: Assets/Scenes/Tutorial aenc.unity
+    path: Assets/Scenes/Others/Tutorial aenc.unity
     guid: fb126c9ff040f75478055a65fec64fb6
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/Others/Tutorial.unity
     guid: b49a8decd4d732548a64856d1bdac819
   - enabled: 0
-    path: Assets/Scenes/Nivel1.unity
+    path: Assets/Scenes/Others/Nivel1.unity
     guid: db397acc4015cb84ab1e874ffbab4623
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8de07371bebc33244b86c3d7c8dec9d1, type: 2}

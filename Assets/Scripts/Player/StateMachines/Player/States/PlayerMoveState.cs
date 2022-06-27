@@ -30,12 +30,6 @@ public class PlayerMoveState : PlayerBaseState
             stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
 
-
-        if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
-        {
-            stateMachine.SwitchState(new PlayerJumpState(stateMachine));
-        }
-
         stateMachine.movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();
         stateMachine.inputDirection = CalculateMovement(stateMachine.movementValue);
 

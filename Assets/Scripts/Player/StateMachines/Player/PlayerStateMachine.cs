@@ -8,10 +8,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float speed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public Rigidbody rb { get; private set; }
-    [field: SerializeField] public Collider playerCollider { get; private set; }
-    [field: SerializeField] public float minDistanceToGround { get; private set; }
     [field: SerializeField] public CharacterController characterController { get; private set; }
-    [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public Transform MainCameraTransform { get; private set; }
     [field: SerializeField] public bool isPushing { get; private set; }
     [field: SerializeField] public float jumpForce { get; private set; }
@@ -27,7 +24,6 @@ public class PlayerStateMachine : StateMachine
     public Vector2 movementValue;
     public IInteraccionable _objetoInteraccionable;
     public GameObject _pistolaReparacion;
-    RaycastHit hit;
 
     private void Start() 
     {
