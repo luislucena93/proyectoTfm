@@ -10,7 +10,7 @@ public class PlayerInteraccionState : PlayerBaseState
     private IInteraccionable _interaccionable;
 
     public override void Enter() {
-        Debug.Log("Enter interaccion");
+    //    Debug.Log("Enter interaccion");
         if(stateMachine._objetoInteraccionable!=null){
             _interaccionable = stateMachine._objetoInteraccionable;
             _interaccionable.ComenzarInteraccion();
@@ -40,7 +40,7 @@ public class PlayerInteraccionState : PlayerBaseState
     }
 
     public override void Exit() {
-                Debug.Log("Exit interaccion");
+    //            Debug.Log("Exit interaccion");
         stateMachine._ikRigMano.weight = 0;
     }
 

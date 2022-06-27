@@ -6,12 +6,12 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Enter() 
     {
-        Debug.Log("Enter Idle");
+ //       Debug.Log("Enter Idle");
     }
 
     public override void Tick(float deltaTime) 
     {
-        Debug.Log("Ejecutando estado Idle");
+//        Debug.Log("Ejecutando estado Idle");
 
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
@@ -51,7 +51,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Exit() 
     {
-        Debug.Log("Exit Idle");
+  //      Debug.Log("Exit Idle");
     }
 
     protected void CheckReparando(){
@@ -64,9 +64,9 @@ public class PlayerIdleState : PlayerBaseState
     }
 
     protected void CheckInteraccionable(){
-        Debug.Log("check interaccionable");
+  //      Debug.Log("check interaccionable");
         if(stateMachine._objetoInteraccionable != null){
-            Debug.Log("switch interaccionable");
+    //        Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
         }
     }

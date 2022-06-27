@@ -8,14 +8,14 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void Enter() 
     {
-        Debug.Log("Enter jump");
+    //    Debug.Log("Enter jump");
         stateMachine.isJumping = true;
         stateMachine.animator.SetBool("isJumping", true);
     }
 
     public override void Tick(float deltaTime) 
     {
-        Debug.Log("Ejecutando estado jump");
+    //    Debug.Log("Ejecutando estado jump");
 
         if (!stateMachine.isGrounded) 
         {
@@ -52,7 +52,7 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void Exit() 
     {
-        Debug.Log("Exit jump");
+    //    Debug.Log("Exit jump");
         stateMachine.isJumping = false;
         stateMachine.animator.SetBool("isJumping", false);
     }

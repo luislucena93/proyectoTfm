@@ -36,7 +36,7 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
     [SerializeField]
     GameObject[] listaPosicionesDestino;
 
-    int posicionActualDestino = 0;
+    int posicionActualDestino = -1;
 
     bool _inicializado = false;
 
@@ -45,6 +45,11 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
     [SerializeField]
     [Range (0,5)]
     float _tiempoEsperarInicial = 1;
+
+
+    [SerializeField]
+    [Range (0,5)]
+    float _distanciaMaximaObjetivo = 0.25f;
 
 
     [Range(1,100)]
@@ -93,13 +98,24 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
     }
 
     void CompruebaDestino(){
-        if(_inicializado && _agent.pathStatus == NavMeshPathStatus.PathComplete){
+       /* if(_inicializado && _agent.pathStatus == NavMeshPathStatus.PathComplete){
+            Debug.Log("Completado "+indiceDestino+" / "+listaPosicionesDestino.Length);
+            if(listaPosicionesDestino.Length > indiceDestino+1){
+                indiceDestino++;
+                _agent.SetDestination(listaPosicionesDestino[indiceDestino].transform.position);
+            }
+        }*/
+        if(_inicializado && 
+            (listaPosicionesDestino[indiceDestino].transform.position-this.transform.position).magnitude<_distanciaMaximaObjetivo){
             Debug.Log("Completado "+indiceDestino+" / "+listaPosicionesDestino.Length);
             if(listaPosicionesDestino.Length > indiceDestino+1){
                 indiceDestino++;
                 _agent.SetDestination(listaPosicionesDestino[indiceDestino].transform.position);
             }
         }
+
+
+
     }
 
     IEnumerator EsperaInicial(){

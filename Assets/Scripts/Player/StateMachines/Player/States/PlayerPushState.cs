@@ -12,6 +12,11 @@ public class PlayerPushState : PlayerBaseState {
     public override void Tick(float deltaTime) {
         //Debug.Log("Ejecutando estado Push");
 
+        if(stateMachine._nivelSalud<=0){
+            stateMachine.SwitchState(new PlayerDeadState(stateMachine));
+            return;
+        }
+
         if (!stateMachine.isPushing) {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
         }

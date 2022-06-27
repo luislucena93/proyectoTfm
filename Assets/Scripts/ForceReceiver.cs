@@ -19,7 +19,7 @@ public class ForceReceiver : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log("Añadir gravedad");
+//        Debug.Log("Aï¿½adir gravedad");
         moveDirection.y += gravityValue * Time.deltaTime;
         Controller.Move(moveDirection * Time.deltaTime);
 
@@ -42,7 +42,7 @@ public class ForceReceiver : MonoBehaviour
 
         if (!isGrounded) 
         {
-            Debug.Log("Añadir gravedad");
+            Debug.Log("Aï¿½adir gravedad");
             moveDirection.y += gravityValue * Time.deltaTime;
             Controller.Move(moveDirection * Time.deltaTime);
         }

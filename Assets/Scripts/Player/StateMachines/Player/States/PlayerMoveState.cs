@@ -6,13 +6,13 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Enter() 
     {
-        Debug.Log("Enter Move");
+    //    Debug.Log("Enter Move");
         stateMachine.animator.SetBool(GameConstants.isMovingHash, true);
     }
 
     public override void Tick(float deltaTime) 
     {
-        Debug.Log("Ejecutando estado Move");
+     //   Debug.Log("Ejecutando estado Move");
 
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
@@ -60,7 +60,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Exit() 
     {
-        Debug.Log("Exit Move");
+    //    Debug.Log("Exit Move");
         stateMachine.animator.SetBool(GameConstants.isMovingHash, false);
     }
 

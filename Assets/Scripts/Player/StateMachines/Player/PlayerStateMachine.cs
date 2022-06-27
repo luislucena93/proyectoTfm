@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class PlayerStateMachine : StateMachine , IDanhable
+public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 {
     [field: SerializeField] public InputReader inputReader { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
@@ -20,7 +20,11 @@ public class PlayerStateMachine : StateMachine , IDanhable
     [field: SerializeField] public float distanceToGround { get; private set; }
 
     [SerializeField]
-    public int _nivelSalud = 100;
+    public int _nivelSalud = 1000;
+
+    [SerializeField]
+    public int _nivelSaludMaxima = 1000;
+
     [SerializeField]
     HUDJugador hudJugador;
 
@@ -35,8 +39,13 @@ public class PlayerStateMachine : StateMachine , IDanhable
     public GameObject _pistolaReparacion;
     RaycastHit hit;
 
+    bool _curableAlAlcance;
+
     private void Start() 
     {
+        hudJugador.SetNivelSalud(_nivelSalud); 
+        hudJugador.SetNivelSaludMaxima(_nivelSaludMaxima); 
+
         // Estado inicial, dando como referencia este PlayerStateMachine
         SwitchState(new PlayerIdleState(this));
     }
@@ -106,5 +115,26 @@ public class PlayerStateMachine : StateMachine , IDanhable
             _nivelSalud = 0;
         }
         hudJugador.SetNivelSalud(_nivelSalud);
+    }
+
+    public bool IsHurt(){
+        Debug.Log("IsHurt "+_nivelSalud+"/"+_nivelSaludMaxima);
+        return _nivelSalud < _nivelSaludMaxima;
+    }
+    public void RecuperarSalud(int puntosSalud){
+        _nivelSalud += puntosSalud;
+        if(_nivelSalud>_nivelSaludMaxima){
+            _nivelSalud = _nivelSaludMaxima;
+        }
+        hudJugador.SetNivelSalud(_nivelSalud);     
+    }
+
+    public  bool IsDead(){
+        return _nivelSalud <= 0;
+    }
+
+
+    public void SetAvisoCurable(bool curableAlAlcance){
+        this._curableAlAlcance = curableAlAlcance;
     }
 }

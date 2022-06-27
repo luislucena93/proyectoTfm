@@ -59,6 +59,10 @@ public class HUDJugador : MonoBehaviour
         }
     }
 
+    public void SetNivelSaludMaxima(float nivelSaludMaxima){
+        _sliderSalud.maxValue = nivelSaludMaxima;
+    }
+
     public void SetNivelEscudo(float nivelEscudo){
         _sliderEscudo.value = nivelEscudo;
     }

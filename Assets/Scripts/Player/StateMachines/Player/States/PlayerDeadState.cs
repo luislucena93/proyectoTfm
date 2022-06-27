@@ -16,7 +16,7 @@ public class PlayerDeadState : PlayerBaseState
     public override void Enter() {
         //Debug.Log("Enter Move");
         stateMachine.animator.SetBool(GameConstants.isDead, true);
-
+        stateMachine.characterController.enabled = false;
 
     }
 
@@ -25,6 +25,7 @@ public class PlayerDeadState : PlayerBaseState
         if(!_recuperado && stateMachine._nivelSalud>0){
             _recuperado = true;
             stateMachine.animator.SetBool(GameConstants.isDead, false);
+            stateMachine.characterController.isTrigger = true;
         }
 
         if(_recuperado){
@@ -38,5 +39,6 @@ public class PlayerDeadState : PlayerBaseState
 
 
     public override void Exit() {
+        stateMachine.characterController.enabled = true;
     }
 }

@@ -32,7 +32,7 @@ public class PlayerFallState : PlayerBaseState {
     }
 
     public override void Exit() {
-        Debug.Log("Exit Fall");
+     //   Debug.Log("Exit Fall");
         stateMachine.animator.SetBool("isFalling", false);
 
     }
