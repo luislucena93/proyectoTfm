@@ -1186,11 +1186,8 @@ GameObject:
   - component: {fileID: 5590671881781521077}
   - component: {fileID: 5106482572539097101}
   - component: {fileID: 5106482572539097102}
-  - component: {fileID: 5106482572539097098}
-  - component: {fileID: 793581075787625020}
   - component: {fileID: 5106482572539097100}
   - component: {fileID: 1978807157741056207}
-  - component: {fileID: 5106482572539097096}
   - component: {fileID: 5106482572539097099}
   - component: {fileID: 5106482572539097097}
   m_Layer: 0
@@ -1235,12 +1232,22 @@ MonoBehaviour:
   <speed>k__BackingField: 2
   <RotationDamping>k__BackingField: 10
   <rb>k__BackingField: {fileID: 5106482572539097099}
-  <playerCollider>k__BackingField: {fileID: 5106482572539097096}
+  <playerCollider>k__BackingField: {fileID: 0}
   <minDistanceToGround>k__BackingField: 2.5
   <characterController>k__BackingField: {fileID: 5106482572539097097}
-  <ForceReceiver>k__BackingField: {fileID: 5106482572539097098}
+  <ForceReceiver>k__BackingField: {fileID: 0}
   <MainCameraTransform>k__BackingField: {fileID: 8320386462111597913}
   <isPushing>k__BackingField: 0
+  <jumpForce>k__BackingField: 0
+  <_ikReferenciaMano>k__BackingField: {fileID: 0}
+  <_ikRigMano>k__BackingField: {fileID: 0}
+  <distanceToGround>k__BackingField: 0
+  isGrounded: 0
+  isJumping: 0
+  gravity: 0
+  velocity: {x: 0, y: 0, z: 0}
+  inputDirection: {x: 0, y: 0, z: 0}
+  movementValue: {x: 0, y: 0}
   _pistolaReparacion: {fileID: 0}
 --- !u!114 &5106482572539097102
 MonoBehaviour:
@@ -1290,31 +1297,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!114 &5106482572539097098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5106482572539097103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6edd7fa42cd2040a4de640f8c77fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 5106482572539097097}
---- !u!114 &793581075787625020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5106482572539097103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4c0b83469f92a4a9e420798461838a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  jumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &5106482572539097100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,20 +1387,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &5106482572539097096
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5106482572539097103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.05
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!54 &5106482572539097099
 Rigidbody:
   m_ObjectHideFlags: 0

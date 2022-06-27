@@ -12,6 +12,7 @@ TagManager:
   - IgnoreNavMesh
   - UIJ1
   - UIJ2
+  - Ground
   layers:
   - Default
   - TransparentFX

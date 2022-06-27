@@ -1,70 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState 
 {
     public PlayerIdleState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
-    public override void Enter() {
-        //Debug.Log("Enter Idle");
+    public override void Enter() 
+    {
+        Debug.Log("Enter Idle");
     }
 
-    public override void Tick(float deltaTime) {
-        //Debug.Log("Ejecutando estado Idle");
+    public override void Tick(float deltaTime) 
+    {
+        Debug.Log("Ejecutando estado Idle");
 
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
             return;
         }
 
+        if (!stateMachine.isGrounded) 
+        {
+            stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;
+            stateMachine.characterController.Move(stateMachine.velocity * Time.deltaTime);
+        }
+
+        if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
+        {
+            stateMachine.SwitchState(new PlayerJumpState(stateMachine));
+        }
+
+        if (stateMachine.inputReader.moveAction.ReadValue<Vector2>() != Vector2.zero) 
+        {
+            stateMachine.SwitchState(new PlayerMoveState(stateMachine));
+            return;
+        }
+
+        if (stateMachine.inputReader.interactAction.triggered) {
+            CheckInteraccionable();
+        }
+
         if (stateMachine.inputReader.repairAction.triggered) {
             CheckReparando();
         }
 
-        if (stateMachine.isPushing)
-        {
+        if (stateMachine.isPushing) {
             stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
 
-        if (stateMachine.inputReader.moveAction.ReadValue<Vector2>() != Vector2.zero) {
-            stateMachine.SwitchState(new PlayerMoveState(stateMachine));
-        }   else{
-            CheckCayendo(deltaTime);
-        }
-
-        if (stateMachine.inputReader.interactAction.triggered) {
-            //Debug.Log("interact action triggered");
-            CheckInteraccionable();
-        }
-
-       /* if (stateMachine.inputReader.interactAction.inProgress) {
-            Debug.Log("interact action progress");
-           // CheckInteraccionable();
-        }*/
-
-        /*
-        if (!stateMachine.characterController.isGrounded) {
-            stateMachine.SwitchState(new PlayerFallState(stateMachine));
-        }
-        */
-
-        /*
-        if (!stateMachine.IsGrounded()) {
-            stateMachine.SwitchState(new PlayerFallState(stateMachine));
-        }
-        */
     }
 
-    public override void Exit() {
-        //Debug.Log("Exit Idle");
-    }
-
-
-    protected void CheckCayendo(float deltaTime)
+    public override void Exit() 
     {
-        //SimpleMove aplica automáticamente la gravedad
-        stateMachine.characterController.SimpleMove(Vector3.zero);
+        Debug.Log("Exit Idle");
     }
 
     protected void CheckReparando(){
