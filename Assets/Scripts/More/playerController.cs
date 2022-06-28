@@ -8,17 +8,20 @@ public class playerController : MonoBehaviour
     private PlayerInput playerInput;
 
     private InputAction moverAction;
+    private InputAction next;
     private Rigidbody rb;
     private Animator animator;
     [SerializeField] private float velocidadChar = 5f;
     [SerializeField] private float velocidadRotation = 5f;
     [SerializeField] private string actionName;
+    private DialogueManager dm;
     // Start is called before the first frame update
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         moverAction = playerInput.actions[actionName];
-
+        next = playerInput.actions["Next" + actionName];
+        dm = FindObjectOfType<DialogueManager>();
         rb = this.GetComponent<Rigidbody>();
         animator = this.GetComponent<Animator>();
     }
@@ -31,6 +34,10 @@ public class playerController : MonoBehaviour
 
     private void move()
     {
+        if (next.triggered)
+        {
+            dm.DisplayNextSentence();
+        }
         float rotationDirection = moverAction.ReadValue<Vector2>().x ;
         transform.Rotate(0, rotationDirection * velocidadRotation * Time.deltaTime, 0);
         float curSpeed = velocidadChar * moverAction.ReadValue<Vector2>().y;
