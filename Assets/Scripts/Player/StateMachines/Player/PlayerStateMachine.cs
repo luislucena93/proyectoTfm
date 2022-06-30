@@ -16,6 +16,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Rig _ikRigMano { get; private set; }
     [field: SerializeField] public float distanceToGround { get; private set; }
 
+    [field: SerializeField] public DialogueManager dialogueManager;
+
     public bool isGrounded;
     public bool isJumping;
     public float gravity;

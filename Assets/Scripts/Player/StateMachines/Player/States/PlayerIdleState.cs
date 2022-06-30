@@ -60,7 +60,12 @@ public class PlayerIdleState : PlayerBaseState
 
     protected void CheckInteraccionable(){
         Debug.Log("check interaccionable");
-        if(stateMachine._objetoInteraccionable != null){
+        Debug.Log(stateMachine.dialogueManager.dialogOpen);
+        if (stateMachine.dialogueManager.dialogOpen)
+        {
+            stateMachine.dialogueManager.DisplayNextSentence();
+        }
+        if (stateMachine._objetoInteraccionable != null){
             Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
         }
