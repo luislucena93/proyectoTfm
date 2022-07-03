@@ -214,6 +214,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""31b05cbd-de37-4861-a0ae-8daeb0966385"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -242,18 +251,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""56121b06-bbae-4634-83f0-a15d5e1bb941"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Repair"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""62ed0cfb-db9b-425a-9ee8-35a3cb9bf8cf"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -269,6 +267,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2fbdc41-816e-4aed-8c36-72255ca88fb6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -290,6 +299,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player2_Repair = m_Player2.FindAction("Repair", throwIfNotFound: true);
         m_Player2_Interact = m_Player2.FindAction("Interact", throwIfNotFound: true);
         m_Player2_Look = m_Player2.FindAction("Look", throwIfNotFound: true);
+        m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -418,6 +428,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Repair;
     private readonly InputAction m_Player2_Interact;
     private readonly InputAction m_Player2_Look;
+    private readonly InputAction m_Player2_Jump;
     public struct Player2Actions
     {
         private @Controls m_Wrapper;
@@ -426,6 +437,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Repair => m_Wrapper.m_Player2_Repair;
         public InputAction @Interact => m_Wrapper.m_Player2_Interact;
         public InputAction @Look => m_Wrapper.m_Player2_Look;
+        public InputAction @Jump => m_Wrapper.m_Player2_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -447,6 +459,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnLook;
+                @Jump.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -463,6 +478,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -481,5 +499,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRepair(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Interaccionable
   - Pushable
   - Ground
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - P1&P2
   - P1
   - P2
-  - 
+  - AvoidCamera
   - 
   - 
   - 
