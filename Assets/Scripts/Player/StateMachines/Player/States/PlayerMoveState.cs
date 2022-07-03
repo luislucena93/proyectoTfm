@@ -12,7 +12,12 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Tick(float deltaTime) 
     {
-        Debug.Log("Ejecutando estado Move");
+        //Debug.Log("Ejecutando estado Move");
+
+        if (stateMachine.isPushing)
+        {
+            stateMachine.SwitchState(new PlayerPushState(stateMachine));
+        }
 
         if (!stateMachine.isGrounded) 
         {
@@ -23,11 +28,6 @@ public class PlayerMoveState : PlayerBaseState
         if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
         {
             stateMachine.SwitchState(new PlayerJumpState(stateMachine));
-        }
-
-        if (stateMachine.isPushing)
-        {
-            stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
 
         stateMachine.movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class PlayerStateMachine : StateMachine 
+public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] public InputReader inputReader { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
@@ -10,11 +10,14 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Rigidbody rb { get; private set; }
     [field: SerializeField] public CharacterController characterController { get; private set; }
     [field: SerializeField] public Transform MainCameraTransform { get; private set; }
-    [field: SerializeField] public bool isPushing { get; private set; }
+    [field: SerializeField] public bool isPushing { get; set; }
+    [field: SerializeField] public bool hitPushable { get; private set; }
     [field: SerializeField] public float jumpForce { get; private set; }
     [field: SerializeField] public GameObject _ikReferenciaMano { get; private set; }
     [field: SerializeField] public Rig _ikRigMano { get; private set; }
     [field: SerializeField] public float distanceToGround { get; private set; }
+
+    [field: SerializeField] public DialogueManager dialogueManager;
 
     public bool isGrounded;
     public bool isJumping;
@@ -24,49 +27,51 @@ public class PlayerStateMachine : StateMachine
     public Vector2 movementValue;
     public IInteraccionable _objetoInteraccionable;
     public GameObject _pistolaReparacion;
+    public float pushForce;
 
-    private void Start() 
+    private void Start()
     {
         // Estado inicial, dando como referencia este PlayerStateMachine
         SwitchState(new PlayerIdleState(this));
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         GroundCheck();
+        CheckPushing();
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit) 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.CompareTag("Ground") && !isGrounded) 
+        if (hit.transform.CompareTag("Ground") && !isGrounded)
         {
             isGrounded = true;
             animator.SetBool("isFalling", false);
         }
+        if (isPushing)
+        {
+            Rigidbody body = hit.collider.attachedRigidbody;
+            if (body == null || body.isKinematic) { return; }
+            var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+            body.velocity = pushDir * pushForce;
+        }
     }
-   
-    public void GroundCheck() 
+
+
+    public void GroundCheck()
     {
-        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround)) 
-        {            
+        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround))
+        {
             isGrounded = false;
             animator.SetBool("isFalling", true);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void CheckPushing()
     {
-        if (collision.gameObject.tag == "Pushable")
+        if (hitPushable && inputReader.interactAction.IsPressed())
         {
             isPushing = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Pushable")
-        {
-            isPushing = false;
         }
     }
 
@@ -79,6 +84,11 @@ public class PlayerStateMachine : StateMachine
             }
             
         }
+        if (other.CompareTag("Pushable"))
+        {
+            hitPushable = true;
+            Debug.Log("enter pushable area");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -86,6 +96,12 @@ public class PlayerStateMachine : StateMachine
         if(other.CompareTag(Tags.TAG_INTERACCIONABLE) && _objetoInteraccionable != null){
             _objetoInteraccionable.FinalizarInteraccion();
             _objetoInteraccionable = null;
+        }
+
+        if (other.CompareTag("Pushable"))
+        {
+            hitPushable = false;
+            Debug.Log("Leave pushable area");
         }
     }
 }

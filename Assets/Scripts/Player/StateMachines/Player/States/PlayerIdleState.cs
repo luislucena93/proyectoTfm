@@ -7,11 +7,12 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter() 
     {
         Debug.Log("Enter Idle");
+        stateMachine.animator.SetBool("isPushing", false);
     }
 
     public override void Tick(float deltaTime) 
     {
-        Debug.Log("Ejecutando estado Idle");
+        //Debug.Log("Ejecutando estado Idle");
 
         if (!stateMachine.isGrounded) 
         {
@@ -60,9 +61,18 @@ public class PlayerIdleState : PlayerBaseState
 
     protected void CheckInteraccionable(){
         Debug.Log("check interaccionable");
-        if(stateMachine._objetoInteraccionable != null){
+        Debug.Log(stateMachine.hitPushable);
+        if (stateMachine.dialogueManager.dialogOpen)
+        {
+            stateMachine.dialogueManager.DisplayNextSentence();
+        }
+        if (stateMachine._objetoInteraccionable != null){
             Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
+        }
+        if (stateMachine.hitPushable)
+        {
+            stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
     }
 }
