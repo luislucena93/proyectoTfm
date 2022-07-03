@@ -26,6 +26,8 @@ public class PlayerInteraccionState : PlayerBaseState
     }
 
     public override void Tick(float deltaTime) {
+        stateMachine.LogicaEscudoEnTikEstados();
+
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
             return;

@@ -11,12 +11,12 @@ public class PlayerDeadState : PlayerBaseState
 
     bool _recuperado = false;
 
-    float _temporizador = 2;
 
     public override void Enter() {
         //Debug.Log("Enter Move");
         stateMachine.animator.SetBool(GameConstants.isDead, true);
         stateMachine.characterController.enabled = false;
+        stateMachine._goTriggerMuerto.SetActive(true);
 
     }
 
@@ -25,14 +25,12 @@ public class PlayerDeadState : PlayerBaseState
         if(!_recuperado && stateMachine._nivelSalud>0){
             _recuperado = true;
             stateMachine.animator.SetBool(GameConstants.isDead, false);
-            stateMachine.characterController.isTrigger = true;
+            stateMachine.SetAvisoMePuedenCurar(false);
         }
 
-        if(_recuperado){
-            _temporizador-= Time.deltaTime;
-            if(_temporizador<0){
-                stateMachine.SwitchState(new PlayerIdleState(stateMachine));
-            }
+        if(_recuperado && stateMachine._finLevantado){
+            stateMachine._finLevantado = false;
+            stateMachine.SwitchState(new PlayerIdleState(stateMachine));
         }
     }
 
@@ -40,5 +38,6 @@ public class PlayerDeadState : PlayerBaseState
 
     public override void Exit() {
         stateMachine.characterController.enabled = true;
+        stateMachine._goTriggerMuerto.SetActive(false);
     }
 }

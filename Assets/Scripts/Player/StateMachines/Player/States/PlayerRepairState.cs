@@ -33,6 +33,9 @@ public class PlayerRepairState : PlayerBaseState
 
     public override void Tick(float deltaTime) {
         //Debug.Log("Ejecutando estado Repair");
+
+        stateMachine.LogicaEscudoEnTikEstados();
+
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
             return;

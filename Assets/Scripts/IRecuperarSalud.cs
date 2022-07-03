@@ -9,5 +9,7 @@ public interface IRecuperarSalud
 
     bool IsDead();
 
-    void SetAvisoCurable(bool curableAlAlcance);
+    void SetAvisoCurable(bool disponible, IRecuperarSalud curable);
+
+    void SetAvisoMePuedenCurar(bool contacto);
 }

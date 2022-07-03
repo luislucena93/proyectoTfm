@@ -7,8 +7,10 @@ public class Tags
     public static string TAG_GAME_CONTROLLER = "GameController";
     public static string TAG_PLAYER = "Player";
 
-     public static string TAG_BOT = "Bot";
+    public static string TAG_BOT = "Bot";
 
+    public static int TAG_LAYER_TRIGGER_SANAR = 13;
 
+    public static int TAG_LAYER_TRIGGER_MUERTO = 12;
 
 }

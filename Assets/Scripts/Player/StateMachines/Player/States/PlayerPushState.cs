@@ -12,6 +12,8 @@ public class PlayerPushState : PlayerBaseState {
     public override void Tick(float deltaTime) {
         //Debug.Log("Ejecutando estado Push");
 
+        stateMachine.LogicaEscudoEnTikEstados();
+
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
             return;

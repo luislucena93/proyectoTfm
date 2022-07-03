@@ -26,8 +26,8 @@ TagManager:
   - P2
   - IgnoreNavMesh
   - bloqueaPlayers
-  - 
-  - 
+  - TriggerMuerto
+  - TriggerSanar
   - 
   - 
   - 

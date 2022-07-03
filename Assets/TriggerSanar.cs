@@ -8,6 +8,8 @@ public class TriggerSanar : MonoBehaviour
     IRecuperarSalud _iSaludPropio;
     private void Start() {
         _iSaludPropio = (IRecuperarSalud) gameObject.transform.parent.GetComponent(typeof(IRecuperarSalud));
+
+
     }
 
 
@@ -37,33 +39,25 @@ public class TriggerSanar : MonoBehaviour
     }
 
     void CheckColisionSaludEnter(Collider other){
-        if(other.gameObject.CompareTag(Tags.TAG_PLAYER)){
-            /*IRecuperarSalud iSalud = (IRecuperarSalud) other.gameObject.GetComponent(typeof(IRecuperarSalud));
-            if(iSalud != null){
-                if(iSalud.IsDead()){
-                    iSalud.RecuperarSalud(_puntosRecupera);
-                    _consumido = true;
-                    this.gameObject.SetActive(false);
+        Debug.Log("enter triggerSanar");
+        if(other.gameObject.layer == Tags.TAG_LAYER_TRIGGER_MUERTO){
+            Debug.Log("enter triggerSanarMuerto");
+            IRecuperarSalud iSaludDetectado = (IRecuperarSalud) other.gameObject.transform.parent.GetComponent(typeof(IRecuperarSalud));
+            if(iSaludDetectado != null){
+                if(iSaludDetectado.IsDead()){
+                    _iSaludPropio.SetAvisoCurable(true, iSaludDetectado);
                 }
-            }*/
-
-            _iSaludPropio.SetAvisoCurable(true);
+            }   else{
+                Debug.Log("Error al detectar collider muerto");
+            }
         }
     }
 
     void CheckColisionSaludExit(Collider other){
-        if(other.gameObject.CompareTag(Tags.TAG_PLAYER)){
-            /*IRecuperarSalud iSalud = (IRecuperarSalud) other.gameObject.GetComponent(typeof(IRecuperarSalud));
-            if(iSalud != null){
-                if(iSalud.IsDead()){
-                    iSalud.RecuperarSalud(_puntosRecupera);
-                    _consumido = true;
-                    this.gameObject.SetActive(false);
-                }
-            }*/
-
-            _iSaludPropio.SetAvisoCurable(false);
+        Debug.Log("exit triggerSanar");
+        if(other.gameObject.layer == Tags.TAG_LAYER_TRIGGER_MUERTO){
+            Debug.Log("exit triggerSanarMuerto");
+            _iSaludPropio.SetAvisoCurable(true, null);
         }
     }
-
 }

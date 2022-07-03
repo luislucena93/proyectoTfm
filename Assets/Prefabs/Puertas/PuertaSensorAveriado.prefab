@@ -313,10 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tiposLlaves: 
-  _vectorTranslacionCerrada: {x: 0, y: -3, z: 0}
-  empiezaCerrada: 1
-  _velicidadApertura: 2
   tiempoEsperaCerrarPuerta: 1
+  _empiezaAbierta: 0
 --- !u!65 &6712506055366144335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -356,7 +354,7 @@ GameObject:
   - component: {fileID: 5566121755973610803}
   - component: {fileID: 4896973137549831592}
   m_Layer: 5
-  m_Name: SF Title
+  m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9070ae0fd683630419efb8afb61f9339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goPuerta: {fileID: 0}
   _textoAccion: {fileID: 511508834383444569}
   _goCanvasMensajeAveriado: {fileID: 2368872195001052893}
 --- !u!1 &2368872195001052893
@@ -983,6 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9070ae0fd683630419efb8afb61f9339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goPuerta: {fileID: 0}
   _textoAccion: {fileID: 4966009053778962767}
   _goCanvasMensajeAveriado: {fileID: 3498318919302971558}
 --- !u!1 &5857002949857971773

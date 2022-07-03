@@ -71,6 +71,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escudo"",
+                    ""type"": ""Button"",
+                    ""id"": ""6646279b-a955-49fe-93ce-bfcb640f069a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""364364b8-7447-4392-9809-2f5ba98caa96"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escudo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -214,6 +234,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Escudo"",
+                    ""type"": ""Button"",
+                    ""id"": ""1bb04c61-a260-45e8-8a2c-c8098eb4ff07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -271,6 +300,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e65bb97a-f897-4ffe-9814-51376cf0a3ec"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escudo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -284,12 +324,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player1_Interact = m_Player1.FindAction("Interact", throwIfNotFound: true);
         m_Player1_Look = m_Player1.FindAction("Look", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
+        m_Player1_Escudo = m_Player1.FindAction("Escudo", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
         m_Player2_Repair = m_Player2.FindAction("Repair", throwIfNotFound: true);
         m_Player2_Interact = m_Player2.FindAction("Interact", throwIfNotFound: true);
         m_Player2_Look = m_Player2.FindAction("Look", throwIfNotFound: true);
+        m_Player2_Escudo = m_Player2.FindAction("Escudo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -354,6 +396,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_Interact;
     private readonly InputAction m_Player1_Look;
     private readonly InputAction m_Player1_Jump;
+    private readonly InputAction m_Player1_Escudo;
     public struct Player1Actions
     {
         private @Controls m_Wrapper;
@@ -363,6 +406,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player1_Interact;
         public InputAction @Look => m_Wrapper.m_Player1_Look;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
+        public InputAction @Escudo => m_Wrapper.m_Player1_Escudo;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -387,6 +431,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
+                @Escudo.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnEscudo;
+                @Escudo.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnEscudo;
+                @Escudo.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnEscudo;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -406,6 +453,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Escudo.started += instance.OnEscudo;
+                @Escudo.performed += instance.OnEscudo;
+                @Escudo.canceled += instance.OnEscudo;
             }
         }
     }
@@ -418,6 +468,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Repair;
     private readonly InputAction m_Player2_Interact;
     private readonly InputAction m_Player2_Look;
+    private readonly InputAction m_Player2_Escudo;
     public struct Player2Actions
     {
         private @Controls m_Wrapper;
@@ -426,6 +477,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Repair => m_Wrapper.m_Player2_Repair;
         public InputAction @Interact => m_Wrapper.m_Player2_Interact;
         public InputAction @Look => m_Wrapper.m_Player2_Look;
+        public InputAction @Escudo => m_Wrapper.m_Player2_Escudo;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -447,6 +499,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnLook;
+                @Escudo.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnEscudo;
+                @Escudo.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnEscudo;
+                @Escudo.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnEscudo;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -463,6 +518,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Escudo.started += instance.OnEscudo;
+                @Escudo.performed += instance.OnEscudo;
+                @Escudo.canceled += instance.OnEscudo;
             }
         }
     }
@@ -474,6 +532,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnEscudo(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -481,5 +540,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRepair(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnEscudo(InputAction.CallbackContext context);
     }
 }

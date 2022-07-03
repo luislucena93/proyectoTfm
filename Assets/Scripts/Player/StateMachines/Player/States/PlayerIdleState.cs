@@ -13,6 +13,10 @@ public class PlayerIdleState : PlayerBaseState
     {
 //        Debug.Log("Ejecutando estado Idle");
 
+        stateMachine.LogicaEscudoEnTikEstados();
+        stateMachine.LogicaCheckUltimoHurt();
+
+
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
             return;
@@ -65,6 +69,13 @@ public class PlayerIdleState : PlayerBaseState
 
     protected void CheckInteraccionable(){
   //      Debug.Log("check interaccionable");
+
+        if(stateMachine._elementoCurable != null && stateMachine._interaccionCurarDisponible){
+            //        Debug.Log("switch interaccionable");
+            stateMachine.SwitchState(new PlayerSanarState(stateMachine));
+        }
+
+
         if(stateMachine._objetoInteraccionable != null){
     //        Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));

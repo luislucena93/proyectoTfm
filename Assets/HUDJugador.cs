@@ -66,4 +66,8 @@ public class HUDJugador : MonoBehaviour
     public void SetNivelEscudo(float nivelEscudo){
         _sliderEscudo.value = nivelEscudo;
     }
+
+    public void SetNivelEscudoMaximo(float nivelEscudoMaximo){
+        _sliderEscudo.maxValue = nivelEscudoMaximo;
+    }
 }

@@ -13,6 +13,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void Tick(float deltaTime) 
     {
      //   Debug.Log("Ejecutando estado Move");
+        stateMachine.LogicaEscudoEnTikEstados();
 
         if(stateMachine._nivelSalud<=0){
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));

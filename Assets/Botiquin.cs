@@ -8,12 +8,20 @@ public class Botiquin : MonoBehaviour
     [Range (1,5000)]
     int _puntosRecupera;
 
-    [SerializeField]
     bool _consumido;
+
+    [SerializeField]
+    GameObject _fuenteCorazones;
     // Start is called before the first frame update
+
+    Renderer _renderer;
+
+    [SerializeField]
+    [Range (0.1f,5)]
+    float _tiempoEmitiendoCorazones;
     void Start()
     {
-        
+        _renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -53,9 +61,17 @@ public class Botiquin : MonoBehaviour
                 if(iSalud.IsHurt()){
                     iSalud.RecuperarSalud(_puntosRecupera);
                     _consumido = true;
-                    this.gameObject.SetActive(false);
+                    _renderer.enabled = false;
+                    //this.gameObject.SetActive(false);
+                    StartCoroutine(EsperaInicial());
                 }
             }
         }
+    }
+
+    private     IEnumerator EsperaInicial(){
+        _fuenteCorazones.SetActive(true);
+        yield return new WaitForSeconds(_tiempoEmitiendoCorazones);
+        this.gameObject.SetActive(false);
     }
 }

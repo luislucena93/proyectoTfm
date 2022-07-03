@@ -17,6 +17,9 @@ public class PlayerJumpState : PlayerBaseState
     {
     //    Debug.Log("Ejecutando estado jump");
 
+        stateMachine.LogicaEscudoEnTikEstados();
+
+
         if (!stateMachine.isGrounded) 
         {
             stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;

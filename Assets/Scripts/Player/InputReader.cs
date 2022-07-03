@@ -10,6 +10,8 @@ public class InputReader : MonoBehaviour
     public InputAction lookAction;
     public InputAction jumpAction;
 
+    public InputAction escudoAction;
+
 
     void Awake() 
     {
@@ -18,6 +20,6 @@ public class InputReader : MonoBehaviour
         repairAction = playerInput.actions["Repair"];
         interactAction = playerInput.actions["Interact"];
         lookAction = playerInput.actions["Look"];
-        jumpAction = playerInput.actions["Jump"];
+        escudoAction = playerInput.actions["Escudo"];
     }
 }
