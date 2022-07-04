@@ -38,7 +38,7 @@ public class HUDJugador : MonoBehaviour
         
     }
 
-    void RecogidaTarjeta(TipoLlaveEnum tipoLlave){
+    public void RecogidaTarjeta(TipoLlaveEnum tipoLlave){
         if(tipoLlave == TipoLlaveEnum.Oro){
             _goTarjetaAmarilla.SetActive(true);
         }   else if(tipoLlave == TipoLlaveEnum.Verde){

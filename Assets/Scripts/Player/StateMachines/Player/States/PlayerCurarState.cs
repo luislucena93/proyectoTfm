@@ -12,7 +12,7 @@ public class PlayerCurarState : PlayerBaseState
     public override void Enter() {
         //Debug.Log("Enter Repair");
         stateMachine.animator.SetBool("isHealing", true);
-
+        stateMachine._pistolaCurar.SetActive(true);
     }
 
     public override void Tick(float deltaTime) {
@@ -31,7 +31,7 @@ public class PlayerCurarState : PlayerBaseState
     public override void Exit() {
         //Debug.Log("Exit Repair");
         stateMachine.animator.SetBool("isHealing", false);
-        stateMachine._pistolaReparacion.SetActive(false);
+        stateMachine._pistolaCurar.SetActive(false);
     }
 
 

@@ -39,6 +39,8 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
     public Vector2 movementValue;
     public IInteraccionable _objetoInteraccionable;
     public GameObject _pistolaReparacion;
+
+    public GameObject _pistolaCurar;
     RaycastHit hit;
 
     public bool _finLevantado;
@@ -54,6 +56,8 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
     public bool _contactoMePuedenCurar;
 
+    [SerializeField]
+    Color _colorDanhado;
 
     [SerializeField]
     Color _colorCurando;
@@ -169,12 +173,14 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
             if(_nivelSalud<=0){
                 _nivelSalud = 0;
                 _isHurt = false;
+                SetColorHurting();
                 animator.SetBool("isHurting", false);
             }   else{
                 _isHurt = true;
                 ReiniciarTiempoHurt();
                 animator.SetBool("isHurting", true);
                 Debug.Log("En is hurting");
+                SetColorHurting();
             }
             hudJugador.SetNivelSalud(_nivelSalud);
         }
@@ -244,9 +250,23 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
             if(_tiempoUltimoHurtActual<=0){
                 _isHurt = false;
                 animator.SetBool("isHurting", false);
+                SetColorHurting();
             }
         }
     }
 
+    public HUDJugador GetHUDJugador(){
+        return hudJugador;
+    }
+
+
+    public void SetColorHurting(){
+
+        if(_materialesCuerpo.Count > 0){
+            for(int i = 0; i < _materialesCuerpo.Count; i++){
+                _materialesCuerpo[i].color = _isHurt ?_colorDanhado:_colorBase[i];
+            }
+        }
+    }
 
 }

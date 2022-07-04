@@ -58,7 +58,10 @@ public class Llave : MonoBehaviour
             } else{
                 Debug.LogError("No se encuentra iPuerta");
             }
-            
+            PlayerStateMachine machine = other.gameObject.GetComponent<PlayerStateMachine>();
+            if(machine != null){
+                machine.GetHUDJugador().RecogidaTarjeta(_tipoLlave);
+            }
             //_audioSource.Play();
             _activo = false; 
             Desactivar();
@@ -73,4 +76,4 @@ public class Llave : MonoBehaviour
 }
 
 
-public enum TipoLlaveEnum {Oro,Verde,Roja,Plata, Bronce, Titanio, RepararA, RepararB, RepararC, Bloque1, Bloque2};
+public enum TipoLlaveEnum {Oro,Verde,Roja,Plata, Bronce, Titanio, RepararA, RepararB, RepararC, Bloque1, Bloque2, Juntos};
