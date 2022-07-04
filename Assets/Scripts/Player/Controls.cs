@@ -71,6 +71,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""60d73b47-8584-40a0-90f7-f32280b422b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e15cd1d1-9660-4730-8799-b43eda1223d1"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -293,6 +313,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player1_Interact = m_Player1.FindAction("Interact", throwIfNotFound: true);
         m_Player1_Look = m_Player1.FindAction("Look", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
+        m_Player1_PauseMenu = m_Player1.FindAction("PauseMenu", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
@@ -364,6 +385,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_Interact;
     private readonly InputAction m_Player1_Look;
     private readonly InputAction m_Player1_Jump;
+    private readonly InputAction m_Player1_PauseMenu;
     public struct Player1Actions
     {
         private @Controls m_Wrapper;
@@ -373,6 +395,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player1_Interact;
         public InputAction @Look => m_Wrapper.m_Player1_Look;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
+        public InputAction @PauseMenu => m_Wrapper.m_Player1_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,6 +420,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
+                @PauseMenu.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPauseMenu;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -416,6 +442,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
             }
         }
     }
@@ -492,6 +521,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {

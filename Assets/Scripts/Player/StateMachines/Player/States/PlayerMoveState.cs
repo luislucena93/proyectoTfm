@@ -19,6 +19,11 @@ public class PlayerMoveState : PlayerBaseState
             stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
 
+        if (stateMachine.inputReader.pauseAction.triggered)
+        {
+            stateMachine.menuController.OpenCloseMenu();
+        }
+
         if (!stateMachine.isGrounded) 
         {
             stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;

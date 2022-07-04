@@ -19,6 +19,9 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField] public DialogueManager dialogueManager;
 
+    [field: SerializeField] public MenuController menuController;
+
+
     public bool isGrounded;
     public bool isJumping;
     public float gravity;

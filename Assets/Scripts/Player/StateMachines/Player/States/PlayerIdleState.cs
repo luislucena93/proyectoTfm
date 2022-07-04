@@ -20,6 +20,11 @@ public class PlayerIdleState : PlayerBaseState
             stateMachine.characterController.Move(stateMachine.velocity * Time.deltaTime);
         }
 
+        if (stateMachine.inputReader.pauseAction.triggered) 
+        {
+            stateMachine.menuController.OpenCloseMenu();
+        }
+
         if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
         {
             stateMachine.SwitchState(new PlayerJumpState(stateMachine));

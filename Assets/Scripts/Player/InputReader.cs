@@ -9,6 +9,7 @@ public class InputReader : MonoBehaviour
     public InputAction interactAction;
     public InputAction lookAction;
     public InputAction jumpAction;
+    public InputAction pauseAction;
 
 
     void Awake() 
@@ -19,5 +20,6 @@ public class InputReader : MonoBehaviour
         interactAction = playerInput.actions["Interact"];
         lookAction = playerInput.actions["Look"];
         jumpAction = playerInput.actions["Jump"];
+        pauseAction = playerInput.actions["PauseMenu"];
     }
 }

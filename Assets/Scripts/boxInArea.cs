@@ -48,6 +48,14 @@ public class boxInArea : MonoBehaviour
         {
             boxIn = false;
             renderer.material.SetColor("_TintColor", Color.red);
+
+            IPuerta iPuerta = _puerta.GetComponent<IPuerta>();
+            if (iPuerta != null) {
+                iPuerta.Cerrar();
+            }
+            else {
+                Debug.LogError("No se encuentra iPuerta");
+            }
         }
     }
 
