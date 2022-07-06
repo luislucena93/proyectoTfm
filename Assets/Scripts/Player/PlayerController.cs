@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
 {
 
     PlayerStateMachine playerStateMachine;
-
+    DialogueManager dialogManager;
 
     private void Awake()
     {
-        playerStateMachine = GetComponent<PlayerStateMachine>();  
+        playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
     private void OnTriggerStay(Collider other)

@@ -7,6 +7,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter() 
     {
  //       Debug.Log("Enter Idle");
+        stateMachine.animator.SetBool("isPushing", false);
     }
 
     public override void Tick(float deltaTime) 
@@ -26,6 +27,11 @@ public class PlayerIdleState : PlayerBaseState
         {
             stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;
             stateMachine.characterController.Move(stateMachine.velocity * Time.deltaTime);
+        }
+
+        if (stateMachine.inputReader.pauseAction.triggered) 
+        {
+            stateMachine.menuController.OpenCloseMenu();
         }
 
         if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
@@ -75,10 +81,18 @@ public class PlayerIdleState : PlayerBaseState
             stateMachine.SwitchState(new PlayerSanarState(stateMachine));
         }
 
-
-        if(stateMachine._objetoInteraccionable != null){
-    //        Debug.Log("switch interaccionable");
+        //Debug.Log(stateMachine.hitPushable);
+        if (stateMachine.dialogueManager.dialogOpen)
+        {
+            stateMachine.dialogueManager.DisplayNextSentence();
+        }
+        if (stateMachine._objetoInteraccionable != null){
+            Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
+        }
+        if (stateMachine.hitPushable)
+        {
+            stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
     }
 }

@@ -9,6 +9,7 @@ public class InputReader : MonoBehaviour
     public InputAction interactAction;
     public InputAction lookAction;
     public InputAction jumpAction;
+    public InputAction pauseAction;
 
     public InputAction escudoAction;
 
@@ -21,5 +22,7 @@ public class InputReader : MonoBehaviour
         interactAction = playerInput.actions["Interact"];
         lookAction = playerInput.actions["Look"];
         escudoAction = playerInput.actions["Escudo"];
+        jumpAction = playerInput.actions["Jump"];
+        pauseAction = playerInput.actions["PauseMenu"];
     }
 }

@@ -10,12 +10,10 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
     [field: SerializeField] public float speed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public Rigidbody rb { get; private set; }
-    [field: SerializeField] public Collider playerCollider { get; private set; }
-    [field: SerializeField] public float minDistanceToGround { get; private set; }
     [field: SerializeField] public CharacterController characterController { get; private set; }
-    [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public Transform MainCameraTransform { get; private set; }
-    [field: SerializeField] public bool isPushing { get; private set; }
+    [field: SerializeField] public bool isPushing { get; set; }
+    [field: SerializeField] public bool hitPushable { get; private set; }
     [field: SerializeField] public float jumpForce { get; private set; }
     [field: SerializeField] public GameObject _ikReferenciaMano { get; private set; }
     [field: SerializeField] public Rig _ikRigMano { get; private set; }
@@ -31,6 +29,11 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
     HUDJugador hudJugador;
 
     //[field: SerializeField] public BoxCollider boxCollider { get; private set; }
+    [field: SerializeField] public DialogueManager dialogueManager;
+
+    [field: SerializeField] public MenuController menuController;
+
+
     public bool isGrounded;
     public bool isJumping;
     public float gravity;
@@ -39,7 +42,6 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
     public Vector2 movementValue;
     public IInteraccionable _objetoInteraccionable;
     public GameObject _pistolaReparacion;
-
     public GameObject _pistolaCurar;
     RaycastHit hit;
 
@@ -81,10 +83,10 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
     bool _isHurt;
 
     
-    private void Start() 
+    public float pushForce;
+    private void Start()
     {
         hudJugador.SetNivelSalud(_nivelSalud); 
-        hudJugador.SetNivelSaludMaxima(_nivelSaludMaxima); 
         _escudo = GetComponent<Escudo>();
         
 
@@ -101,42 +103,43 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         GroundCheck();
+        CheckPushing();
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit) 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.CompareTag("Ground") && !isGrounded) 
+        if (hit.transform.CompareTag("Ground") && !isGrounded)
         {
             isGrounded = true;
             animator.SetBool("isFalling", false);
         }
+        if (isPushing)
+        {
+            Rigidbody body = hit.collider.attachedRigidbody;
+            if (body == null || body.isKinematic) { return; }
+            var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+            body.velocity = pushDir * pushForce;
+        }
     }
-   
-    public void GroundCheck() 
+
+
+    public void GroundCheck()
     {
-        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround)) 
-        {            
+        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround))
+        {
             isGrounded = false;
             animator.SetBool("isFalling", true);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void CheckPushing()
     {
-        if (collision.gameObject.tag == "Pushable")
+        if (hitPushable && inputReader.interactAction.IsPressed())
         {
             isPushing = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Pushable")
-        {
-            isPushing = false;
         }
     }
 
@@ -149,6 +152,11 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
             }
             
         }
+        if (other.CompareTag("Pushable"))
+        {
+            hitPushable = true;
+            Debug.Log("enter pushable area");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -156,6 +164,12 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
         if(other.CompareTag(Tags.TAG_INTERACCIONABLE) && _objetoInteraccionable != null){
             _objetoInteraccionable.FinalizarInteraccion();
             _objetoInteraccionable = null;
+        }
+
+        if (other.CompareTag("Pushable"))
+        {
+            hitPushable = false;
+            Debug.Log("Leave pushable area");
         }
     }
 

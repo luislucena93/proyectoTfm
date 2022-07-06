@@ -51,9 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Escudo",
+                    "name": "PauseMenu",
                     "type": "Button",
-                    "id": "6646279b-a955-49fe-93ce-bfcb640f069a",
+                    "id": "60d73b47-8584-40a0-90f7-f32280b422b3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -162,12 +162,12 @@
                 },
                 {
                     "name": "",
-                    "id": "364364b8-7447-4392-9809-2f5ba98caa96",
-                    "path": "<Keyboard>/shift",
+                    "id": "e15cd1d1-9660-4730-8799-b43eda1223d1",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Escudo",
+                    "action": "PauseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -214,9 +214,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Escudo",
+                    "name": "Jump",
                     "type": "Button",
-                    "id": "1bb04c61-a260-45e8-8a2c-c8098eb4ff07",
+                    "id": "31b05cbd-de37-4861-a0ae-8daeb0966385",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -249,18 +249,7 @@
                 {
                     "name": "",
                     "id": "56121b06-bbae-4634-83f0-a15d5e1bb941",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Repair",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "62ed0cfb-db9b-425a-9ee8-35a3cb9bf8cf",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -281,12 +270,12 @@
                 },
                 {
                     "name": "",
-                    "id": "e65bb97a-f897-4ffe-9814-51376cf0a3ec",
-                    "path": "<Gamepad>/dpad/down",
+                    "id": "b2fbdc41-816e-4aed-8c36-72255ca88fb6",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Escudo",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

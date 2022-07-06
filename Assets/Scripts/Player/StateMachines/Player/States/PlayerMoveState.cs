@@ -20,22 +20,23 @@ public class PlayerMoveState : PlayerBaseState
             return;
         }
 
-        if (!stateMachine.isGrounded) 
-        {
-            stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;
-            stateMachine.characterController.Move(stateMachine.velocity * Time.deltaTime);
-        }
-
-        if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
-        {
-            stateMachine.SwitchState(new PlayerJumpState(stateMachine));
-        }
+        //Debug.Log("Ejecutando estado Move");
 
         if (stateMachine.isPushing)
         {
             stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
 
+        if (stateMachine.inputReader.pauseAction.triggered)
+        {
+            stateMachine.menuController.OpenCloseMenu();
+        }
+
+        if (!stateMachine.isGrounded) 
+        {
+            stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;
+            stateMachine.characterController.Move(stateMachine.velocity * Time.deltaTime);
+        }
 
         if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
         {

@@ -13,6 +13,7 @@ TagManager:
   - UIJ1
   - UIJ2
   - Ground
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -28,6 +29,10 @@ TagManager:
   - bloqueaPlayers
   - TriggerMuerto
   - TriggerSanar
+  - AvoidCamera
+  - 
+  - 
+  - 
   - 
   - 
   - 

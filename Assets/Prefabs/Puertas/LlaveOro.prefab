@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2534367762039620717}
   - component: {fileID: 2525407609581646495}
   - component: {fileID: 8360062943687154437}
+  - component: {fileID: 6934098654210014104}
   m_Layer: 0
   m_Name: LlaveOro
   m_TagString: Untagged
@@ -96,6 +97,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: -0.000003054738, y: 0.032955047, z: 0.0000009536743}
+--- !u!114 &6934098654210014104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548440494816469763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82e195f4b3adde44ad31c0af28803ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocidadGiro: 50
+  _puerta: {fileID: 0}
+  _tipoLlave: 0
+  _luz: {fileID: 0}
+  _atenuacionLuz: 1
+  _velocidadLuz: 0
 --- !u!1 &5640629696265532921
 GameObject:
   m_ObjectHideFlags: 0
