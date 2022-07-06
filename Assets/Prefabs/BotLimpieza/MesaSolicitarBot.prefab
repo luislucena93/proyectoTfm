@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 112016683}
   - component: {fileID: 349957433}
   m_Layer: 0
-  m_Name: SM_Prop_MapTable_01 (2)
+  m_Name: MesaSolicitarBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

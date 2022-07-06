@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotorIgnicion : MonoBehaviour
+public class MotorIgnicion : MonoBehaviour, IMaquina
 {
     [SerializeField]
     GameObject _llama;
@@ -13,23 +13,14 @@ public class MotorIgnicion : MonoBehaviour
     GameObject _goTriggerLlama;
 
     [SerializeField]
-    [Range(0,5)]
-    float tiempoApagado = 3;
-
-    [SerializeField]
-    [Range(0,5)]
-    float tiempoEncencido = 3;
-    // Start is called before the first frame update
-
-    [SerializeField]
     bool _comienzaActivo = true;
 
+    bool _estadoActual;
 
     void Start()
     {
-        _goTriggerLlama.SetActive(_comienzaActivo);
-        _llama.SetActive(_comienzaActivo);
-        _luzLlama.SetActive(_comienzaActivo);
+        _estadoActual = _comienzaActivo;
+        Encender(_estadoActual);
     }
 
     // Update is called once per frame
@@ -38,8 +29,20 @@ public class MotorIgnicion : MonoBehaviour
         
     }
 
+    public void Encender(bool encender){
+        _estadoActual = encender;
+        _goTriggerLlama.SetActive(_estadoActual);
+        _llama.SetActive(_estadoActual);
+        _luzLlama.SetActive(_estadoActual);
+    }
 
+    public void AlternarEstado(){
+        _estadoActual = !_estadoActual;
+        Encender(_estadoActual);
+    }
+
+    public bool IsEncendida(){
+        return _estadoActual;
+    }
 }
-
-public enum ComportamientoMotorEnum {};
 
