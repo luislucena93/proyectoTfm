@@ -68,9 +68,9 @@ public class Escudo : MonoBehaviour
 
         if(!_esperandoRecuperarEscudo){
             if(_nivelEscudo<_nivelEscudoMaximo){
-                Debug.Log("Update esperando = true");
+                //Debug.Log("Update esperando = true");
                 _nivelEscudo += (int) (_velocidadRecuperarEscudo*Time.deltaTime);
-                Debug.Log("Update valor incremento = "+(int) (_velocidadRecuperarEscudo*Time.deltaTime));
+                //Debug.Log("Update valor incremento = "+(int) (_velocidadRecuperarEscudo*Time.deltaTime));
                 if(_nivelEscudo>_nivelEscudoMaximo){
                     _nivelEscudo=_nivelEscudoMaximo;
                 }
@@ -78,10 +78,10 @@ public class Escudo : MonoBehaviour
             }
         }   else{
             
-            Debug.Log("Update esperando = false");
+            //Debug.Log("Update esperando = false");
             _tiempoActualEsperarRecuperarEscudo -= Time.deltaTime;
             if(_tiempoActualEsperarRecuperarEscudo <= 0){
-                Debug.Log("Update esperando < 0");
+                //Debug.Log("Update esperando < 0");
                 _esperandoRecuperarEscudo = false;
             }
         }
@@ -126,7 +126,7 @@ public class Escudo : MonoBehaviour
         }   
         _activo = false;
         _goEscudo.SetActive(false);
-        Debug.Log("Activar Escudo Desactivar");
+        //Debug.Log("Activar Escudo Desactivar");
         return false;
     }
 
@@ -137,64 +137,4 @@ public class Escudo : MonoBehaviour
     }
 
 
-
-    /*
-    public bool ActivarEscudo(bool activar){
-        if(activar){
-            ReiniciarTiempoEscudo();
-
-            _nivelEscudo-=_consumoEncendidoEscudo;
-            if(_nivelEscudo>0){
-                _goEscudo.SetActive(true);
-                hudJugador.SetNivelEscudo(_nivelEscudo);
-                _activo = true;
-                return true;
-            } else{
-                _goEscudo.SetActive(false);
-                hudJugador.SetNivelEscudo(_nivelEscudo);
-                _nivelEscudo = 0;
-                _activo = false;
-                return false;
-            }
-
-        }   
-        _activo = false;
-        _goEscudo.SetActive(false);
-        return false;
-
-        
-    }
-    
-    
-    void Update()
-    {
-        if(_activo){
-            _nivelEscudo-=_consumoEncendidoEscudo;
-
-            ReiniciarTiempoEscudo();
-            if(_nivelEscudo>0){
-                _goEscudo.SetActive(true);
-                hudJugador.SetNivelEscudo(_nivelEscudo);
-                _activo = true;
-            } else{
-
-            }
-        }
-                    
-
-        if(_esperandoRecuperarEscudo){
-            if(_nivelEscudo<_nivelEscudoMaximo){
-                _nivelEscudo += (int) (_velocidadRecuperarEscudo*Time.deltaTime);
-                if(_nivelEscudo>_nivelEscudoMaximo){
-                    _nivelEscudo=_nivelEscudoMaximo;
-                }
-            }
-        }   else{
-            _tiempoActualEsperarRecuperarEscudo -= Time.deltaTime;
-            if(_tiempoActualEsperarRecuperarEscudo <= 0){
-                _esperandoRecuperarEscudo = false;
-            }
-        }
-    }
-    */
 }

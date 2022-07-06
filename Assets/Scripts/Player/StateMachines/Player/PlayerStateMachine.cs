@@ -231,7 +231,7 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
 
     public void SetAvisoMePuedenCurar(bool contacto){
-        Debug.Log("Contacto "+contacto);
+        //Debug.Log("Contacto "+contacto);
 
         if(_materialesCuerpo.Count > 0){
             for(int i = 0; i < _materialesCuerpo.Count; i++){

@@ -39,9 +39,9 @@ public class TriggerSanar : MonoBehaviour
     }
 
     void CheckColisionSaludEnter(Collider other){
-        Debug.Log("enter triggerSanar");
+        //Debug.Log("enter triggerSanar");
         if(other.gameObject.layer == Tags.TAG_LAYER_TRIGGER_MUERTO){
-            Debug.Log("enter triggerSanarMuerto");
+            //Debug.Log("enter triggerSanarMuerto");
             IRecuperarSalud iSaludDetectado = (IRecuperarSalud) other.gameObject.transform.parent.GetComponent(typeof(IRecuperarSalud));
             if(iSaludDetectado != null){
                 if(iSaludDetectado.IsDead()){
@@ -54,9 +54,9 @@ public class TriggerSanar : MonoBehaviour
     }
 
     void CheckColisionSaludExit(Collider other){
-        Debug.Log("exit triggerSanar");
+        //Debug.Log("exit triggerSanar");
         if(other.gameObject.layer == Tags.TAG_LAYER_TRIGGER_MUERTO){
-            Debug.Log("exit triggerSanarMuerto");
+            //Debug.Log("exit triggerSanarMuerto");
             _iSaludPropio.SetAvisoCurable(true, null);
         }
     }

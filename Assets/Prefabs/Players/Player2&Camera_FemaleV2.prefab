@@ -5928,7 +5928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2229412707972081632}
   m_Layer: 0
-  m_Name: Player1&Camera_Female
+  m_Name: Player2&Camera_FemaleV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

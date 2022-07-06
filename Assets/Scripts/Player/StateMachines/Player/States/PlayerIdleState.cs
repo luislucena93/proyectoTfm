@@ -87,7 +87,7 @@ public class PlayerIdleState : PlayerBaseState
             stateMachine.dialogueManager.DisplayNextSentence();
         }
         if (stateMachine._objetoInteraccionable != null){
-            Debug.Log("switch interaccionable");
+            //Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
         }
         if (stateMachine.hitPushable)

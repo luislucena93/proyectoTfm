@@ -74,14 +74,14 @@ public class TriggerMuerto : MonoBehaviour
     }
 
     void CheckColisionSaludEnter(Collider other){
-        Debug.Log("enter triggerSanar");
+        //Debug.Log("enter triggerSanar");
         if(other.gameObject.layer == Tags.TAG_LAYER_TRIGGER_SANAR){
             _iSaludPropio.SetAvisoMePuedenCurar(true);
         }
     }
 
     void CheckColisionSaludExit(Collider other){
-        Debug.Log("exit triggerSanar");
+        //Debug.Log("exit triggerSanar");
         if(other.gameObject.layer == Tags.TAG_LAYER_TRIGGER_SANAR){
             _iSaludPropio.SetAvisoMePuedenCurar(false);
         }
