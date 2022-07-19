@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Escudo : MonoBehaviour
 {
+    int _colorEmmissionID;
+ 
+    Renderer _rendererEscudo;
+    Material _materialEscudo;
+    Color _colorOriginal;
+
+    float _colorOriginalH, _colorOriginalS,_colorOriginalV;
 
     [SerializeField]
     public int _nivelEscudo = 750;
@@ -39,10 +46,28 @@ public class Escudo : MonoBehaviour
 
     bool _activo;
 
+    [SerializeField]
+    [Range(0.01f, 5)]
+    float _tiempoDanhoActivoEscudo = 0.2f;
+
+    float _tiempoDanhoActivoEscudoActual = 0;
+
+    [SerializeField]
+    [Range(0.01f, 50)]
+    float _velocidadAnimacionEscudoDanho = 0.2f;
+    [SerializeField]
+    [Range(0.01f, 50)]
+    float _amplitudAnimacionEscudoDanho = 0.2f;
+
     void Start()
     {
+        _colorEmmissionID = Shader.PropertyToID("_EmissionColor");
         hudJugador.SetNivelEscudo(_nivelEscudo);
         hudJugador.SetNivelEscudoMaximo(_nivelEscudoMaximo);
+        _rendererEscudo = _goEscudo.GetComponent<Renderer>();
+        _materialEscudo = _rendererEscudo.material;
+        _colorOriginal = _materialEscudo.GetColor(_colorEmmissionID);
+        Color.RGBToHSV(_colorOriginal, out  _colorOriginalH, out  _colorOriginalS, out  _colorOriginalV);
     }
 
     // Update is called once per frame
@@ -51,8 +76,6 @@ public class Escudo : MonoBehaviour
     {
         if(_activo){
             ReiniciarTiempoEscudo();
-
-
             _nivelEscudo-=(int) (_consumoEncendidoEscudo*Time.deltaTime);
             if(_nivelEscudo>0){
                 hudJugador.SetNivelEscudo(_nivelEscudo);
@@ -63,6 +86,7 @@ public class Escudo : MonoBehaviour
                 hudJugador.SetNivelEscudo(_nivelEscudo);
                 _activo = false;
             }
+            LogicaAnimacionEscudo();
         }
                     
 
@@ -98,10 +122,12 @@ public class Escudo : MonoBehaviour
         if(_nivelEscudo < 0){
             retorno = _nivelEscudo;
             _nivelEscudo = 0;
-        }
+        }   
         hudJugador.SetNivelEscudo(_nivelEscudo);
         _esperandoRecuperarEscudo = true;
         _tiempoActualEsperarRecuperarEscudo = _tiempoEsperarRecuperarEscudo;
+
+        _tiempoDanhoActivoEscudoActual = _tiempoDanhoActivoEscudo;
 
         return retorno;
     }
@@ -136,5 +162,20 @@ public class Escudo : MonoBehaviour
             _tiempoActualEsperarRecuperarEscudo = _tiempoEsperarRecuperarEscudo;
     }
 
+    private void LogicaAnimacionEscudo(){
+       if(_tiempoDanhoActivoEscudoActual > 0){
+            _tiempoDanhoActivoEscudoActual-=Time.deltaTime;
+            if(_activo){
+                if(_tiempoDanhoActivoEscudoActual > 0){
+                    Color colorNuevo = Color.HSVToRGB(_colorOriginalH, _colorOriginalS, _colorOriginalV*(1-_amplitudAnimacionEscudoDanho*Mathf.Sin(Time.time*_velocidadAnimacionEscudoDanho)));
+                    _materialEscudo.SetColor(_colorEmmissionID,colorNuevo);
+
+                }   else{
+                    _materialEscudo.SetColor(_colorEmmissionID,_colorOriginal);
+                }
+            }
+        }
+        
+    }
 
 }
