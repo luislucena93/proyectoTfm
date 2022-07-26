@@ -35,10 +35,10 @@ public class TriggerLlama : MonoBehaviour
     }
 
     private void CheckAddListaDanhables(Collider other){
-        //Debug.Log("other "+other.name);
+        Debug.Log("other "+other.name);
         IDanhable danhable = (IDanhable) other.gameObject.GetComponent(typeof(IDanhable));
         if(danhable != null && !_listaDanhables.Contains(danhable)){
-            //Debug.Log("other added");
+            Debug.Log("other added");
             _listaDanhables.Add(danhable);
         }
     }

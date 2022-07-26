@@ -24,13 +24,6 @@ public class ZonaTrampaElectrica : MonoBehaviour
     List<IDanhable> _listaDanhables = new List<IDanhable>();
 
 
-
-    [SerializeField]
-    bool activo;
-
-
-
-
     private void OnTriggerEnter(Collider other) {
         CheckAddListaDanhables(other);
     }
@@ -58,16 +51,13 @@ public class ZonaTrampaElectrica : MonoBehaviour
         //Debug.Log("other "+other.name);
         IDanhable danhable = (IDanhable) other.gameObject.GetComponent(typeof(IDanhable));
         if(danhable != null && !_listaDanhables.Contains(danhable)){
-          //  Debug.Log("other added");
+            //Debug.Log("other added");
             _listaDanhables.Add(danhable);
         }
     }
 
     private void FixedUpdate() {
         if(_listaDanhables.Count>0){
-
-
-
             for(int i = 0; i < _listaDanhables.Count; i++){
                 IDanhable d = _listaDanhables[i];
                 if(d!=null){

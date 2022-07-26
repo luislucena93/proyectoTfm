@@ -54,7 +54,9 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
 
     [Range(1,100)]
     [SerializeField]
-    int _salud = 20;
+    int _saludInicial = 20;
+
+    int _saludActual;
 
 
     // Start is called before the first frame update
@@ -107,7 +109,7 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
         }*/
         if(_inicializado && 
             (listaPosicionesDestino[indiceDestino].transform.position-this.transform.position).magnitude<_distanciaMaximaObjetivo){
-            Debug.Log("Completado "+indiceDestino+" / "+listaPosicionesDestino.Length);
+//            Debug.Log("Completado "+indiceDestino+" / "+listaPosicionesDestino.Length);
             if(listaPosicionesDestino.Length > indiceDestino+1){
                 indiceDestino++;
                 _agent.SetDestination(listaPosicionesDestino[indiceDestino].transform.position);
@@ -124,6 +126,7 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
     }
 
     void InicializarBot(){
+        _saludActual = _saludInicial;
         if(listaPosicionesDestino != null && listaPosicionesDestino.Length >0){
             indiceDestino = 0;
             _agent.SetDestination(listaPosicionesDestino[indiceDestino].transform.position);
@@ -133,16 +136,16 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
 
 
     public void Destruir(){
-        Debug.Log("Destruido Bot");
+        //Debug.Log("Destruido Bot");
         _peanaBase.BotDestruido(this.transform.position);
         this.gameObject.SetActive(false);
     }
 
     public void RecibirDanho(int danho){
-        Debug.Log("Recibir daño bot"+danho + "restante "+_salud);
-        _salud -=danho;
-        if(_salud <= 0){
-            Debug.Log("salud menor de cero");
+        _saludActual -=danho;
+        //Debug.Log("Recibir daño bot"+danho + "restante "+_saludActual);
+        if(_saludActual <= 0){
+            //Debug.Log("salud menor de cero");
             Destruir();
         }
     }

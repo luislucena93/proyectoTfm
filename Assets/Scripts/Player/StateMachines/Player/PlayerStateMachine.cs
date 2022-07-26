@@ -84,6 +84,11 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
     
     public float pushForce;
+
+
+    public MenuController _menuController;
+
+
     private void Start()
     {
         hudJugador.SetNivelSalud(_nivelSalud); 
@@ -283,4 +288,17 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
         }
     }
 
+
+    public int GetNivelSalud(){
+        return _nivelSalud;     
+    }
+
+    public void SetNivelSaludComienzo(int puntosSalud){
+        if(puntosSalud<0){
+            _nivelSalud = _nivelSaludMaxima;
+        }   else{
+            _nivelSalud = puntosSalud;
+        }
+        hudJugador.SetNivelSalud(_nivelSalud);     
+    }
 }

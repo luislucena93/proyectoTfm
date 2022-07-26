@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1964486798659941101}
   - component: {fileID: 1962148452998752783}
   - component: {fileID: 1952700983034179729}
-  - component: {fileID: 707277454434969529}
   - component: {fileID: 3172047960367592292}
+  - component: {fileID: 3734974881646204226}
   m_Layer: 0
   m_Name: BotiquinGrande
   m_TagString: Untagged
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &707277454434969529
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965852880463409451}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3286468, y: 0.5038428, z: 0.5628583}
-  m_Center: {x: -0.00000029802322, y: 0.2519214, z: 0}
 --- !u!114 &3172047960367592292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +98,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puntosRecupera: 1000
-  _consumido: 0
+  _fuenteCorazones: {fileID: 0}
+  _tiempoEmitiendoCorazones: 0
+--- !u!135 &3734974881646204226
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965852880463409451}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.91
+  m_Center: {x: -0.00000029802322, y: 0.2519214, z: 0}
 --- !u!1 &8158475393719298696
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +4927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418000176702569121}
   - component: {fileID: 6141211078670835650}
+  - component: {fileID: 7381184257954175540}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: Untagged
@@ -5009,3 +5011,16 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &7381184257954175540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025188404831085510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3172302, y: 0.37061548, z: 0.5453377}
+  m_Center: {x: 0.15861511, y: -0.50503457, z: -0.19052696}

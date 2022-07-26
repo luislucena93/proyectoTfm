@@ -17,7 +17,7 @@ public class PlayerDeadState : PlayerBaseState
         stateMachine.animator.SetBool(GameConstants.isDead, true);
         stateMachine.characterController.enabled = false;
         stateMachine._goTriggerMuerto.SetActive(true);
-
+        stateMachine._menuController.CheckMuertos();
     }
 
     public override void Tick(float deltaTime) {

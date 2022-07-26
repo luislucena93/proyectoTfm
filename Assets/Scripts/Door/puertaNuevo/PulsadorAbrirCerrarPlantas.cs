@@ -23,7 +23,6 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
     private bool _pulsado;
 
     
-    private static string MENSAJE_VACIO = "";
 
     private static string MENSAJE_PULSA_ABRIR = "Pulsa para Abrir";
     private static string MENSAJE_PULSA_CERRAR = "Pulsa para Cerrar";

@@ -3,25 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class MenuController : MonoBehaviour
 {
+    private static string _rutaFichero;
     public Animator menu, transitions;
     public GameObject InitialButton;
 
-    public void OpenCloseMenu() {
+    public GameObject _reiniciarButton;
 
+    public GameObject _textoPausa;
+    public GameObject _textoDead;
+
+    [SerializeField]
+    PlayerStateMachine _p1StateMachine;
+    [SerializeField]
+    PlayerStateMachine _p2StateMachine;
+
+    [SerializeField]
+    bool _comienzoNivel;
+
+    [SerializeField]
+    bool _nivelCero;
+
+    private void OnAwake() {
+        _rutaFichero = Application.persistentDataPath + "/gamesave.save";
+    }
+
+    private void Start() {
+        if(!_nivelCero){
+ 
+        }   
+    }
+
+    public void OpenCloseMenu() {
+        InitialButton.SetActive(true);
         gameObject.SetActive(true);
+        _textoDead.SetActive(false);
+        _textoPausa.SetActive(true);
         if (menu.GetBool("menuIsOpen") == false) {
             menu.SetBool("menuIsOpen", true);
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(InitialButton);
-            //Time.timeScale = 0f;
+            Time.timeScale = 0f;
         }
         else {
             menu.SetBool("menuIsOpen", false);
-            //Time.timeScale = 1f;
+            Time.timeScale = 1f;
         }
     }
     public void Continue() {
@@ -34,13 +66,75 @@ public class MenuController : MonoBehaviour
 
     public void ReloadScene() {
         OpenCloseMenu();
-        StartCoroutine(NextLevel());
+        StartCoroutine(RecargaLevel());
     }
 
-    IEnumerator NextLevel() {
+    private IEnumerator NextLevel() {
         transitions.SetTrigger("NextScene");
         yield return new WaitForSeconds(1);
         int sceneID = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneID);
+    }
+
+    private IEnumerator RecargaLevel() {
+        transitions.SetTrigger("NextScene");
+        yield return new WaitForSeconds(1);
+        int sceneID = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+
+
+     public void CheckMuertos(){
+        InitialButton.SetActive(false);
+        if(_p1StateMachine.IsDead() && _p2StateMachine.IsDead()){
+            _textoDead.SetActive(true);
+            _textoPausa.SetActive(false);
+            if (menu.GetBool("menuIsOpen") == false) {
+                menu.SetBool("menuIsOpen", true);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(_reiniciarButton);
+                Time.timeScale = 0f;
+            }
+        }
+    }
+
+
+    private void GuardarPartida(){
+        PartidaGuardada partidaGuardada = new PartidaGuardada();
+        partidaGuardada.puntosVidaJ1 = _p1StateMachine.GetNivelSalud();
+        partidaGuardada.puntosVidaJ2 = _p2StateMachine.GetNivelSalud();
+        partidaGuardada.listaLlavesJ1 = _p1StateMachine.GetHUDJugador().GetLlaves();
+        partidaGuardada.listaLlavesJ2 = _p2StateMachine.GetHUDJugador().GetLlaves();
+        partidaGuardada.nivelActual = SceneManager.GetActiveScene().name;
+
+
+        BinaryFormatter bf = new BinaryFormatter();
+        if(File.Exists(_rutaFichero)){
+            File.Delete(_rutaFichero);
+        }
+        FileStream file = File.Create(_rutaFichero);
+        bf.Serialize(file, partidaGuardada);
+        file.Close();
+    }
+
+    public void CargarPartida(){ 
+        if (File.Exists(_rutaFichero)){
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(_rutaFichero, FileMode.Open);
+            PartidaGuardada partidaGuardada = (PartidaGuardada)bf.Deserialize(file);
+            file.Close();
+
+            _p1StateMachine.SetNivelSaludComienzo(partidaGuardada.puntosVidaJ1);
+            _p2StateMachine.SetNivelSaludComienzo(partidaGuardada.puntosVidaJ2);
+            for(int i = 0; i < partidaGuardada.listaLlavesJ1.Count; i++){
+                _p1StateMachine.GetHUDJugador().RecogidaTarjeta(partidaGuardada.listaLlavesJ1[i]);
+            }
+
+            for(int i = 0; i < partidaGuardada.listaLlavesJ2.Count; i++){
+                _p1StateMachine.GetHUDJugador().RecogidaTarjeta(partidaGuardada.listaLlavesJ2[i]);
+            }
+        }
     }
 }

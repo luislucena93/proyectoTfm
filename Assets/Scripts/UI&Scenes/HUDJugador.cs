@@ -70,4 +70,18 @@ public class HUDJugador : MonoBehaviour
     public void SetNivelEscudoMaximo(float nivelEscudoMaximo){
         _sliderEscudo.maxValue = nivelEscudoMaximo;
     }
+
+    public List<TipoLlaveEnum> GetLlaves(){
+        List<TipoLlaveEnum> retorno = new List<TipoLlaveEnum> ();
+        if(_goTarjetaAmarilla.activeInHierarchy){
+            retorno.Add(TipoLlaveEnum.Oro);
+        }  
+        if(_goTarjetaVerde.activeInHierarchy){
+            retorno.Add(TipoLlaveEnum.Verde);
+        }
+        if(_goTarjetaRoja.activeInHierarchy){
+            retorno.Add(TipoLlaveEnum.Roja);
+        }
+        return retorno;
+    }
 }

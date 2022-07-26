@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 349957433}
   m_Layer: 0
   m_Name: MesaSolicitarBot
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,9 +769,10 @@ MonoBehaviour:
   _hologramaBot: {fileID: 1351673200501209}
   _letrero: {fileID: 949521799696620366}
   _textoAccion: {fileID: 1943089362646061389}
-  _velocidadGiroHolograma: 5
+  _velocidadGiroHolograma: 0.4
   _prefabBot: {fileID: 0}
-  _explosion: {fileID: 0}
+  _explosion: {fileID: 5402058450505037520}
+  _posicionInicialBot: {fileID: 0}
 --- !u!54 &349957433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1093,6 +1094,10 @@ PrefabInstance:
       value: 0.0039
       objectReference: {fileID: 0}
     - target: {fileID: 5162363251691028803, guid: 844e9a28dbe2af049a70e3a68d82b22a, type: 3}
+      propertyPath: _peana
+      value: 
+      objectReference: {fileID: 112016683}
+    - target: {fileID: 5162363251691028803, guid: 844e9a28dbe2af049a70e3a68d82b22a, type: 3}
       propertyPath: _referenciaMano
       value: 
       objectReference: {fileID: 4507823893519439909}
@@ -1116,7 +1121,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290715649332758, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709467075766706, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767316302466814, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912195170684534, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4587786598044862, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
       propertyPath: m_RootOrder
@@ -1162,6 +1179,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198009975391485926, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198059370558133848, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198393606974994562, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198859146066003590, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199139269707214854, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -1178,10 +1211,19 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 388605725287673577, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+      propertyPath: _tiempoDesactivarTotal
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
 --- !u!4 &5396208444821501048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4587786598044862, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
+  m_PrefabInstance: {fileID: 5400768594981626054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5402058450505037520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1290715649332758, guid: f2f1afb40dfb39641b452ea28587dbb0, type: 3}
   m_PrefabInstance: {fileID: 5400768594981626054}
   m_PrefabAsset: {fileID: 0}

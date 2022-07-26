@@ -16,7 +16,6 @@ public class Peana : MonoBehaviour, IInteraccionable
     [SerializeField]
     [Range (0,50)]
     float _velocidadGiroHolograma = 5;
-    float _velocidadGiroLetrero = 5;
 
     [SerializeField]
     GameObject _prefabBot;
