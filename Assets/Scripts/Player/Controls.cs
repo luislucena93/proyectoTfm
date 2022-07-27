@@ -37,15 +37,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Repair"",
-                    ""type"": ""Button"",
-                    ""id"": ""9066cc23-7774-46ca-881d-7c603a7ea2a0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""fbc55348-bc64-4d83-8ab7-8617e451bfa3"",
@@ -171,17 +162,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b31d2588-bddb-41e8-a7f6-8832c5b02c2a"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Repair"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3faa1c83-266f-4fc5-8a3e-b7bee02fa809"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -227,15 +207,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Repair"",
-                    ""type"": ""Button"",
-                    ""id"": ""404cf39c-ae72-4478-9369-3ab5486887cf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Interact"",
@@ -308,17 +279,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""56121b06-bbae-4634-83f0-a15d5e1bb941"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Repair"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1ba97262-55d0-47f7-a280-d951377978b7"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
@@ -369,7 +329,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
-        m_Player1_Repair = m_Player1.FindAction("Repair", throwIfNotFound: true);
         m_Player1_Interact = m_Player1.FindAction("Interact", throwIfNotFound: true);
         m_Player1_Look = m_Player1.FindAction("Look", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
@@ -378,7 +337,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
-        m_Player2_Repair = m_Player2.FindAction("Repair", throwIfNotFound: true);
         m_Player2_Interact = m_Player2.FindAction("Interact", throwIfNotFound: true);
         m_Player2_Look = m_Player2.FindAction("Look", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
@@ -444,7 +402,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player1;
     private IPlayer1Actions m_Player1ActionsCallbackInterface;
     private readonly InputAction m_Player1_Move;
-    private readonly InputAction m_Player1_Repair;
     private readonly InputAction m_Player1_Interact;
     private readonly InputAction m_Player1_Look;
     private readonly InputAction m_Player1_Jump;
@@ -455,7 +412,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         private @Controls m_Wrapper;
         public Player1Actions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player1_Move;
-        public InputAction @Repair => m_Wrapper.m_Player1_Repair;
         public InputAction @Interact => m_Wrapper.m_Player1_Interact;
         public InputAction @Look => m_Wrapper.m_Player1_Look;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
@@ -473,9 +429,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMove;
-                @Repair.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRepair;
-                @Repair.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRepair;
-                @Repair.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRepair;
                 @Interact.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnInteract;
@@ -498,9 +451,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Repair.started += instance.OnRepair;
-                @Repair.performed += instance.OnRepair;
-                @Repair.canceled += instance.OnRepair;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -525,7 +475,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player2;
     private IPlayer2Actions m_Player2ActionsCallbackInterface;
     private readonly InputAction m_Player2_Move;
-    private readonly InputAction m_Player2_Repair;
     private readonly InputAction m_Player2_Interact;
     private readonly InputAction m_Player2_Look;
     private readonly InputAction m_Player2_Jump;
@@ -536,7 +485,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         private @Controls m_Wrapper;
         public Player2Actions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player2_Move;
-        public InputAction @Repair => m_Wrapper.m_Player2_Repair;
         public InputAction @Interact => m_Wrapper.m_Player2_Interact;
         public InputAction @Look => m_Wrapper.m_Player2_Look;
         public InputAction @Jump => m_Wrapper.m_Player2_Jump;
@@ -554,9 +502,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
-                @Repair.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnRepair;
-                @Repair.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnRepair;
-                @Repair.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnRepair;
                 @Interact.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnInteract;
@@ -579,9 +524,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Repair.started += instance.OnRepair;
-                @Repair.performed += instance.OnRepair;
-                @Repair.canceled += instance.OnRepair;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -604,7 +546,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IPlayer1Actions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnRepair(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
@@ -614,7 +555,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IPlayer2Actions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnRepair(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);

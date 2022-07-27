@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocidadGiro: 50
   _puerta: {fileID: 0}
-  _tipoLlave: 1
+  _tipoLlave: 2
   _luz: {fileID: 1383383029521757449}
   _atenuacionLuz: 1
   _velocidadLuz: 1.8

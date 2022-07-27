@@ -30,14 +30,13 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     bool _nivelCero;
 
-    private void OnAwake() {
+    private void Awake() {
         _rutaFichero = Application.persistentDataPath + "/gamesave.save";
+       // Debug.Log("ruta awake"+_rutaFichero);
     }
 
     private void Start() {
-        if(!_nivelCero){
- 
-        }   
+        CompruebaRecargarGuardarDatos();
     }
 
     public void OpenCloseMenu() {
@@ -52,8 +51,8 @@ public class MenuController : MonoBehaviour
             Time.timeScale = 0f;
         }
         else {
-            menu.SetBool("menuIsOpen", false);
             Time.timeScale = 1f;
+            menu.SetBool("menuIsOpen", false);
         }
     }
     public void Continue() {
@@ -69,10 +68,15 @@ public class MenuController : MonoBehaviour
         StartCoroutine(RecargaLevel());
     }
 
+    public void SiguienteEscena(){
+        GuardarPartida();
+        StartCoroutine(NextLevel());
+    }
+
     private IEnumerator NextLevel() {
         transitions.SetTrigger("NextScene");
         yield return new WaitForSeconds(1);
-        int sceneID = SceneManager.GetActiveScene().buildIndex;
+        int sceneID = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(sceneID);
     }
 
@@ -83,6 +87,16 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void VolverEscenaInicio(){
+        Time.timeScale = 1f;
+        StartCoroutine(VolverPantallaInicio());
+    }
+
+    private IEnumerator VolverPantallaInicio() {
+        transitions.SetTrigger("NextScene");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
+    }
 
 
 
@@ -112,6 +126,7 @@ public class MenuController : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
         if(File.Exists(_rutaFichero)){
+            Debug.Log("entra borrar");
             File.Delete(_rutaFichero);
         }
         FileStream file = File.Create(_rutaFichero);
@@ -119,7 +134,7 @@ public class MenuController : MonoBehaviour
         file.Close();
     }
 
-    public void CargarPartida(){ 
+    public void CargarDatosPartida(){ 
         if (File.Exists(_rutaFichero)){
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(_rutaFichero, FileMode.Open);
@@ -133,8 +148,18 @@ public class MenuController : MonoBehaviour
             }
 
             for(int i = 0; i < partidaGuardada.listaLlavesJ2.Count; i++){
-                _p1StateMachine.GetHUDJugador().RecogidaTarjeta(partidaGuardada.listaLlavesJ2[i]);
+                _p2StateMachine.GetHUDJugador().RecogidaTarjeta(partidaGuardada.listaLlavesJ2[i]);
             }
         }
     }
+
+
+
+    private void CompruebaRecargarGuardarDatos(){
+        if(!_nivelCero && !_comienzoNivel){
+            CargarDatosPartida();
+        }
+    }
+
+
 }

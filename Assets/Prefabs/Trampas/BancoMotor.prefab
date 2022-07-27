@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 5256868389086738857}
   - component: {fileID: 4147383284346932296}
   - component: {fileID: 1467516985691737387}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerLlama
   m_TagString: IgnoreNavMesh
   m_Icon: {fileID: 0}

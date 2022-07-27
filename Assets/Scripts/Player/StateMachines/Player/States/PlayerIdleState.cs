@@ -49,10 +49,6 @@ public class PlayerIdleState : PlayerBaseState
             CheckInteraccionable();
         }
 
-        if (stateMachine.inputReader.repairAction.triggered) {
-            CheckReparando();
-        }
-
         if (stateMachine.isPushing) {
             stateMachine.SwitchState(new PlayerPushState(stateMachine));
         }
@@ -65,12 +61,7 @@ public class PlayerIdleState : PlayerBaseState
     }
 
     protected void CheckReparando(){
-        if(stateMachine._objetoInteraccionable != null){
-            IReparable _iReparable = stateMachine._objetoInteraccionable.GetTransform().gameObject.GetComponent<IReparable>();
-            if(_iReparable != null && !_iReparable.IsReparado()){
-                stateMachine.SwitchState(new PlayerRepairState(stateMachine));
-            }
-        }
+        
     }
 
     protected void CheckInteraccionable(){
@@ -86,9 +77,15 @@ public class PlayerIdleState : PlayerBaseState
         {
             stateMachine.dialogueManager.DisplayNextSentence();
         }
-        if (stateMachine._objetoInteraccionable != null){
-            //Debug.Log("switch interaccionable");
-            stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
+
+        if(stateMachine._objetoInteraccionable != null){
+            IReparable _iReparable = stateMachine._objetoInteraccionable.GetTransform().gameObject.GetComponent<IReparable>();
+            if(_iReparable != null && !_iReparable.IsReparado()){
+                stateMachine.SwitchState(new PlayerRepairState(stateMachine));
+            }   else{
+                //Debug.Log("switch interaccionable");
+                stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
+            }
         }
         if (stateMachine.hitPushable)
         {

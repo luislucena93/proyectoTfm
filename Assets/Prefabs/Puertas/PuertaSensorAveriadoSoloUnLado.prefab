@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 1438927235614398896}
   - component: {fileID: 1966368440497398998}
   - component: {fileID: 7061178116380226878}
-  - component: {fileID: 7748815649749184778}
+  - component: {fileID: 418894842125395906}
   m_Layer: 0
   m_Name: TriggerTextoA
   m_TagString: Untagged
@@ -372,7 +372,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7748815649749184778
+--- !u!114 &418894842125395906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,11 +381,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2987062354718262137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce744749e823384c8eb5ff9c28d335f, type: 3}
+  m_Script: {fileID: 11500000, guid: e61e8c52be6b622498a4824ff9dc19b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   goPuerta: {fileID: 4170048297851829077}
-  tiempoEsperaCerrarPuerta: 1
 --- !u!1 &3722965863303495152
 GameObject:
   m_ObjectHideFlags: 0

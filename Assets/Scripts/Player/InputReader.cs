@@ -5,7 +5,6 @@ public class InputReader : MonoBehaviour
 {
     PlayerInput playerInput;
     public InputAction moveAction;
-    public InputAction repairAction;
     public InputAction interactAction;
     public InputAction lookAction;
     public InputAction jumpAction;
@@ -18,7 +17,6 @@ public class InputReader : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
-        repairAction = playerInput.actions["Repair"];
         interactAction = playerInput.actions["Interact"];
         lookAction = playerInput.actions["Look"];
         escudoAction = playerInput.actions["Escudo"];

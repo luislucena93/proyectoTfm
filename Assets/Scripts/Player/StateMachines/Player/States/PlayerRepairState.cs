@@ -42,7 +42,7 @@ public class PlayerRepairState : PlayerBaseState
         }
 
 
-        if (stateMachine.inputReader.repairAction.inProgress && !_iReparable.IsReparado()) {
+        if (stateMachine.inputReader.interactAction.inProgress && !_iReparable.IsReparado()) {
 
         } else{
             _interaccionable.FinalizarInteraccion();

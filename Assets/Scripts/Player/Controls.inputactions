@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Repair",
-                    "type": "Button",
-                    "id": "9066cc23-7774-46ca-881d-7c603a7ea2a0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "fbc55348-bc64-4d83-8ab7-8617e451bfa3",
@@ -149,17 +140,6 @@
                 },
                 {
                     "name": "",
-                    "id": "b31d2588-bddb-41e8-a7f6-8832c5b02c2a",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Repair",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3faa1c83-266f-4fc5-8a3e-b7bee02fa809",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -205,15 +185,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Repair",
-                    "type": "Button",
-                    "id": "404cf39c-ae72-4478-9369-3ab5486887cf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 },
                 {
                     "name": "Interact",
@@ -281,17 +252,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "56121b06-bbae-4634-83f0-a15d5e1bb941",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Repair",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
