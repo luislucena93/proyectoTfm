@@ -140,6 +140,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fd604ef8-b325-4215-8139-a9a0ca667acc",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3faa1c83-266f-4fc5-8a3e-b7bee02fa809",
                     "path": "<Keyboard>/space",
                     "interactions": "",

@@ -110,5 +110,6 @@ public class Peana : MonoBehaviour, IInteraccionable
         _explosion.transform.position = posicion;
         _explosion.SetActive(true);
         _explosion.GetComponent<Explosion>().Activar();
+        _hologramaBot.SetActive(true);
     }
 }

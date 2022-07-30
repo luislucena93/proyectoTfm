@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private Text dialogueText;
+    [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Image p1Avatar;
     [SerializeField] private Image p2Avatar;
     [SerializeField] private Canvas dialogueUI;

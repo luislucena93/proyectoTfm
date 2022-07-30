@@ -6,7 +6,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Enter() 
     {
- //       Debug.Log("Enter Idle");
+        Debug.Log("Enter Idle");
         stateMachine.animator.SetBool("isPushing", false);
     }
 
@@ -22,19 +22,19 @@ public class PlayerIdleState : PlayerBaseState
             stateMachine.SwitchState(new PlayerDeadState(stateMachine));
             return;
         }
-
+    /*
         if (!stateMachine.isGrounded) 
         {
             stateMachine.velocity.y += stateMachine.gravity * Time.deltaTime;
             stateMachine.characterController.Move(stateMachine.velocity * Time.deltaTime);
-        }
+        }   */
 
         if (stateMachine.inputReader.pauseAction.triggered) 
         {
             stateMachine.menuController.OpenCloseMenu();
         }
 
-        if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
+        if (stateMachine.inputReader.jumpAction.triggered || !stateMachine.isGrounded) 
         {
             stateMachine.SwitchState(new PlayerJumpState(stateMachine));
         }
@@ -57,7 +57,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Exit() 
     {
-  //      Debug.Log("Exit Idle");
+        Debug.Log("Exit Idle");
     }
 
     protected void CheckReparando(){

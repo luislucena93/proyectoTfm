@@ -88,6 +88,11 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
     public MenuController _menuController;
 
+    public bool _segundoColliderCheckSuelo;
+
+    [SerializeField]
+    [Range(0.01f,5)]
+    public float _fuerzaBordeCajas = 0.3f;
 
     private void Start()
     {
@@ -110,23 +115,26 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
     private void FixedUpdate()
     {
-        GroundCheck();
+        //GroundCheck();
         CheckPushing();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        /*
         if (hit.transform.CompareTag("Ground") && !isGrounded)
         {
             isGrounded = true;
             animator.SetBool("isFalling", false);
         }
+        */
         if (isPushing)
         {
             Rigidbody body = hit.collider.attachedRigidbody;
             if (body == null || body.isKinematic) { return; }
             var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-            body.velocity = pushDir * pushForce;
+            body.AddForce(pushDir * pushForce,ForceMode.VelocityChange);
+            //body.velocity = pushDir * pushForce;
         }
     }
 
@@ -300,5 +308,31 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
             _nivelSalud = puntosSalud;
         }
         hudJugador.SetNivelSalud(_nivelSalud);     
+    }
+
+    public void CollisionSuelo(bool colision){
+//        if(gameObject.name == "Player1") Debug.Log("Funcion colision "+gameObject.name+" Colision "+colision+" Grounded "+isGrounded);
+
+        if(!isGrounded){
+            if(colision){
+               // if(gameObject.name == "Player1") Debug.Log("!Grounded Colision "+gameObject.name);
+                isGrounded = true;
+                animator.SetBool("isFalling", false);
+            }
+        }   else{
+            if(!colision){
+           //     if(gameObject.name == "Player1") Debug.Log("Grounded !Colision "+gameObject.name);
+                isGrounded = false;
+                animator.SetBool("isFalling", true);
+            }
+        }
+        
+    }
+
+    public void CollisionSueloSegundo(bool colision){
+//        if(gameObject.name == "Player1") Debug.Log("Funcion colision "+gameObject.name+" Colision "+colision+" Grounded "+isGrounded);
+
+        _segundoColliderCheckSuelo = colision;
+        
     }
 }
