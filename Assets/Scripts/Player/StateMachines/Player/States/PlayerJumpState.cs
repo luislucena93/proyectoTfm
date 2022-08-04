@@ -19,10 +19,10 @@ public class PlayerJumpState : PlayerBaseState
             stateMachine.animator.SetBool("isJumping", true);
         }
         _valorGuardadoStepOffset = stateMachine.characterController.stepOffset;
-        stateMachine.characterController.stepOffset = 0;
+        stateMachine.characterController.stepOffset = 1;
 
         _valorGuardadoSlopeLimit = stateMachine.characterController.slopeLimit;
-        stateMachine.characterController.slopeLimit = 90;
+        stateMachine.characterController.slopeLimit = 0;
     }
 
     public override void Tick(float deltaTime) 
@@ -60,17 +60,17 @@ public class PlayerJumpState : PlayerBaseState
         }
 
         stateMachine.movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();
-        Debug.Log("If Salto "+stateMachine.movementValue+" segundo "+stateMachine._segundoColliderCheckSuelo+" ground "+stateMachine.isGrounded);
+//        Debug.Log("If Salto "+stateMachine.movementValue+" segundo "+stateMachine._segundoColliderCheckSuelo+" ground "+stateMachine.isGrounded);
         if (stateMachine.movementValue.magnitude <0.1f && stateMachine._segundoColliderCheckSuelo){
             stateMachine.inputDirection = CalculateMovementCallendoBorde(new Vector2(0,stateMachine._fuerzaBordeCajas));
         }   else{
             stateMachine.inputDirection = CalculateMovement(stateMachine.movementValue);
         }
-        Debug.Log("Input Salto"+(stateMachine.inputDirection));
+ //       Debug.Log("Input Salto"+(stateMachine.inputDirection));
 
         
 
-        Debug.Log("PlayerMovement Salto"+(stateMachine.inputDirection * stateMachine.speed + stateMachine.velocity));
+//        Debug.Log("PlayerMovement Salto"+(stateMachine.inputDirection * stateMachine.speed + stateMachine.velocity));
         PlayerMovement(stateMachine.inputDirection * stateMachine.speed + stateMachine.velocity, Time.deltaTime);
 
         if (stateMachine.movementValue == Vector2.zero) {

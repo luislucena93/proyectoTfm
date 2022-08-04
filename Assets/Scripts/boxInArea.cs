@@ -66,3 +66,5 @@ public class boxInArea : MonoBehaviour
     }
 }
 
+public enum TipoCajaEnum {Ligera, Pesada};
+

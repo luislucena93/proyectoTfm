@@ -43,10 +43,19 @@ public class TriggerCheckSuelo : MonoBehaviour
 
     private void EnterCollision(Collider other){
         _listaGOContacto.Add(other.gameObject);
+
+        TriggerTapasCajas tapa = other.gameObject.GetComponent<TriggerTapasCajas>();
+        if(tapa != null){
+            tapa.JugadorEnTapa(true);
+        }
     }
 
     private void ExitCollision(Collider other){
         _listaGOContacto.Remove(other.gameObject);
+        TriggerTapasCajas tapa = other.gameObject.GetComponent<TriggerTapasCajas>();
+        if(tapa != null){
+            tapa.JugadorEnTapa(false);
+        }
     }
 
     private void FixedUpdate() {

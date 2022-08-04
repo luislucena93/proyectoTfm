@@ -22,6 +22,9 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
 
     private bool _pulsado;
 
+    [SerializeField]
+    GameObject _posicionIKPulsador;
+
     
 
     private static string MENSAJE_PULSA_ABRIR = "Pulsa para Abrir";
@@ -132,7 +135,7 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
 
 
     public Transform GetTransform(){
-        return gameObject.transform;
+        return _posicionIKPulsador.transform;
     }
 
 

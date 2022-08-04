@@ -4,6 +4,7 @@ public class PlayerIdleState : PlayerBaseState
 {
     public PlayerIdleState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
+
     public override void Enter() 
     {
         Debug.Log("Enter Idle");
@@ -49,10 +50,6 @@ public class PlayerIdleState : PlayerBaseState
             CheckInteraccionable();
         }
 
-        if (stateMachine.isPushing) {
-            stateMachine.SwitchState(new PlayerPushState(stateMachine));
-        }
-
     }
 
     public override void Exit() 
@@ -82,9 +79,11 @@ public class PlayerIdleState : PlayerBaseState
             IReparable _iReparable = stateMachine._objetoInteraccionable.GetTransform().gameObject.GetComponent<IReparable>();
             if(_iReparable != null && !_iReparable.IsReparado()){
                 stateMachine.SwitchState(new PlayerRepairState(stateMachine));
+                return;
             }   else{
                 //Debug.Log("switch interaccionable");
                 stateMachine.SwitchState(new PlayerInteraccionState(stateMachine));
+                return;
             }
         }
         if (stateMachine.hitPushable)

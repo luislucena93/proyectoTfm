@@ -31,6 +31,7 @@ public class PlayerDeadState : PlayerBaseState
         if(_recuperado && stateMachine._finLevantado){
             stateMachine._finLevantado = false;
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+            return;
         }
     }
 

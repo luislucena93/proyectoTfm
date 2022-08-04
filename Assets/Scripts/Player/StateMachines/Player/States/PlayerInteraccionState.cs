@@ -19,9 +19,10 @@ public class PlayerInteraccionState : PlayerBaseState
             stateMachine._ikReferenciaMano.transform.rotation = stateMachine._objetoInteraccionable.GetTransform().rotation;
         }
 
-        stateMachine._ikRigMano.weight =1;
+        stateMachine._ikRigMano.weight =0.7f;
 
         stateMachine.transform.forward = -stateMachine._objetoInteraccionable.GetTransform().forward;
+        stateMachine.animator.SetBool("isPressingButton", true);
 
     }
 
@@ -44,6 +45,7 @@ public class PlayerInteraccionState : PlayerBaseState
     public override void Exit() {
     //            Debug.Log("Exit interaccion");
         stateMachine._ikRigMano.weight = 0;
+        stateMachine.animator.SetBool("isPressingButton", false);
     }
 
 }

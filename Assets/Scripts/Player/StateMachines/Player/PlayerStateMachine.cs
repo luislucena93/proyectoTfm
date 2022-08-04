@@ -3,7 +3,7 @@ using UnityEngine.Animations.Rigging;
 using Unity.Collections;
 using System.Collections.Generic;
 
-public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
+public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDetectadoPushableListener
 {
     [field: SerializeField] public InputReader inputReader { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
@@ -94,6 +94,11 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
     [Range(0.01f,5)]
     public float _fuerzaBordeCajas = 0.3f;
 
+    public IPushable _iPushableDetectado;
+
+    public TipoCajaEnum _fuerzaTipoCaja = TipoCajaEnum.Ligera;
+
+
     private void Start()
     {
         hudJugador.SetNivelSalud(_nivelSalud); 
@@ -128,6 +133,8 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
             animator.SetBool("isFalling", false);
         }
         */
+
+        /*
         if (isPushing)
         {
             Rigidbody body = hit.collider.attachedRigidbody;
@@ -135,7 +142,9 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
             var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
             body.AddForce(pushDir * pushForce,ForceMode.VelocityChange);
             //body.velocity = pushDir * pushForce;
+            
         }
+        */
     }
 
 
@@ -334,5 +343,10 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud
 
         _segundoColliderCheckSuelo = colision;
         
+    }
+
+    public void DetectadoPushable(bool detectado, IPushable iPushable){
+        hitPushable = detectado;
+        _iPushableDetectado = iPushable;
     }
 }

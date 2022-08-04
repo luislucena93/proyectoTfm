@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerCheckSueloSegundo : MonoBehaviour
+public class TriggerCheckSueloExterior : MonoBehaviour
 {
     PlayerStateMachine _playerStateMachinePadre;
     SphereCollider _collider;

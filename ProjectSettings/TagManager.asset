@@ -35,8 +35,8 @@ TagManager:
   - TriggerTrampas
   - TriggerPuerta
   - TriggerCheckSuelo
-  - 
-  - 
+  - Pushable
+  - TriggerColisionPushable
   - 
   - 
   - 
