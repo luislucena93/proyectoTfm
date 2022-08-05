@@ -9,7 +9,7 @@ public class PlayerPushState : PlayerBaseState {
     IPushable _iPushable;
     Rigidbody _rbPush;
 
-    Vector3 _posicionPushableAnterior;
+    Vector3 _v3DiferenciaJugadorCaja;
 
     float _tiempoActualActualizarPlayer = 0;
     float _tiempoActualizarPlayer = 0.06f;
@@ -31,8 +31,10 @@ public class PlayerPushState : PlayerBaseState {
         v3Translacion.y = 0;
         stateMachine.characterController.Move(v3Translacion.normalized*_iPushable.GetPaddingJugador());
 
+        Physics.SyncTransforms();
+
         Debug.Log("Posicion rb enter " + _rbPush.gameObject.transform.position);
-        _posicionPushableAnterior = _rbPush.gameObject.transform.position;
+        _v3DiferenciaJugadorCaja = stateMachine.characterController.transform.position - _rbPush.gameObject.transform.position;
 
         TipoCajaEnum tipoCaja = _iPushable.GetTipoCajaEnum();
         if(stateMachine._fuerzaTipoCaja == TipoCajaEnum.Pesada){
@@ -41,7 +43,6 @@ public class PlayerPushState : PlayerBaseState {
         }   else{
             _puedeMoverCaja = tipoCaja ==TipoCajaEnum.Ligera;
         }
-
         
 
     }
@@ -114,19 +115,26 @@ public class PlayerPushState : PlayerBaseState {
                 stateMachine.animator.speed = 0f;
             }
         }
-
+        Physics.SyncTransforms();
         _tiempoActualActualizarPlayer-=_tiempoActualizarPlayer;
        
-        Vector3 desplazamiento = _rbPush.gameObject.transform.position -  _posicionPushableAnterior;
+        //Vector3 desplazamiento = _rbPush.gameObject.transform.position -  _posicionPushableAnterior;
         /*
         Debug.Log("desplazamiento "+desplazamiento.x+" , "+desplazamiento.y+" , "+desplazamiento.z );
         Debug.Log("anterior "+_posicionPushableAnterior.x+" , "+_posicionPushableAnterior.y+" , "+_posicionPushableAnterior.z);
         Debug.Log(" actual "+_rbPush.gameObject.transform.position.x+" , "+_rbPush.gameObject.transform.position.y+" , "+_rbPush.gameObject.transform.position.z );
         */
-        stateMachine.characterController.Move(desplazamiento);
+        //stateMachine.characterController.enabled = false;
+        stateMachine.characterController.transform.position = _rbPush.gameObject.transform.position + _v3DiferenciaJugadorCaja;
+        //stateMachine.characterController.enabled = true;
 
-        _posicionPushableAnterior = _rbPush.gameObject.transform.position;
-        
+        Physics.SyncTransforms();
+
+        /*
+        Debug.Log("desplazamiento "+desplazamiento.x+" , "+desplazamiento.y+" , "+desplazamiento.z );
+        Debug.Log("anterior "+_posicionPushableAnterior.x+" , "+_posicionPushableAnterior.y+" , "+_posicionPushableAnterior.z);
+        Debug.Log(" actual "+_rbPush.gameObject.transform.position.x+" , "+_rbPush.gameObject.transform.position.y+" , "+_rbPush.gameObject.transform.position.z );
+        */
     }
 
     protected void PlayerMovementNoPuedoMoverCaja(Vector3 movement, float deltaTime){

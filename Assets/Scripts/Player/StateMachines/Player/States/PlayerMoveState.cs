@@ -22,9 +22,12 @@ public class PlayerMoveState : PlayerBaseState
 
         //Debug.Log("Ejecutando estado Move");
 
-        if (stateMachine.isPushing)
+        if (stateMachine.isPushing )
         {
-            stateMachine.SwitchState(new PlayerPushState(stateMachine));
+            if(stateMachine._iPushableDetectado != null && !stateMachine._iPushableDetectado.IsPushing()){
+                stateMachine.SwitchState(new PlayerPushState(stateMachine));
+            }
+            
         }
 
         if (stateMachine.inputReader.pauseAction.triggered)

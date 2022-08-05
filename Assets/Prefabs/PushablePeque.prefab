@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 9004952495282994128}
   - component: {fileID: 3548984149878289053}
   m_Layer: 15
-  m_Name: PushableNuevoV2
+  m_Name: PushablePeque
   m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

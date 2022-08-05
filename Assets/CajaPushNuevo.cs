@@ -26,6 +26,9 @@ public class CajaPushNuevo : MonoBehaviour, IPushable
 
     bool _cajaBloqueada;
 
+    bool _pushing;
+
+
     private void Start() {
         if(_listaRenderers != null && _listaRenderers.Count >0){
             for(int i = 0; i < _listaRenderers.Count; i++){
@@ -52,8 +55,13 @@ public class CajaPushNuevo : MonoBehaviour, IPushable
     }
 
     public void SetPushing(bool pushing){
+    _pushing = pushing;
         //_rb.isKinematic = !pushing;
 //        Debug.Log("Kinematic "+!pushing);
+    }
+
+    public bool IsPushing(){
+        return _pushing;
     }
 
     public Rigidbody GetRigidBody(){
@@ -77,4 +85,5 @@ public class CajaPushNuevo : MonoBehaviour, IPushable
     public bool GetBloquearMoviento(){
         return _cajaBloqueada;
     }
+
 }

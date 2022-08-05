@@ -8,6 +8,8 @@ public interface IPushable
 
     void SetPushing(bool activo);
 
+    bool IsPushing();
+
     Rigidbody GetRigidBody();
 
     float GetPaddingJugador();
@@ -17,4 +19,5 @@ public interface IPushable
     void SetBloquearMoviento(bool bloquear);
 
     bool GetBloquearMoviento();
+
 }
