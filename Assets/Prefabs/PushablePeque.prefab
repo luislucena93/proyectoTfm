@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 5642387012638644332}
   _colorDetectado: {r: 0, g: 1, b: 0.8314667, a: 0}
   _rbMovible: {fileID: 9004952495282994128}
-  _paddingJugador: 0.7
+  _paddingJugador: 0.4
   _tipoCajaEnum: 0
 --- !u!54 &1467594641923768420
 Rigidbody:
@@ -194,7 +194,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 30
-  m_AngularDrag: 3.32
+  m_AngularDrag: 3
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -207,7 +207,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5627871456348499408}
-  m_Mesh: {fileID: 4694279654067950287, guid: 688e19ad7be76c845af6734e8a0eab96, type: 3}
+  m_Mesh: {fileID: -2076669129692759064, guid: fc5516d4c8c856a428da8c07191d8f9e, type: 3}
 --- !u!1 &8609913358857621778
 GameObject:
   m_ObjectHideFlags: 0
