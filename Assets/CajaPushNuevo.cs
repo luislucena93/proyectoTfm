@@ -19,7 +19,11 @@ public class CajaPushNuevo : MonoBehaviour, IPushable
 
     [SerializeField]
     [Range(0,5)]
-    float _paddingJugador;
+    float _paddingJugadorJ1;
+    //2.12 1.72
+    [SerializeField]
+    [Range(0,5)]
+    float _paddingJugadorJ2;
 
     [SerializeField]
     TipoCajaEnum _tipoCajaEnum;
@@ -68,8 +72,11 @@ public class CajaPushNuevo : MonoBehaviour, IPushable
         return _rbMovible;;
     }
 
-    public float GetPaddingJugador(){
-        return _paddingJugador;
+    public float GetPaddingJugador1(){
+        return _paddingJugadorJ1;
+    }
+    public float GetPaddingJugador2(){
+        return _paddingJugadorJ2;
     }
 
 

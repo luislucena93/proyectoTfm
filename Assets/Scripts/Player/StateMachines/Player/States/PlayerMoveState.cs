@@ -6,7 +6,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Enter() 
     {
-        Debug.Log("Enter Move");
+        //Debug.Log("Enter Move");
         stateMachine.animator.SetBool(GameConstants.isMovingHash, true);
     }
 
@@ -65,7 +65,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Exit() 
     {
-        Debug.Log("Exit Move");
+        //Debug.Log("Exit Move");
         stateMachine.animator.SetBool(GameConstants.isMovingHash, false);
     }
 

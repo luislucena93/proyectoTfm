@@ -651,8 +651,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4263173522900760}
   - component: {fileID: 95586128617617380}
+  - component: {fileID: 7261317974351353761}
   m_Layer: 0
-  m_Name: Cabezon
+  m_Name: Max
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,6 +691,7 @@ Transform:
   - {fileID: 4547937131638786}
   - {fileID: 4183541284701340}
   - {fileID: 4555467980656486}
+  - {fileID: 2554172028646731907}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -703,15 +705,41 @@ Animator:
   m_GameObject: {fileID: 1132238362247284}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c8c20564eb982f84a96a0d4d8e357cc5, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f220973ce4b03048a58eae8c354718b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'Clavicle_R'\n\tTransform 'Clavicle_R'\n\tFrom
+    animation clip 'CabezonMax'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7261317974351353761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132238362247284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a8e7806071f9e46b0c19167f0197fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tipo: 65
+  _recogido: 0
+  _renderers:
+  - {fileID: 137632821470812828}
+  - {fileID: 137874875598006656}
+  - {fileID: 23234263052551960}
+  - {fileID: 638002840756186812}
+  - {fileID: 638108284004528738}
+  _renderPeana: {fileID: 3691000275023547372}
+  _materialDesactivado: {fileID: 2100000, guid: 85bb82a77e4f9734db1ff575eb3086cd, type: 2}
+  _materialDesactivadoPeana: {fileID: 2100000, guid: 2c0592b6582d13f499bdc5861f689204, type: 2}
 --- !u!1 &1165874820660524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,4 +5491,93 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4527600726021690, guid: 0c6f1c9630bb0194783f0f803873c769, type: 3}
   m_PrefabInstance: {fileID: 616876496008321670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &638108284004528738 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23804417657530596, guid: 0c6f1c9630bb0194783f0f803873c769, type: 3}
+  m_PrefabInstance: {fileID: 616876496008321670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &638002840756186812 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23980157713478714, guid: 0c6f1c9630bb0194783f0f803873c769, type: 3}
+  m_PrefabInstance: {fileID: 616876496008321670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2577067117745661186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4263173522900760}
+    m_Modifications:
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 73.53099
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863136016219475771, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_Name
+      value: PrefabBaseCabezonesBuenos
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223437385794334446, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 944e9a2716a4ece4cb4444ad3ed710fa, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+--- !u!4 &2554172028646731907 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 50006951377753473, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+  m_PrefabInstance: {fileID: 2577067117745661186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3691000275023547372 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1223437385794334446, guid: 5a379a996a0ca0f4b9261fd28ffd511d, type: 3}
+  m_PrefabInstance: {fileID: 2577067117745661186}
   m_PrefabAsset: {fileID: 0}

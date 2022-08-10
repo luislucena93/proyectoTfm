@@ -12,7 +12,9 @@ public interface IPushable
 
     Rigidbody GetRigidBody();
 
-    float GetPaddingJugador();
+    float GetPaddingJugador1();
+
+    float GetPaddingJugador2();
 
     TipoCajaEnum GetTipoCajaEnum();
 

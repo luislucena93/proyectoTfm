@@ -7,7 +7,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Enter() 
     {
-        Debug.Log("Enter Idle");
+        //Debug.Log("Enter Idle");
         stateMachine.animator.SetBool("isPushing", false);
     }
 
@@ -54,7 +54,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Exit() 
     {
-        Debug.Log("Exit Idle");
+        //Debug.Log("Exit Idle");
     }
 
     protected void CheckReparando(){

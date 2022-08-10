@@ -51,7 +51,8 @@ MonoBehaviour:
   - {fileID: 8515424421800102495}
   _colorDetectado: {r: 0, g: 1, b: 0.8314667, a: 0}
   _rbMovible: {fileID: 8538377570286808100}
-  _paddingJugador: 0.25
+  _paddingJugadorJ1: 2.12
+  _paddingJugadorJ2: 1.85
   _tipoCajaEnum: 1
 --- !u!54 &6166392977956532528
 Rigidbody:
@@ -80,8 +81,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2795271, y: 2.1894581, z: 1.0591693}
-  m_Center: {x: -0.0023296813, y: -0.21284023, z: 0.027956013}
+  m_Size: {x: 1.2196345, y: 2.1894581, z: 0.83234257}
+  m_Center: {x: -0.032276142, y: -0.21284023, z: -0.016659744}
 --- !u!65 &6197757920066647676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9299759, y: 2.171433, z: 0.76061994}
-  m_Center: {x: 0.0021501023, y: -0.21174397, z: 0.0069307317}
+  m_Size: {x: 1.6849545, y: 2.171433, z: 0.55358887}
+  m_Center: {x: -0.015320243, y: -0.21174397, z: -0.04845332}
 --- !u!1 &8537487696248574369
 GameObject:
   m_ObjectHideFlags: 0

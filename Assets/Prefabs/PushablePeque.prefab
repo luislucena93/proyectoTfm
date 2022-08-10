@@ -50,7 +50,8 @@ MonoBehaviour:
   - {fileID: 5642387012638644332}
   _colorDetectado: {r: 0, g: 1, b: 0.8314667, a: 0}
   _rbMovible: {fileID: 9004952495282994128}
-  _paddingJugador: 0.4
+  _paddingJugadorJ1: 1.72
+  _paddingJugadorJ2: 1.47
   _tipoCajaEnum: 0
 --- !u!54 &1467594641923768420
 Rigidbody:

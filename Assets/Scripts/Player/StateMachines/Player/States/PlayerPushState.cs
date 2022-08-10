@@ -29,11 +29,18 @@ public class PlayerPushState : PlayerBaseState {
         _rbPush = _iPushable.GetRigidBody();
         Vector3 v3Translacion = stateMachine.transform.position - _rbPush.gameObject.transform.position;
         v3Translacion.y = 0;
-        stateMachine.characterController.Move(v3Translacion.normalized*_iPushable.GetPaddingJugador());
+        //stateMachine.characterController.Move(v3Translacion.normalized*_iPushable.GetPaddingJugador());
 
         Physics.SyncTransforms();
+        Debug.Log("Objeto right" +_rbPush.gameObject.transform.right);
+        Debug.Log("Objeto fw" +_rbPush.gameObject.transform.forward);
+        Debug.Log("Player fw" +stateMachine.transform.forward);
+        Debug.Log("Dot right" +Vector3.Dot(_rbPush.gameObject.transform.right,stateMachine.transform.forward));
+        Debug.Log("Dot fw" +Vector3.Dot(_rbPush.gameObject.transform.forward,stateMachine.transform.forward));
+        LogicaPaddingInicio();
+        Physics.SyncTransforms();
 
-        Debug.Log("Posicion rb enter " + _rbPush.gameObject.transform.position);
+        //Debug.Log("Posicion rb enter " + _rbPush.gameObject.transform.position);
         _v3DiferenciaJugadorCaja = stateMachine.characterController.transform.position - _rbPush.gameObject.transform.position;
 
         TipoCajaEnum tipoCaja = _iPushable.GetTipoCajaEnum();
@@ -144,12 +151,67 @@ public class PlayerPushState : PlayerBaseState {
            // Debug.Log("_tiempoRestanteCongelar "+_tiempoTransicionCongelar);
         }   else{
             if(movement.magnitude > 0){
-                stateMachine.animator.speed = 0.3f;
+                stateMachine.animator.speed = 0.5f;
             } else
             {
                 stateMachine.animator.speed = 0f;
             }
         }
+    }
+
+
+    private void LogicaPaddingInicio(){
+        Physics.SyncTransforms();
+        Debug.Log("Objeto right" +_rbPush.gameObject.transform.right);
+        Debug.Log("Objeto fw" +_rbPush.gameObject.transform.forward);
+        Debug.Log("Player fw" +stateMachine.transform.forward);
+        Debug.Log("Dot right" +Vector3.Dot(_rbPush.gameObject.transform.right,stateMachine.transform.forward));
+        Debug.Log("Dot fw" +Vector3.Dot(_rbPush.gameObject.transform.forward,stateMachine.transform.forward));
+        float dotRight = Vector3.Dot(_rbPush.gameObject.transform.right,stateMachine.transform.forward);
+        float dotForward = Vector3.Dot(_rbPush.gameObject.transform.forward,stateMachine.transform.forward);
+
+        Vector3 calculado, mirar;
+        float padding;
+        if(stateMachine.gameObject.name == "Juagador1"){
+            padding = _iPushable.GetPaddingJugador1();
+        }   else{
+            padding = _iPushable.GetPaddingJugador2();
+        }
+
+        if(dotRight*dotRight > dotForward*dotForward){
+            if(dotRight > 0){
+                calculado = _rbPush.gameObject.transform.position 
+                    - _rbPush.gameObject.transform.right*padding;
+                mirar =  _rbPush.gameObject.transform.right;
+            }   else{
+                calculado = _rbPush.gameObject.transform.position
+                    + _rbPush.gameObject.transform.right*padding;
+                mirar = - _rbPush.gameObject.transform.right;  
+            }
+        }   else{
+            if(dotForward > 0){
+                calculado = _rbPush.gameObject.transform.position
+                    - _rbPush.gameObject.transform.forward*padding;
+                    mirar =  _rbPush.gameObject.transform.forward;
+            } else{
+                calculado = _rbPush.gameObject.transform.position
+                    + _rbPush.gameObject.transform.forward*padding;
+                    mirar = - _rbPush.gameObject.transform.forward;
+            }
+        }
+        Debug.Log("Calculado "+calculado);
+        Debug.Log("Actual "+stateMachine.characterController.transform.position);
+
+        /*GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = calculado;
+        cube.transform.localScale = new Vector3(0.1f,0.1f,0.1f);*/
+
+
+
+        stateMachine.characterController.transform.position = calculado;
+        stateMachine.characterController.transform.forward = mirar;
+        Physics.SyncTransforms();
+
     }
 
 }
