@@ -112,4 +112,10 @@ public class Peana : MonoBehaviour, IInteraccionable
         _explosion.GetComponent<Explosion>().Activar();
         _hologramaBot.SetActive(true);
     }
+
+    public void BotFinalizado(){
+        Debug.Log("Peana bot finalizado");
+        _botActivo = false;
+        _hologramaBot.SetActive(true);
+    }
 }

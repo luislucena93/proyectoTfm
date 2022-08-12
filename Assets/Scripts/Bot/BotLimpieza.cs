@@ -152,4 +152,10 @@ public class BotLimpieza :  MonoBehaviour, IDanhable
     public void SetPeanaBase(Peana peana){
         this._peanaBase = peana;
     }
+
+
+    public void BotFinalizado(){
+        this._peanaBase.BotFinalizado();
+        this.gameObject.SetActive(false);
+    }
 }

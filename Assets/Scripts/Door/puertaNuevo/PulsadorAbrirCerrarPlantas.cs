@@ -14,9 +14,9 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
     // Start is called before the first frame update
 
     [SerializeField]
-    GameObject _goPuertaIPuerta;
+    List<GameObject> _listGoPuertaIPuerta = new List<GameObject>();
 
-    IPuerta _iPuerta;
+    List<IPuerta> _listIPuerta = new List<IPuerta>();
 
     private bool _interaccionando;
 
@@ -33,7 +33,7 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
 
     private static string MENSAJE_CERRANDO = "Cerrando";
 
-    private static string MENSAJE_ABIERTO = "Abrierto";
+    private static string MENSAJE_ABIERTO = "Abierto";
 
     private static string MENSAJE_CERRADO = "Cerrado";
 
@@ -44,13 +44,15 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
     void Start()
     {
         _textoAccion.text = "";
-        _iPuerta = _goPuertaIPuerta.GetComponent<IPuerta>();
-        if(_iPuerta == null){
-            Debug.Log("IPuerta no encontrada "+this.name);
-        }   else{
-            _iPuerta.SetIListenerAbrir(this);
+        IPuerta iAux;
+        for(int i= 0; i < _listGoPuertaIPuerta.Count; i++){
+            iAux = _listGoPuertaIPuerta[i].GetComponent<IPuerta>();
+            if(iAux != null){
+                _listIPuerta.Add(iAux);
+                iAux.SetIListenerAbrir(this);
+            }
         }
-
+        
         _goCanvasTextoPulsador.SetActive(false);
     }
 
@@ -64,22 +66,35 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
     public void ComenzarInteraccion(){
         _interaccionando = true;
         _goCanvasTextoPulsador.SetActive(true);
-
-        if(_iPuerta.isAbriendo() || _iPuerta.isAbierta()){
-            _textoAccion.text = MENSAJE_CERRANDO;
-            _iPuerta.Cerrar();
-        }   else if(_iPuerta.isCerrando() || !_iPuerta.isAbierta()){
-            _textoAccion.text = MENSAJE_ABRIENDO;
-            _iPuerta.Abrir();
+        if(_listIPuerta.Count > 0){
+            if(_listIPuerta[0].isAbriendo() || _listIPuerta[0].isAbierta()){
+                _textoAccion.text = MENSAJE_CERRANDO;
+                for(int i= 0; i < _listIPuerta.Count; i++){
+                    _listIPuerta[i].Cerrar();
+                }
+            }   else if(_listIPuerta[0].isCerrando() || !_listIPuerta[0].isAbierta()){
+                _textoAccion.text = MENSAJE_ABRIENDO;
+                for(int i= 0; i < _listIPuerta.Count; i++){
+                    _listIPuerta[i].Abrir();
+                }
+            }
         }
+        
     }
 
     public void PausarInteraccion(){
         _interaccionando = false;
+        for(int i= 0; i < _listIPuerta.Count; i++){
+            _listIPuerta[i].Cerrar();
+        }
     }
 
     public void FinalizarInteraccion(){
         _interaccionando = false;
+
+        for(int i= 0; i < _listIPuerta.Count; i++){
+            _listIPuerta[i].Cerrar();
+        }
     }
 
 
@@ -166,14 +181,16 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
 
     private void LogicaMensajesCartelesNoInteraccionando(){
         _sb.Clear();
-        if(_iPuerta.isAbriendo()){
-            _sb.Append(MENSAJE_ABRIENDO).Append(MENSAJE_SALTO_LINEA).Append(MENSAJE_PULSA_CERRAR);
-        }   else if(_iPuerta.isCerrando()){
-            _sb.Append(MENSAJE_CERRANDO).Append(MENSAJE_SALTO_LINEA).Append(MENSAJE_PULSA_ABRIR);
-        }   else if(_iPuerta.isAbierta()){
-            _sb.Append(MENSAJE_PULSA_CERRAR);
-        }   else{
-            _sb.Append(MENSAJE_PULSA_ABRIR);
+        if(_listIPuerta.Count > 0){
+            if(_listIPuerta[0].isAbriendo()){
+                _sb.Append(MENSAJE_ABRIENDO).Append(MENSAJE_SALTO_LINEA).Append(MENSAJE_PULSA_CERRAR);
+            }   else if(_listIPuerta[0].isCerrando()){
+                _sb.Append(MENSAJE_CERRANDO).Append(MENSAJE_SALTO_LINEA).Append(MENSAJE_PULSA_ABRIR);
+            }   else if(_listIPuerta[0].isAbierta()){
+                _sb.Append(MENSAJE_PULSA_CERRAR);
+            }   else{
+                _sb.Append(MENSAJE_PULSA_ABRIR);
+            }
         }
 
         _textoAccion.text = _sb.ToString();
