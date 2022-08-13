@@ -21,10 +21,19 @@ public class GestorColeccionables : MonoBehaviour
     GameObject _goCanvasColeccionables;
 
 
+    string _cadenaColeccionables = "";
+
+    private void Awake() {
+        //Reset coleccionables
+        PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,"");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         OcultarTodos();
+        RecuperarCadenaColeccionables();
+        CheckColeccionablesEscena();
     }
 
     // Update is called once per frame
@@ -33,7 +42,7 @@ public class GestorColeccionables : MonoBehaviour
         
     }
 
-    public void Activar(EnumColeccionable enumC){
+    public void Seleccionar(EnumColeccionable enumC){
         for(int i = 0; i < _listaColeccionables.Count; i++){
             if(_listaColeccionables[i].GetEnumColeccionable() == enumC){
                 _listaColeccionables[i].SetActivo(true);
@@ -46,7 +55,7 @@ public class GestorColeccionables : MonoBehaviour
 
     public void SetRecogido(string cadena){
         for(int i = 0; i < _listaColeccionables.Count; i++){
-//            Debug.Log("letra "+((char)_listaColeccionables[i].GetEnumColeccionable()));
+            Debug.Log("letra "+((char)_listaColeccionables[i].GetEnumColeccionable()));
             _listaColeccionables[i].SetRecogido(cadena.Contains(((char)_listaColeccionables[i].GetEnumColeccionable()).ToString()));
         }
     }
@@ -70,8 +79,8 @@ public class GestorColeccionables : MonoBehaviour
     }
 
     private void Inicializar(){
-        SetRecogido("AB");
-        Activar(EnumColeccionable.Max);
+        SetRecogido(_cadenaColeccionables);
+        Seleccionar(EnumColeccionable.Max);
         ActualizarBotones();
     }
 
@@ -92,5 +101,33 @@ public class GestorColeccionables : MonoBehaviour
         _goCanvasColeccionables.SetActive(false);
     }
 
+    private void CheckColeccionablesEscena(){
+        GameObject[] coleccionables = GameObject.FindGameObjectsWithTag(GameConstants.TAG_OBJETO_COLECCIONABLE);
+        if(coleccionables != null && coleccionables.Length > 0 ){
+            foreach(GameObject go in coleccionables){
+                Coleccionable col = go.GetComponent<Coleccionable>();
+                if(col != null){
+                    string cadena = ((char) col.GetEnumColeccionable()).ToString();
+                    if(_cadenaColeccionables.Contains(cadena)){
+                        go.SetActive(false);
+                    }
+                }
+            }
+        }
+    }
 
+
+    public void Recogido(EnumColeccionable enumC){
+        _cadenaColeccionables+=(char) enumC;
+        PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,_cadenaColeccionables);
+        Debug.Log("Recogido "+enumC.ToString()+"  cadena final "+_cadenaColeccionables);
+    }
+
+    private void RecuperarCadenaColeccionables(){
+        _cadenaColeccionables = PlayerPrefs.GetString(GameConstants.PLAYER_PREFS_COLECCIONABLES);
+        if(_cadenaColeccionables == null || _cadenaColeccionables.Length == 0){
+            _cadenaColeccionables = "A";
+        }
+        Debug.Log("RecuperarCadena "+_cadenaColeccionables);
+    }
 }

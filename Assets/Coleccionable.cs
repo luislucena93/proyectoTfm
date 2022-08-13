@@ -27,7 +27,7 @@ public class Coleccionable : MonoBehaviour
 
     Material _materialOriginalPeana;
 
-    private void Start() {
+    private void Awake() {
         _nombre = _tipo.ToString();
         for(int i = 0; i < _renderers.Count; i++){
             _materialesOriginales.Add(_renderers[i].material);
@@ -63,6 +63,31 @@ public class Coleccionable : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other) {
+        CheckPlayer(other);
+    }
+
+
+    private void OnCollisionEnter(Collision other) {
+        CheckPlayer(other.collider);
+    }
+
+
+    private void CheckPlayer(Collider other){
+        if(other.CompareTag(GameConstants.TAG_PLAYER)){
+            GameObject gestor = GameObject.FindGameObjectWithTag(GameConstants.TAG_GESTOR_COLECCIONABLES);
+            if(gestor != null){
+                GestorColeccionables g = gestor.GetComponent<GestorColeccionables>();
+                if(g != null){
+                    g.Recogido(_tipo);
+                }
+            }
+            this.gameObject.SetActive(false);
+        }
+    }
+
+
+
 }
 
-public enum EnumColeccionable {Max='A',El='B',Ella='C',Soldado='D',Robot='E',Psycho='F',Dino='G',GirlBoss='H',Boss='I'};
+public enum EnumColeccionable {Max='A',Lucas='B',Jane='C',Soldado='D',Robot='E',Psycho='F',Dino='G',GirlBoss='H',Boss='I'};

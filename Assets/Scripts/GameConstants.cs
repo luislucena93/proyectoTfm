@@ -13,4 +13,11 @@ public class GameConstants : MonoBehaviour
 
     public readonly static int isDead = Animator.StringToHash("isDead");
 
+    public readonly static string TAG_OBJETO_COLECCIONABLE = "ObjetoColeccionable";
+
+    public readonly static string TAG_GESTOR_COLECCIONABLES = "GestorColeccionables";
+
+    public readonly static string TAG_PLAYER = "Player";
+    public readonly static string PLAYER_PREFS_COLECCIONABLES = "PlayerPrefsColeccionables";
+
 }

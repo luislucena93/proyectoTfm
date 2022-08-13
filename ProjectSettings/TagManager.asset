@@ -14,6 +14,8 @@ TagManager:
   - UIJ2
   - Ground
   - Object
+  - ObjetoColeccionable
+  - GestorColeccionables
   layers:
   - Default
   - TransparentFX

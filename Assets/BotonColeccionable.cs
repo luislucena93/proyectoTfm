@@ -39,7 +39,7 @@ public class BotonColeccionable : MonoBehaviour, ISelectHandler
 
     public void ActivarColeccionable(){
         //Debug.Log("click");
-        _gestor.Activar(_goColeccionable.GetEnumColeccionable());
+        _gestor.Seleccionar(_goColeccionable.GetEnumColeccionable());
     }
 
     public void ActualizarBoton(){
