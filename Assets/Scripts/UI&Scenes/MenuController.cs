@@ -16,6 +16,8 @@ public class MenuController : MonoBehaviour
 
     public GameObject _reiniciarButton;
 
+    public GameObject _coleccionablesButton;
+
     public GameObject _textoPausa;
     public GameObject _textoDead;
 
@@ -30,6 +32,14 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     bool _nivelCero;
 
+    [SerializeField]
+    GestorColeccionables _gestorColeccionables;
+
+    [SerializeField]
+    CanvasHUDAnim _canvasUIJuego;
+
+    bool _pantallaColeccionablesActiva;
+
     private void Awake() {
         _rutaFichero = Application.persistentDataPath + "/gamesave.save";
        // Debug.Log("ruta awake"+_rutaFichero);
@@ -40,19 +50,21 @@ public class MenuController : MonoBehaviour
     }
 
     public void OpenCloseMenu() {
-        InitialButton.SetActive(true);
-        gameObject.SetActive(true);
-        _textoDead.SetActive(false);
-        _textoPausa.SetActive(true);
-        if (menu.GetBool("menuIsOpen") == false) {
-            menu.SetBool("menuIsOpen", true);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(InitialButton);
-            Time.timeScale = 0f;
-        }
-        else {
-            Time.timeScale = 1f;
-            menu.SetBool("menuIsOpen", false);
+        if(!_pantallaColeccionablesActiva){
+            InitialButton.SetActive(true);
+            gameObject.SetActive(true);
+            _textoDead.SetActive(false);
+            _textoPausa.SetActive(true);
+            if (menu.GetBool("menuIsOpen") == false) {
+                menu.SetBool("menuIsOpen", true);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(InitialButton);
+                Time.timeScale = 0f;
+            }
+            else {
+                Time.timeScale = 1f;
+                menu.SetBool("menuIsOpen", false);
+            }
         }
     }
     public void Continue() {
@@ -103,6 +115,7 @@ public class MenuController : MonoBehaviour
      public void CheckMuertos(){
         InitialButton.SetActive(false);
         if(_p1StateMachine.IsDead() && _p2StateMachine.IsDead()){
+            _coleccionablesButton.SetActive(false);
             _textoDead.SetActive(true);
             _textoPausa.SetActive(false);
             if (menu.GetBool("menuIsOpen") == false) {
@@ -158,6 +171,29 @@ public class MenuController : MonoBehaviour
     private void CompruebaRecargarGuardarDatos(){
         if(!_nivelCero && !_comienzoNivel){
             CargarDatosPartida();
+        }
+    }
+
+    public void AbrirColeccionables(){
+        _textoDead.SetActive(false);
+        _textoPausa.SetActive(false);
+        menu.SetBool("menuIsOpen", false);
+        _gestorColeccionables.AbrirColeccionables();
+        _pantallaColeccionablesActiva = true;
+        _canvasUIJuego.Ocultar();
+
+    }
+
+    public void CerrarColeccionables(){
+        _gestorColeccionables.CerrarColeccionables();
+        _canvasUIJuego.Mostrar();
+        _textoDead.SetActive(false);
+        _textoPausa.SetActive(true);
+        _pantallaColeccionablesActiva = false;
+        if (menu.GetBool("menuIsOpen") == false) {
+            menu.SetBool("menuIsOpen", true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(InitialButton);
         }
     }
 

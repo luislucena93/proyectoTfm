@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class BotonColeccionable : MonoBehaviour
+using System;
+using UnityEngine.EventSystems;
+public class BotonColeccionable : MonoBehaviour, ISelectHandler
 {
     public Coleccionable _goColeccionable;
 
@@ -37,14 +38,26 @@ public class BotonColeccionable : MonoBehaviour
 
 
     public void ActivarColeccionable(){
-        Debug.Log("click");
+        //Debug.Log("click");
         _gestor.Activar(_goColeccionable.GetEnumColeccionable());
     }
 
     public void ActualizarBoton(){
         bool recogido = _goColeccionable.GetRecogido();
-        _bordeBoton.color = recogido ? _colorBordeOriginal : _colorBordeDesactivado;
-        _icono.color = recogido ? _coloriconoOriginal : _colorIconoDesactivado;
+        try{
+            _bordeBoton.color = recogido ? _colorBordeOriginal : _colorBordeDesactivado;
+            _icono.color = recogido ? _coloriconoOriginal : _colorIconoDesactivado;
+        }   catch (NullReferenceException e){
+            
+            Debug.Log("Excepcion en boton "+gameObject.name+" excepcion: "+e.StackTrace);
+        }
+        
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        //Debug.Log(this.gameObject.name + " was selected");
+        _boton.onClick.Invoke();
     }
 }
 
