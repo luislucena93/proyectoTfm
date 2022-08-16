@@ -15,13 +15,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1398320186731392, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
+      propertyPath: m_TagString
+      value: ObjetoColeccionable
+      objectReference: {fileID: 0}
     - target: {fileID: 4078725191484616, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4078725191484616, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078725191484616, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078725191484616, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078725191484616, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.84
       objectReference: {fileID: 0}
     - target: {fileID: 4078725191484616, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61,3 +77,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
+--- !u!1 &6001499983224041752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1398320186731392, guid: cb875a388ec05c240bacbcf83b848ef0, type: 3}
+  m_PrefabInstance: {fileID: 6002572265665321624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &753875605
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001499983224041752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 0.54, z: 0}

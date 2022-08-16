@@ -23,6 +23,14 @@ public class GestorColeccionables : MonoBehaviour
 
     string _cadenaColeccionables = "";
 
+    [SerializeField]
+    Animator _animatorDialogoRecogido;
+
+    [SerializeField]
+    TMP_Text _textoDialogColeccionable;
+
+    
+
     private void Awake() {
         //Reset coleccionables
         PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,"");
@@ -121,6 +129,8 @@ public class GestorColeccionables : MonoBehaviour
         _cadenaColeccionables+=(char) enumC;
         PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,_cadenaColeccionables);
         Debug.Log("Recogido "+enumC.ToString()+"  cadena final "+_cadenaColeccionables);
+        _animatorDialogoRecogido.SetBool("Animar",true);
+        _textoDialogColeccionable.text = enumC.ToString()+" desbloqueado.";
     }
 
     private void RecuperarCadenaColeccionables(){

@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1132238362247284, guid: 0e18cda5e8fffaa46b37c88dcbbd09e6, type: 3}
       propertyPath: m_TagString
-      value: ObjectoColeccionable
+      value: ObjetoColeccionable
       objectReference: {fileID: 0}
     - target: {fileID: 4263173522900760, guid: 0e18cda5e8fffaa46b37c88dcbbd09e6, type: 3}
       propertyPath: m_RootOrder
@@ -77,3 +77,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e18cda5e8fffaa46b37c88dcbbd09e6, type: 3}
+--- !u!1 &6730248551669825067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1132238362247284, guid: 0e18cda5e8fffaa46b37c88dcbbd09e6, type: 3}
+  m_PrefabInstance: {fileID: 6729117427889602143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1470573422
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730248551669825067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 0.54, z: 0}

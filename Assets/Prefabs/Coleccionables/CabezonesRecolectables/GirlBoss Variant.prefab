@@ -11,13 +11,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: GirlBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 1115756086394208, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
+      propertyPath: m_TagString
+      value: ObjetoColeccionable
+      objectReference: {fileID: 0}
     - target: {fileID: 4090538843458608, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4090538843458608, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.99
       objectReference: {fileID: 0}
     - target: {fileID: 4090538843458608, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57,3 +73,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
+--- !u!1 &3180567546178219782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1115756086394208, guid: 41eae0294970d864d8f92852376ce9b8, type: 3}
+  m_PrefabInstance: {fileID: 3179633226729247334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &805066694
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180567546178219782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 0.54, z: 0}
