@@ -98,9 +98,14 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDe
 
     public TipoCajaEnum _fuerzaTipoCaja = TipoCajaEnum.Ligera;
 
+    [SerializeField]
+    AnimatorOverrideController _animatiorOverrideController;
+
 
     private void Start()
     {
+        animator.runtimeAnimatorController = _animatiorOverrideController;
+
         hudJugador.SetNivelSalud(_nivelSalud); 
         _escudo = GetComponent<Escudo>();
         

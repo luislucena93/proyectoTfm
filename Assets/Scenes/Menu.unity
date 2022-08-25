@@ -5390,6 +5390,10 @@ PrefabInstance:
       propertyPath: _goColeccionable
       value: 
       objectReference: {fileID: 1703100900}
+    - target: {fileID: 8368228672661828537, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8914096208512585297, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
       propertyPath: m_Transition
       value: 1
