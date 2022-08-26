@@ -19,7 +19,7 @@ public class DialogTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       if (other.gameObject.tag == "Player" && !wasOpen)
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER) && !wasOpen)
         {
             TriggerDialogue();
             wasOpen = true;

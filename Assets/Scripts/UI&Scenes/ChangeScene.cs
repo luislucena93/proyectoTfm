@@ -13,8 +13,7 @@ public class ChangeScene : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.tag == "Player") 
-        {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             StartCoroutine(NextLevel());
         }
     }

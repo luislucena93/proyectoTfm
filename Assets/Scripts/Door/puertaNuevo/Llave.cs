@@ -50,8 +50,8 @@ public class Llave : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other) {
-        
-        if(other.gameObject.tag == "Player" && _activo) {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER) 
+                && _activo) {
             IPuerta iPuerta = _puerta.GetComponent<IPuerta>();
             if(iPuerta != null){
                 iPuerta.Abrir(_tipoLlave); 

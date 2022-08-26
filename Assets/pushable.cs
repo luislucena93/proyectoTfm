@@ -14,16 +14,14 @@ public class pushable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             messageCanvas.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             messageCanvas.SetActive(false);
         }
     }

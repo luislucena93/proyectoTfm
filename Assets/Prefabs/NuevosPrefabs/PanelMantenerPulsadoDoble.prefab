@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 490445447038506660}
   - component: {fileID: 496250678644828770}
   - component: {fileID: 4829325343288426055}
-  - component: {fileID: 5488392923468913691}
+  - component: {fileID: 966305041831767978}
   m_Layer: 0
   m_Name: PanelMantenerPulsadoDoble
   m_TagString: Interaccionable
@@ -27,11 +27,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482976595937409112}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.04, y: 1.522, z: 19.175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5361661448421336686}
+  - {fileID: 2178773903266854399}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8250927, y: 1.59, z: 0.47}
   m_Center: {x: 0, y: -0.51, z: 0.27}
---- !u!114 &5488392923468913691
+--- !u!114 &966305041831767978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,12 +107,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 482976595937409112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad1ce03b3ce53b45ba9fafca3969806, type: 3}
+  m_Script: {fileID: 11500000, guid: 54e7dc7c50ce9b44da215d18236bf975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _goCanvasTextoPulsador: {fileID: 3560210528079489269}
   _textoAccion: {fileID: 5928818694693585614}
-  _goPuertaIPuerta: {fileID: 0}
+  _goPosicionarMano: {fileID: 7159941947097922290}
 --- !u!1 &3560210528079489269
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,3 +423,33 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7159941947097922290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2178773903266854399}
+  m_Layer: 0
+  m_Name: GOPosicionMano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2178773903266854399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159941947097922290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.069}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 479355106577138794}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

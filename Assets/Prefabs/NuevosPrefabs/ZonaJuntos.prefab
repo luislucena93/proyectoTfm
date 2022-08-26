@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rendererZona: {fileID: 551289282291694032}
   _colorActivo: {r: 0.22459061, g: 0.9716981, b: 0.2409989, a: 0.6666667}
-  _tipoZonaEnum: 0
+  _tipoZonaEnum: 1
 --- !u!1 &3086222260403259510
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ public class ElementoFinal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             _goBolaFinal.SetActive(false);
             _goTextoFinal.SetActive(true);
             _recogida = true;

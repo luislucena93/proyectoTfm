@@ -42,7 +42,7 @@ public class PulsadorAlternarMaquinas : MonoBehaviour, IInteraccionable
 
     private void OnTriggerEnter(Collider other) {
         
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
                 MostrarMensajeMantener();
             }   else{
@@ -52,7 +52,7 @@ public class PulsadorAlternarMaquinas : MonoBehaviour, IInteraccionable
     }
 
     private void OnTriggerStay(Collider other) {
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
                 MostrarMensajeMantener();
             }   else{
@@ -62,7 +62,7 @@ public class PulsadorAlternarMaquinas : MonoBehaviour, IInteraccionable
     }
 
     private void OnTriggerExit(Collider other) {
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             OcultarMensaje();
             FinalizarInteraccion();
         }
@@ -85,7 +85,7 @@ public class PulsadorAlternarMaquinas : MonoBehaviour, IInteraccionable
 
  
     private void OnCollisionEnter(Collision other){
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
                 MostrarMensajeMantener();
             }   else{
@@ -95,7 +95,7 @@ public class PulsadorAlternarMaquinas : MonoBehaviour, IInteraccionable
     }
 
     private void OnCollisionStay(Collision other) {
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
                 MostrarMensajeMantener();
             }   else{
@@ -105,7 +105,7 @@ public class PulsadorAlternarMaquinas : MonoBehaviour, IInteraccionable
     }
 
     private void OnCollisionExit(Collision other){
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
 
             FinalizarInteraccion();
         }

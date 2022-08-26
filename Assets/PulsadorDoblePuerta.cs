@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PulsadorMantenido : MonoBehaviour, IInteraccionable
+public class PulsadorDoblePuerta : MonoBehaviour, IInteraccionable
 {
     [SerializeField]
     GameObject _goCanvasTextoPulsador;
@@ -12,101 +12,102 @@ public class PulsadorMantenido : MonoBehaviour, IInteraccionable
     TMP_Text _textoAccion;
     // Start is called before the first frame update
 
-    [SerializeField]
-    GameObject _goPuertaIPuerta;
+    
 
-    IPuerta _iPuerta;
+    [SerializeField]
+    GameObject _goPosicionarMano;
+
+    PadrePulsadorDoble _padrePulsadorDoble;
 
     private bool _interaccionando;
 
     private static string MENSAJE_VACIO = "";
     private static string MENSAJE_MANTENER_ABRIR= "Manten pulsado\npara abrir";
 
+    private static string MENSAJE_PUELTA_ABIERTA= "Puerta Abierta";
+
     void Start()
     {
+        _padrePulsadorDoble = GetComponentInParent<PadrePulsadorDoble>();
         _textoAccion.text = MENSAJE_MANTENER_ABRIR;
-        _iPuerta = _goPuertaIPuerta.GetComponent<IPuerta>();
-        if(_iPuerta == null){
-            Debug.Log("IPuerta no encontrada "+this.name);
-        }
+
 
         _goCanvasTextoPulsador.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     private void OnTriggerEnter(Collider other) {
-        
-        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
-            if(!_interaccionando){
-                MostrarMensajeMantener();
-            }   else{
-                OcultarMensaje();
-            }
-        }
+        OnEnter(other);
     }
 
     private void OnTriggerStay(Collider other) {
-        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
-            if(!_interaccionando){
-                MostrarMensajeMantener();
-            }   else{
-                OcultarMensaje();
-            }
-        }
+        OnStay(other);
     }
 
     private void OnTriggerExit(Collider other) {
-        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
-            OcultarMensaje();
-            FinalizarInteraccion();
-        }
+        OnExit(other);
+    }
+
+
+    private void OnCollisionEnter(Collision other){
+        OnEnter(other.collider);
+    }
+
+    private void OnCollisionStay(Collision other) {
+        OnStay(other.collider);
+    }
+
+    private void OnCollisionExit(Collision other){
+        OnExit(other.collider);
     }
 
     public void ComenzarInteraccion(){
         _interaccionando = true;
         _goCanvasTextoPulsador.SetActive(true);
-        _iPuerta.Abrir();
+        _padrePulsadorDoble.PulsadoHijo();
     }
 
     public void PausarInteraccion(){
         _interaccionando = false;
-        _iPuerta.Cerrar();
+        _padrePulsadorDoble.SoltadoHijo();
     }
 
     public void FinalizarInteraccion(){
         _interaccionando = false;
-        _iPuerta.Cerrar();
+        _padrePulsadorDoble.SoltadoHijo();
     }
 
 
  
-    private void OnCollisionEnter(Collision other){
+    private void OnEnter(Collider other){
         if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
-                MostrarMensajeMantener();
+                if(_padrePulsadorDoble.GetPuertaAbierta()){
+                    MostrarMensajeAbierta();
+                } else{
+                    MostrarMensajeMantener();
+                }
             }   else{
                 OcultarMensaje();
             }
         }
     }
 
-    private void OnCollisionStay(Collision other) {
+    private void OnStay(Collider other) {
         if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
-                MostrarMensajeMantener();
+                if(_padrePulsadorDoble.GetPuertaAbierta()){
+                    MostrarMensajeAbierta();
+                } else{
+                    MostrarMensajeMantener();
+                }
             }   else{
                 OcultarMensaje();
             }
         }
     }
 
-    private void OnCollisionExit(Collision other){
+    private void OnExit(Collider other){
         if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
 
             FinalizarInteraccion();
@@ -117,6 +118,10 @@ public class PulsadorMantenido : MonoBehaviour, IInteraccionable
         _goCanvasTextoPulsador.SetActive(true);
         _textoAccion.text = MENSAJE_MANTENER_ABRIR;
     }
+    private void MostrarMensajeAbierta(){
+        _goCanvasTextoPulsador.SetActive(true);
+        _textoAccion.text = MENSAJE_PUELTA_ABIERTA;
+    }
 
     private void OcultarMensaje(){
         _goCanvasTextoPulsador.SetActive(false);
@@ -124,6 +129,6 @@ public class PulsadorMantenido : MonoBehaviour, IInteraccionable
     }
 
     public Transform GetTransform(){
-        return gameObject.transform;
+        return _goPosicionarMano.transform;
     }
 }

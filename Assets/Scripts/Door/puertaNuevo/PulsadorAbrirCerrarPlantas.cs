@@ -126,14 +126,14 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
 
 
     private void ColliderEnter(Collider other){
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             _goCanvasTextoPulsador.SetActive(true);
             LogicaMensajesCartelesNoInteraccionando();
         }
     }
 
     private void ColliderStay(Collider other){
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(!_interaccionando){
                 LogicaMensajesCartelesNoInteraccionando();
             }
@@ -142,7 +142,7 @@ public class PulsadorAbrirCerrarPlantas : MonoBehaviour, IInteraccionable, IList
     }
 
     private void ColliderExit(Collider other){
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             _goCanvasTextoPulsador.SetActive(false);
             _interaccionando = false;
         }

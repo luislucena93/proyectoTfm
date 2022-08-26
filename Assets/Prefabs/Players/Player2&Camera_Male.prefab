@@ -3762,6 +3762,7 @@ MonoBehaviour:
   _segundoColliderCheckSuelo: 0
   _fuerzaBordeCajas: 0.3
   _fuerzaTipoCaja: 0
+  _animatiorOverrideController: {fileID: 22100000, guid: 9e4c8ef24f0d37441a74b90979de5093, type: 2}
 --- !u!114 &5826526022050867029
 MonoBehaviour:
   m_ObjectHideFlags: 0
