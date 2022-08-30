@@ -1,0 +1,39 @@
+    GameObject _goCanvasTextoPulsador;
+    GameObject _goPensando;
+    GameObject _goLuz;
+    GameObject _goIndicarInteraccion;
+
+    TMP_Text _textoNumero;
+    TMP_Text _textoAccion;
+    OrdenadorFinalSecundario _pcSecundarioA;
+    OrdenadorFinalSecundario _pcSecundarioB;
+    OrdenadorFinalSecundario _pcSecundarioC;
+
+    DepositoZonaFinal _depositoA;
+    DepositoZonaFinal _depositoB;
+    DepositoZonaFinal _depositoC;
+
+    GrupoTrampasElectricas _grupoElecA;
+    GrupoTrampasElectricas _grupoElecB;
+    GrupoTrampasElectricas _grupoElecC;
+
+    private static string MENSAJE_VACIO = "";
+    private static string MENSAJE_BIENVENIDA = "Bienvenidos";
+    private static string MENSAJE_lISTO = "Listos?";
+    private static string MENSAJE_REPETIMOS = "Repetimos?";
+    private static string MENSAJE_FASE2 = "Fase 2";
+    private static string MENSAJE_FASE3 = "Fase 3";
+    private static string MENSAJE_ENHORABUENA = "ENHORABUENA";
+
+    EnumEstadoPCFinalZona3  _estadoFase;
+    private bool _interaccionando;
+    bool _mostrarIndicarInteraccion;
+    bool _activo;
+    EntroEnNuevoEstado()
+
+    EnumPCFinalZona3 _pcPulsarActual
+    
+    int _pcsEstado7 = 3;
+    int _pcsEstado7Actual;
+    int _pcsEstado12 = 3;
+    int _pcsEstado12Actual;

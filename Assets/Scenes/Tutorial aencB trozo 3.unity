@@ -2442,6 +2442,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104658324}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &110228871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9131638910573609465, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+  m_PrefabInstance: {fileID: 1705996405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a4b4a2dae408c439d138a15d87b279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &121102012
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,6 +5396,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1183038459812056178, guid: 241e9f0daf39b5f4fa3bcddb73fad26a, type: 3}
   m_PrefabInstance: {fileID: 321332902}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &330467639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9131638910573609465, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+  m_PrefabInstance: {fileID: 5021223041409621128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a4b4a2dae408c439d138a15d87b279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &338750996
 GameObject:
   m_ObjectHideFlags: 0
@@ -11101,7 +11123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bbedeff88236a458262b041957f62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tiposLlaves: 0b000000
+  _tiposLlaves: 
   tiempoEsperaCerrarPuerta: 0.2
   _empiezaAbierta: 0
 --- !u!4 &653957328 stripped
@@ -11167,6 +11189,10 @@ PrefabInstance:
     - target: {fileID: 2141900112883977546, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
       propertyPath: m_Name
       value: TriggerInteraccionC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269665117530882186, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
+      propertyPath: _velocidadGiro
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
@@ -11863,11 +11889,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7304987657667849069, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.003804366
+      value: -0.0038043489
       objectReference: {fileID: 0}
     - target: {fileID: 7304987657667849069, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00060048385
+      value: 0.0006004811
       objectReference: {fileID: 0}
     - target: {fileID: 7304987657779990152, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16397,6 +16423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 728965550034125115, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2817502029167941906, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -16441,13 +16471,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351481958273248899, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886854363266920208, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5419737311119821498, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_Name
-      value: GrupoTrampasElectricas (1)
+      value: GrupoTrampasElectricasB
       objectReference: {fileID: 0}
     - target: {fileID: 5419737311119821498, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812270671956401728, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954121244677765543, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702056969859000193, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
@@ -16733,6 +16783,10 @@ PrefabInstance:
     - target: {fileID: 2141900112883977546, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
       propertyPath: m_Name
       value: TriggerInteraccionB
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269665117530882186, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
+      propertyPath: _velocidadGiro
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7258283847201211566, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
       propertyPath: m_Name
@@ -28360,6 +28414,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 728965550034125115, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2817502029167941906, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -28404,13 +28462,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351481958273248899, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886854363266920208, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5419737311119821498, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_Name
-      value: GrupoTrampasElectricas (2)
+      value: GrupoTrampasElectricasC
       objectReference: {fileID: 0}
     - target: {fileID: 5419737311119821498, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812270671956401728, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954121244677765543, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702056969859000193, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
@@ -31470,6 +31548,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8052396488964168568, guid: 3b7bafa5448f07442a234f99178cc8fb, type: 3}
   m_PrefabInstance: {fileID: 1908140006}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1930847680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9131638910573609465, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+  m_PrefabInstance: {fileID: 910590088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a4b4a2dae408c439d138a15d87b279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1932713246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4860323659035820, guid: 2a861479889b1514291f9570dd69ac35, type: 3}
@@ -35241,6 +35330,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 728965550034125115, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2817502029167941906, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -35285,13 +35378,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351481958273248899, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886854363266920208, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5419737311119821498, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_Name
-      value: GrupoTrampasElectricas
+      value: GrupoTrampasElectricasA
       objectReference: {fileID: 0}
     - target: {fileID: 5419737311119821498, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812270671956401728, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954121244677765543, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702056969859000193, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
+      propertyPath: _danhoInflingidoPorFixedUpdate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1ecd9c6e8cbe56498bd8f0f4cef4cd5, type: 3}
@@ -35453,11 +35566,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1411411108}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: _grupoElecA
+      value: 
+      objectReference: {fileID: 330467639}
+    - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: _grupoElecB
+      value: 
+      objectReference: {fileID: 1930847680}
+    - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: _grupoElecC
+      value: 
+      objectReference: {fileID: 110228871}
+    - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: _duracionFase1
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: _duracionFase2
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: _duracionFase3
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
@@ -35472,6 +35601,10 @@ PrefabInstance:
       propertyPath: _pcSecundarioC
       value: 
       objectReference: {fileID: 1089363917}
+    - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: _goCristalCamara
+      value: 
+      objectReference: {fileID: 649673791}
     - target: {fileID: 2818222678456817643, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -35556,6 +35689,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8469633112817062358, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: _velocidadGiro
+      value: 72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
 --- !u!4 &7998702801010743933 stripped
@@ -35625,6 +35762,10 @@ PrefabInstance:
     - target: {fileID: 2141900112883977546, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
       propertyPath: m_Name
       value: TriggerInteraccionA
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269665117530882186, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
+      propertyPath: _velocidadGiro
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7336315659213718820, guid: 935cf9f9b2d9d9d4d898f54ad2aee540, type: 3}
       propertyPath: m_text

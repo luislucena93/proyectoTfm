@@ -76,12 +76,30 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
     Coroutine _corutinaActual;
 
+    [SerializeField]
+    [Range(3,9)]
+    int _pcsEstado7 = 3;
+
+    int _pcsEstado7Actual;
+
+    [SerializeField]
+    [Range(3,9)]
+    int _pcsEstado12 = 3;
+
+    [SerializeField]
+    GameObject _goCristalCamara;
+
+    IPuerta _iPuertaCristal;
+
+
     void Start(){
         _pcSecundarioA.SetEnumPC(EnumPCFinalZona3.A, this);
         _pcSecundarioB.SetEnumPC(EnumPCFinalZona3.B, this);
         _pcSecundarioC.SetEnumPC(EnumPCFinalZona3.C, this);
 
-        _estadoFase = EnumEstadoPCFinalZona3.E04;
+        _estadoFase = EnumEstadoPCFinalZona3.E14;
+
+        _iPuertaCristal = _goCristalCamara.GetComponent<IPuerta>();
 
         StartCoroutine(InicioDelayed());
     }
@@ -169,10 +187,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
                 _mostrarIndicarInteraccion = true;
             break;
             case EnumEstadoPCFinalZona3.E01:
-                _textoAccion.text = MENSAJE_LISTO;
-                _mostrarIndicarInteraccion = false;
-                _goIndicarInteraccion.SetActive(false);
-                _goPensando.SetActive(true);
+                MostrarListo();
                 StartCoroutine(CorutinaFase01());
             break;
             case EnumEstadoPCFinalZona3.E02:
@@ -182,22 +197,11 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
                 _corutinaActual = StartCoroutine(CorutinaFase02());
             break;
             case EnumEstadoPCFinalZona3.E03:
-                _goCanvasTextoPulsador.SetActive(true);
-                _textoAccion.text = MENSAJE_REPETIMOS;
-                _textoNumero.text = MENSAJE_VACIO;
-                _goLuz.SetActive(true);
-                _goPensando.SetActive(false);
-                _goIndicarInteraccion.SetActive(false);
-                _activo = true;
-                _mostrarIndicarInteraccion = true;
+                MostrarRepetimos();
             break;
             case EnumEstadoPCFinalZona3.E04:
-                _textoAccion.text = MENSAJE_ENHORABUENA;
-                _textoNumero.text = MENSAJE_VACIO;
-                _goPensando.SetActive(true);
-                _goIndicarInteraccion.SetActive(false);
-                _activo = true;
-                _mostrarIndicarInteraccion = false;
+                MostrarEnhorabuena();
+                _depositoA.CambioVerde();
                 StartCoroutine(CorutinaFase04());
             break;
             case EnumEstadoPCFinalZona3.E05:
@@ -206,51 +210,53 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
                 _mostrarIndicarInteraccion = true;
             break;
             case EnumEstadoPCFinalZona3.E06:
-                _textoAccion.text = MENSAJE_LISTO;
-                _mostrarIndicarInteraccion = false;
-                _goIndicarInteraccion.SetActive(false);
-                _goPensando.SetActive(true);
+                MostrarListo();
                 StartCoroutine(CorutinaFase06());
             break;
             case EnumEstadoPCFinalZona3.E07:
-                _textoNumero.text = MENSAJE_VACIO;
-                _goPensando.SetActive(false);
-                _goLuz.SetActive(false);
-                _goCanvasTextoPulsador.SetActive(false);
+                DesactivarPC();
                 _pcPulsarActual = EnumPCFinalZona3.B;
+                _pcsEstado7Actual = _pcsEstado7 - 1;
+                DesactivarPC();
                 _pcSecundarioB.ActivarPC(_duracionFase2.ToString());
                 _corutinaActual = StartCoroutine(CorutinaFase07());
             break;
             case EnumEstadoPCFinalZona3.E08:
-                _goCanvasTextoPulsador.SetActive(true);
-                _textoAccion.text = MENSAJE_REPETIMOS;
-                _textoNumero.text = MENSAJE_VACIO;
-                _goLuz.SetActive(true);
-                _goPensando.SetActive(false);
-                _goIndicarInteraccion.SetActive(false);
-                _activo = true;
-                _mostrarIndicarInteraccion = true;
+                MostrarRepetimos();
             break;
             case EnumEstadoPCFinalZona3.E09:
-
+                MostrarEnhorabuena();
+                _depositoB.CambioVerde();
+                StartCoroutine(CorutinaFase09());
             break;
             case EnumEstadoPCFinalZona3.E10:
-
+                _textoAccion.text = MENSAJE_FASE3;
+                _goPensando.SetActive(false);
+                _mostrarIndicarInteraccion = true;
             break;
             case EnumEstadoPCFinalZona3.E11:
-
+                MostrarListo();
+                StartCoroutine(CorutinaFase11());
             break;
             case EnumEstadoPCFinalZona3.E12:
-
+                _pcPulsarActual = EnumPCFinalZona3.B;
+                _grupoElecB.Encender(true);
+                _pcsEstado7Actual = _pcsEstado12 - 1;
+                DesactivarPC();
+                _pcSecundarioB.ActivarPC(_duracionFase2.ToString());
+                _corutinaActual = StartCoroutine(CorutinaFase12());
             break;
             case EnumEstadoPCFinalZona3.E13:
-
+                MostrarRepetimos();
             break;
             case EnumEstadoPCFinalZona3.E14:
-
+                MostrarEnhorabuena();
+                _depositoC.CambioVerde();
+                StartCoroutine(CorutinaFase14());
             break;
             case EnumEstadoPCFinalZona3.E15:
-
+                DesactivarPC();
+                _iPuertaCristal.Abrir();
             break;
         }
     } 
@@ -289,7 +295,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
             break;
             case EnumEstadoPCFinalZona3.E07:
-
+                LogicaPulsadoresFase07_12(EnumPCFinalZona3.PRINCIPAL,false);
             break;
             case EnumEstadoPCFinalZona3.E08:
                 _estadoFase = EnumEstadoPCFinalZona3.E06;
@@ -299,16 +305,18 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
             break;
             case EnumEstadoPCFinalZona3.E10:
-
+                _estadoFase = EnumEstadoPCFinalZona3.E11;
+                EntroEnNuevoEstado();
             break;
             case EnumEstadoPCFinalZona3.E11:
-
+            
             break;
             case EnumEstadoPCFinalZona3.E12:
-
+                LogicaPulsadoresFase07_12(EnumPCFinalZona3.PRINCIPAL,false);
             break;
             case EnumEstadoPCFinalZona3.E13:
-
+                _estadoFase = EnumEstadoPCFinalZona3.E11;
+                EntroEnNuevoEstado();
             break;
             case EnumEstadoPCFinalZona3.E14:
 
@@ -356,7 +364,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
             break;
             case EnumEstadoPCFinalZona3.E07:
-
+                LogicaPulsadoresFase07_12(pc,false);
             break;
             case EnumEstadoPCFinalZona3.E08:
 
@@ -371,7 +379,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
             break;
             case EnumEstadoPCFinalZona3.E12:
-
+                LogicaPulsadoresFase07_12(pc,true);
             break;
             case EnumEstadoPCFinalZona3.E13:
 
@@ -380,7 +388,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
             break;
             case EnumEstadoPCFinalZona3.E15:
-
+            
             break;
         }
     }
@@ -430,32 +438,109 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
         _pcSecundarioA.DesactivarPC();
         _pcSecundarioB.DesactivarPC();
         _pcSecundarioC.DesactivarPC();
+        _grupoElecA.Encender(false);
+        _grupoElecB.Encender(false);
+        _grupoElecC.Encender(false);
         _estadoFase = EnumEstadoPCFinalZona3.E08;
         EntroEnNuevoEstado();
     }
 
     private void LogicaPulsadoresFase07_12(EnumPCFinalZona3 pulsado, bool activarTrampas){
         if(pulsado == _pcPulsarActual){
-            int s = Random.Range(0,1);
-            EnumEstadoPCFinalZona3 pcSiguiente = 
-            switch(_pcPulsarActual){
-                case EnumPCFinalZona3.PRINCIPAL:
-                    _pcPulsarActual
-                break;
-                case EnumPCFinalZona3.A:
-
-                break;
-                case EnumPCFinalZona3.B:
-
-                break;
-                case EnumPCFinalZona3.C:
-
-                break;
+            _pcsEstado7Actual--;
+            if(_pcsEstado7Actual > 0){
+                int s = Random.Range(0,1);
+                EnumPCFinalZona3 pcSiguiente = EnumPCFinalZona3.PRINCIPAL;
+                switch(_pcPulsarActual){
+                    case EnumPCFinalZona3.PRINCIPAL:
+                        pcSiguiente = s==1?EnumPCFinalZona3.A:EnumPCFinalZona3.C;
+                        DesactivarPC();
+                    break;
+                    case EnumPCFinalZona3.A:
+                        pcSiguiente = s==1?EnumPCFinalZona3.PRINCIPAL:EnumPCFinalZona3.B;
+                        _pcSecundarioA.DesactivarPC();
+                        _grupoElecA.Encender(false);
+                    break;
+                    case EnumPCFinalZona3.B:
+                        pcSiguiente = s==1?EnumPCFinalZona3.A:EnumPCFinalZona3.C;
+                        _pcSecundarioB.DesactivarPC();
+                        _grupoElecB.Encender(false);
+                    break;
+                    case EnumPCFinalZona3.C:
+                        pcSiguiente = s==1?EnumPCFinalZona3.PRINCIPAL:EnumPCFinalZona3.B;
+                        _pcSecundarioC.DesactivarPC();
+                        _grupoElecC.Encender(false);
+                    break;
+                }
+                _pcPulsarActual = pcSiguiente;
+                switch(_pcPulsarActual){
+                    case EnumPCFinalZona3.PRINCIPAL:
+                        ActivarPC(_duracionFaseActual.ToString());
+                    break;
+                    case EnumPCFinalZona3.A:
+                        _pcSecundarioA.ActivarPC(_duracionFaseActual.ToString());
+                        _grupoElecA.Encender(activarTrampas);
+                    break;
+                    case EnumPCFinalZona3.B:
+                        _pcSecundarioB.ActivarPC(_duracionFaseActual.ToString());
+                        _grupoElecB.Encender(activarTrampas);
+                    break;
+                    case EnumPCFinalZona3.C:
+                        _pcSecundarioC.ActivarPC(_duracionFaseActual.ToString());
+                        _grupoElecC.Encender(activarTrampas);
+                    break;
+                }
+            }   else{
+                StopCoroutine(_corutinaActual);
+                _pcSecundarioA.DesactivarPC();
+                _pcSecundarioB.DesactivarPC();
+                _pcSecundarioC.DesactivarPC();
+                _grupoElecA.Encender(false);
+                _grupoElecB.Encender(false);
+                _grupoElecC.Encender(false);
+                ActivarPC(MENSAJE_VACIO);
+                _estadoFase = activarTrampas?EnumEstadoPCFinalZona3.E14:EnumEstadoPCFinalZona3.E09;
+                EntroEnNuevoEstado();
             }
         }
     }
 
+    IEnumerator CorutinaFase09(){
+        yield return new WaitForSeconds(3);
+        _estadoFase = EnumEstadoPCFinalZona3.E10;
+        EntroEnNuevoEstado();
+    }
 
+
+    IEnumerator CorutinaFase11(){
+        yield return new WaitForSeconds(3);
+        _estadoFase = EnumEstadoPCFinalZona3.E12;
+        EntroEnNuevoEstado();
+    }
+    
+    IEnumerator CorutinaFase12(){
+        _duracionFaseActual = _duracionFase3;
+        ActualizarTiempoPcActual();
+        while(_duracionFaseActual > 0){
+            yield return new WaitForSeconds(1);
+            _duracionFaseActual--;
+            ActualizarTiempoPcActual();
+        }
+        _pcSecundarioA.DesactivarPC();
+        _pcSecundarioB.DesactivarPC();
+        _pcSecundarioC.DesactivarPC();
+        _grupoElecA.Encender(false);
+        _grupoElecB.Encender(false);
+        _grupoElecC.Encender(false);
+        _estadoFase = EnumEstadoPCFinalZona3.E13;
+        EntroEnNuevoEstado();
+    }
+
+    IEnumerator CorutinaFase14(){
+        yield return new WaitForSeconds(3);
+        _estadoFase = EnumEstadoPCFinalZona3.E15;
+        EntroEnNuevoEstado();
+    }
 
 
     private void ActualizarTiempoPcActual(){
@@ -490,7 +575,34 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
         _goLuz.SetActive(false);
         _goCanvasTextoPulsador.SetActive(false);
     }
-                    
+    
+
+    private void MostrarEnhorabuena(){
+        _textoAccion.text = MENSAJE_ENHORABUENA;
+        _textoNumero.text = MENSAJE_VACIO;
+        _goPensando.SetActive(true);
+        _goIndicarInteraccion.SetActive(false);
+        _activo = true;
+        _mostrarIndicarInteraccion = false;
+    }
+
+    private void MostrarRepetimos(){
+         _goCanvasTextoPulsador.SetActive(true);
+        _textoAccion.text = MENSAJE_REPETIMOS;
+        _textoNumero.text = MENSAJE_VACIO;
+        _goLuz.SetActive(true);
+        _goPensando.SetActive(false);
+        _goIndicarInteraccion.SetActive(false);
+        _activo = true;
+        _mostrarIndicarInteraccion = true;
+    }
+
+    private void MostrarListo(){
+         _textoAccion.text = MENSAJE_LISTO;
+        _mostrarIndicarInteraccion = false;
+        _goIndicarInteraccion.SetActive(false);
+        _goPensando.SetActive(true);
+    }
 }
 
 public enum EnumPCFinalZona3{PRINCIPAL,A,B,C};
