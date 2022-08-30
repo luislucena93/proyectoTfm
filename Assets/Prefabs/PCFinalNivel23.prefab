@@ -254,9 +254,19 @@ MonoBehaviour:
   _textoNumero: {fileID: 1097332601373267064}
   _textoAccion: {fileID: 2186477591631788729}
   _goPosicionarMano: {fileID: 2655541578765883994}
+  _goIndicarInteraccion: {fileID: 187253279106182235}
   _pcSecundarioA: {fileID: 0}
   _pcSecundarioB: {fileID: 0}
   _pcSecundarioC: {fileID: 0}
+  _depositoA: {fileID: 0}
+  _depositoB: {fileID: 0}
+  _depositoC: {fileID: 0}
+  _grupoElecA: {fileID: 0}
+  _grupoElecB: {fileID: 0}
+  _grupoElecC: {fileID: 0}
+  _duracionFase1: 30
+  _duracionFase2: 40
+  _duracionFase3: 70
 --- !u!1 &8072855702833908322
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078258839488664510}
     m_Modifications:
+    - target: {fileID: 6335568027952538295, guid: f208dc07deb43ae44a8c68f2d449f93c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7255876601710894930, guid: f208dc07deb43ae44a8c68f2d449f93c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -467,3 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &187253279106182235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7524415236723851599, guid: f208dc07deb43ae44a8c68f2d449f93c, type: 3}
+  m_PrefabInstance: {fileID: 7707160994892541204}
+  m_PrefabAsset: {fileID: 0}

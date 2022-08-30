@@ -21,6 +21,8 @@ public class OrdenadorFinalSecundario : MonoBehaviour, IInteraccionable{
 
     [SerializeField]
     GameObject _goPosicionarMano;
+    [SerializeField]
+    GameObject _goIndicarInteraccion;
 
 
     EnumPCFinalZona3 _enumPC;
@@ -30,6 +32,8 @@ public class OrdenadorFinalSecundario : MonoBehaviour, IInteraccionable{
     private static string MENSAJE_VACIO = "";
     private static string MENSAJE_HURRY = "HURRY";
     bool _activo = false;
+
+    bool _mostrarIndicarInteraccion;
 
     void Start()
     {
@@ -63,21 +67,26 @@ public class OrdenadorFinalSecundario : MonoBehaviour, IInteraccionable{
     }
 
     public void ComenzarInteraccion(){
-
+        if(_activo){
+            _goIndicarInteraccion.SetActive(false);
+            _pcPrincipal.PulsadoSecundario(_enumPC);
+        }
     }
 
      public void PausarInteraccion(){
     }
 
     public void FinalizarInteraccion(){
-
+        if(_activo){
+            _goIndicarInteraccion.SetActive(true);
+        }
     }
 
  
     private void OnEnter(Collider other){
         if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(_activo){
-                _textoAccion.text = MENSAJE_HURRY;
+                _goIndicarInteraccion.SetActive(true);
             }
         }
     }
@@ -85,7 +94,7 @@ public class OrdenadorFinalSecundario : MonoBehaviour, IInteraccionable{
     private void OnStay(Collider other) {
         if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(_activo){
-                _textoAccion.text = MENSAJE_HURRY;
+                _goIndicarInteraccion.SetActive(true);
             }
         }
     }
@@ -93,7 +102,7 @@ public class OrdenadorFinalSecundario : MonoBehaviour, IInteraccionable{
     private void OnExit(Collider other){
         if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
             if(_activo){
-                _textoAccion.text = MENSAJE_VACIO;
+                _goIndicarInteraccion.SetActive(false);
             }
         }
     }
@@ -111,21 +120,23 @@ public class OrdenadorFinalSecundario : MonoBehaviour, IInteraccionable{
 
     public void ActivarPC(string texto){
         _goCanvasTextoPulsador.SetActive(true);
-        _goPensando.SetActive(true);
         _goLuz.SetActive(true);
         _textoNumero.text = texto;
         _textoAccion.text = MENSAJE_VACIO;
         _activo = true;
+        _mostrarIndicarInteraccion = true;
     }
 
     public void ActualizarTexto(string texto){
-        _textoAccion.text = texto;
+        _textoNumero.text = texto;
     }
 
     public void DesactivarPC(){
         _goCanvasTextoPulsador.SetActive(false);
         _goPensando.SetActive(false);
         _goLuz.SetActive(false);
+        _goIndicarInteraccion.SetActive(false);
         _activo = false;
+         _mostrarIndicarInteraccion = false;
     }
 }

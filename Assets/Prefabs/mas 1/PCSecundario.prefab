@@ -261,6 +261,7 @@ MonoBehaviour:
   _textoNumero: {fileID: 7336315659213718820}
   _textoAccion: {fileID: 7336315659213718820}
   _goPosicionarMano: {fileID: 1114985107151716566}
+  _goIndicarInteraccion: {fileID: 7524415236380065031}
 --- !u!1 &4859538671842306912
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7524415236380065031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7524415236723851599, guid: f208dc07deb43ae44a8c68f2d449f93c, type: 3}
+  m_PrefabInstance: {fileID: 898513992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1676192987958562719
 MonoBehaviour:
   m_ObjectHideFlags: 0
