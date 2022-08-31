@@ -91,13 +91,16 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
     IPuerta _iPuertaCristal;
 
+    [SerializeField]
+    JoyaFinalNivel2 _joya;
+
 
     void Start(){
         _pcSecundarioA.SetEnumPC(EnumPCFinalZona3.A, this);
         _pcSecundarioB.SetEnumPC(EnumPCFinalZona3.B, this);
         _pcSecundarioC.SetEnumPC(EnumPCFinalZona3.C, this);
 
-        _estadoFase = EnumEstadoPCFinalZona3.E14;
+        _estadoFase = EnumEstadoPCFinalZona3.E00;
 
         _iPuertaCristal = _goCristalCamara.GetComponent<IPuerta>();
 
@@ -257,6 +260,8 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
             case EnumEstadoPCFinalZona3.E15:
                 DesactivarPC();
                 _iPuertaCristal.Abrir();
+                _joya.Activar();
+                StartCoroutine(CorutinaFase15());
             break;
         }
     } 
@@ -322,7 +327,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
             break;
             case EnumEstadoPCFinalZona3.E15:
-
+                
             break;
         }
     }
@@ -540,6 +545,37 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
         yield return new WaitForSeconds(3);
         _estadoFase = EnumEstadoPCFinalZona3.E15;
         EntroEnNuevoEstado();
+    }
+
+    IEnumerator CorutinaFase15(){
+        GameObject[] goLuces = GameObject.FindGameObjectsWithTag(Tags.TAG_LIGHT);
+        List<Light> luces = new List<Light>();
+        List<float> intensidadOriginal = new List<float>();
+        List<float> intensidadFinal = new List<float>();
+        if(goLuces != null && goLuces.Length > 0){
+            for(int i = 0; i < goLuces.Length; i++){
+                Light l = goLuces[i].GetComponent<Light>();
+                if(l != null){
+                    luces.Add(l);
+                    intensidadOriginal.Add(l.intensity);
+                    intensidadFinal.Add(l.intensity * 0.5f);
+                }
+            }
+            int x = 0;
+            float p = 0;
+            while(x < 20){
+                p = x * 0.05f;
+                for(int i = 0; i < luces.Count; i++){
+                    luces[i].intensity = Mathf.Lerp(intensidadOriginal[i],intensidadFinal[i],p);
+
+                }
+                yield return new WaitForEndOfFrame();
+                x++;
+            }
+
+        }   else{
+            yield return new WaitForEndOfFrame();
+        }
     }
 
 

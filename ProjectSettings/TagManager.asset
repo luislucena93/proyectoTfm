@@ -16,6 +16,7 @@ TagManager:
   - Object
   - ObjetoColeccionable
   - GestorColeccionables
+  - Light
   layers:
   - Default
   - TransparentFX

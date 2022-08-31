@@ -112,9 +112,9 @@ MonoBehaviour:
   _velocidadGiro: 50
   _puerta: {fileID: 0}
   _tipoLlave: 0
-  _luz: {fileID: 0}
+  _luz: {fileID: 9169330223720706477}
   _atenuacionLuz: 1
-  _velocidadLuz: 0
+  _velocidadLuz: 2
 --- !u!1 &5640629696265532921
 GameObject:
   m_ObjectHideFlags: 0
