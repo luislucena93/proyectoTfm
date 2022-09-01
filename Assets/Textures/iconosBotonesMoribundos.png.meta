@@ -1,0 +1,348 @@
+fileFormatVersion: 2
+guid: 420c16c922eac704083044c922052c43
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -917475167260519762
+    second: girlOjosAbiertos
+  - first:
+      213: -8114615342328154350
+    second: girlsOjosCerrados
+  - first:
+      213: -776777673377110514
+    second: boyOjosEntrecerrados
+  - first:
+      213: 3004664534905118450
+    second: boyOjosCerrados
+  - first:
+      213: -4321487021502692016
+    second: botonX
+  - first:
+      213: 7908076062933183959
+    second: botonaA
+  - first:
+      213: 4533713799511154062
+    second: botonShift
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: girlOjosAbiertos
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 721
+        width: 203
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2d13542397443f0800000000000000
+      internalID: -917475167260519762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: girlsOjosCerrados
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 721
+        width: 203
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2177897d658136f80800000000000000
+      internalID: -8114615342328154350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boyOjosEntrecerrados
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 729
+        width: 189
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0627e452d45835f0800000000000000
+      internalID: -776777673377110514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boyOjosCerrados
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 727
+        width: 188
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fedb30a976b2b920800000000000000
+      internalID: 3004664534905118450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonX
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 460
+        width: 220
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0550fdd337ef604c0800000000000000
+      internalID: -4321487021502692016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonaA
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 476
+        width: 185
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dde6ebc7412fbd60800000000000000
+      internalID: 7908076062933183959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonShift
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 471
+        width: 404
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d16251eacfaee30800000000000000
+      internalID: 4533713799511154062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape:
+    - - {x: -448, y: 158}
+      - {x: -457, y: 149}
+      - {x: -457, y: -41}
+      - {x: -271, y: -41}
+      - {x: -259, y: -20}
+      - {x: -259, y: 154}
+      - {x: -260, y: 158}
+    - - {x: 54, y: 154}
+      - {x: 54, y: -30}
+      - {x: 67, y: -39}
+      - {x: 439, y: -39}
+      - {x: 454, y: -28}
+      - {x: 454, y: 139}
+      - {x: 443, y: 154}
+    - - {x: -159, y: 148}
+      - {x: -203, y: 122}
+      - {x: -203, y: 10}
+      - {x: -165, y: -30}
+      - {x: -61, y: -30}
+      - {x: -25, y: -13}
+      - {x: -25, y: 120}
+      - {x: -53, y: 148}
+    - - {x: -330, y: 463}
+      - {x: -398, y: 463}
+      - {x: -458, y: 432}
+      - {x: -462, y: 385}
+      - {x: -462, y: 301}
+      - {x: -427, y: 228}
+      - {x: -390, y: 207}
+      - {x: -325, y: 207}
+      - {x: -257, y: 265}
+      - {x: -257, y: 436}
+    - - {x: -221, y: 463}
+      - {x: -221, y: 276}
+      - {x: -208, y: 210}
+      - {x: -197, y: 207}
+      - {x: -77, y: 207}
+      - {x: -16, y: 249}
+      - {x: -16, y: 401}
+      - {x: -40, y: 463}
+    - - {x: 56, y: 457}
+      - {x: 27, y: 451}
+      - {x: 27, y: 305}
+      - {x: 40, y: 232}
+      - {x: 99, y: 214}
+      - {x: 141, y: 214}
+      - {x: 206, y: 231}
+      - {x: 218, y: 376}
+      - {x: 218, y: 445}
+      - {x: 211, y: 457}
+    - - {x: 307, y: 457}
+      - {x: 268, y: 440}
+      - {x: 268, y: 376}
+      - {x: 284, y: 235}
+      - {x: 339, y: 214}
+      - {x: 382, y: 214}
+      - {x: 443, y: 234}
+      - {x: 459, y: 389}
+      - {x: 459, y: 440}
+      - {x: 417, y: 457}
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
