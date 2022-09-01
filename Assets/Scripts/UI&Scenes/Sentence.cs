@@ -6,7 +6,8 @@ using UnityEngine;
 public enum Characters
 {
     player1,
-    player2
+    player2,
+    npc1
 }
 
 [System.Serializable]
