@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GestorPantallaInicio : MonoBehaviour
 {
+    [SerializeField]
+    GameObject _timeline;
+
     public Dialogue dialogue;
     private DialogueManager dm;
     private bool wasOpen = false;
+
+    private void Awake() {
+        _timeline.SetActive(false);
+    }
 
     private void Start()
     {
@@ -31,6 +38,10 @@ public class GestorPantallaInicio : MonoBehaviour
     public void  SiguienteNivel() {
         int sceneID = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(sceneID);
+    }
+
+    public void ActivarTimeline(){
+        _timeline.SetActive(true);
     }
 
 }
