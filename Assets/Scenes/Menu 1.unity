@@ -5428,7 +5428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4297699803381944, guid: a99506bd196f7cf4b822df33789a4d5b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4297699803381944, guid: a99506bd196f7cf4b822df33789a4d5b, type: 3}
       propertyPath: m_LocalScale.x
@@ -22857,7 +22857,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'finger_03_r'\n\tTransform 'Foot_R'\n\tTransform
+    'Foot_L'\n\tTransform 'ball_r'\n\tTransform 'head'\n\tTransform 'spine_01'\n\tTransform
+    'indexFinger_03_r'\n\tTransform 'finger_03_l'\n\tTransform 'lowerarm_l'\n\tTransform
+    'UpperArm_L'\n\tand more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -24438,7 +24443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749874969536738, guid: 6b15349ae7f0c4c41ad09993616a147e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4749874969536738, guid: 6b15349ae7f0c4c41ad09993616a147e, type: 3}
       propertyPath: m_LocalScale.x
