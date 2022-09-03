@@ -7,7 +7,7 @@ public class ListenerPrimeraVezMostrarMenu : MonoBehaviour
     Canvas _canvas;
 
     private void OnEnable() {
-        _canvas.GetComponent<Canvas>();
+        _canvas = GetComponent<Canvas>();
     }
 
     public void MostrarCanvas(){

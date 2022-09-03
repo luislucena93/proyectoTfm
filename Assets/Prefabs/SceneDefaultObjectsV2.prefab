@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 4467765736376046970}
   - component: {fileID: 4467765736376046969}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: CanvasTransiciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -760,6 +760,7 @@ MonoBehaviour:
   _nivelCero: 0
   _gestorColeccionables: {fileID: 3206370619574192102}
   _canvasUIJuego: {fileID: 7685588453230653999}
+  _transiciones: {fileID: 4467765737640379638}
 --- !u!1 &4467765737309295941
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4467765737640379403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4012,11 +4013,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826526020992984384, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021199520155, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021499995976, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4040,11 +4041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021499995979, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021545492747, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021611001781, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4354,7 +4355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184373056343044888, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: -177.2147
+      value: 2.7852936
       objectReference: {fileID: 0}
     - target: {fileID: 725115520588708108, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_RootOrder
@@ -4462,7 +4463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2229412708425268464, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: -177.2147
+      value: 2.7852936
       objectReference: {fileID: 0}
     - target: {fileID: 2229412708425268465, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4514,7 +4515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080627171347507152, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: -177.2147
+      value: 2.7852936
       objectReference: {fileID: 0}
     - target: {fileID: 4382231264972086152, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_RootOrder
@@ -4550,7 +4551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5367805455271947622, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: -177.2147
+      value: 2.7852936
       objectReference: {fileID: 0}
     - target: {fileID: 5401217733078482146, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_RootOrder

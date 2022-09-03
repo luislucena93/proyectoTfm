@@ -40,6 +40,9 @@ public class MenuController : MonoBehaviour
 
     bool _pantallaColeccionablesActiva;
 
+    [field: SerializeField]
+    private Animator _transiciones;
+
     private void Awake() {
         _rutaFichero = Application.persistentDataPath + "/gamesave.save";
        // Debug.Log("ruta awake"+_rutaFichero);
@@ -81,6 +84,7 @@ public class MenuController : MonoBehaviour
     }
 
     public void SiguienteEscena(){
+        _transiciones.SetTrigger("NextScene");
         GuardarPartida();
         StartCoroutine(NextLevel());
     }

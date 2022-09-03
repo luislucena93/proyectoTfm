@@ -483,8 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b10fed1327cec4eaa83a1dd52bf24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hojaA: {fileID: 7554080568557094846}
-  _hojaB: {fileID: 4030075914389906612}
+  _hojaA: {fileID: 0}
+  _hojaB: {fileID: 0}
 --- !u!1 &4030075914389906612
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38488d0e3d8cb547a38a1e583727361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vectorTranslacionCerrada: {x: -1.8, y: 0, z: 0}
+  _vectorTranslacionCerrada: {x: 1.8, y: 0, z: 0}
   _velicidadApertura: 1
 --- !u!1 &4537804338568743797
 GameObject:
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38488d0e3d8cb547a38a1e583727361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vectorTranslacionCerrada: {x: 1.8, y: 0, z: 0}
+  _vectorTranslacionCerrada: {x: -1.8, y: 0, z: 0}
   _velicidadApertura: 1
 --- !u!1 &7709930904728378168
 GameObject:
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 2758024299979010498}
   - component: {fileID: 268335940405075897}
   m_Layer: 0
-  m_Name: TriggerTextoB (1)
+  m_Name: TriggerTextoA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
