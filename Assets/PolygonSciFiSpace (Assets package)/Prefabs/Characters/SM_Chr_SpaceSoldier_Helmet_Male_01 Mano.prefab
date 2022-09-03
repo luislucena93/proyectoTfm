@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 4784068991407404}
   - component: {fileID: 95035710751915312}
   m_Layer: 0
-  m_Name: SM_Chr_SpaceSoldier_Helmet_Male_01
+  m_Name: SM_Chr_SpaceSoldier_Helmet_Male_01 Mano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

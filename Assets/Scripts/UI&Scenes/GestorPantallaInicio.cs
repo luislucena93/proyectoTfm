@@ -8,32 +8,25 @@ public class GestorPantallaInicio : MonoBehaviour
     [SerializeField]
     GameObject _timeline;
 
-    public Dialogue dialogue;
+    public List<Dialogue> dialogos;
     private DialogueManager dm;
     private bool wasOpen = false;
 
-    private void Awake() {
-        _timeline.SetActive(false);
-    }
+    int _indiciceDialogoActual = -1;
 
     private void Start()
     {
         dm = FindObjectOfType<DialogueManager>();
     }
-    public void TriggerDialogue()
+    public void SiguienteDialogo()
     {
-        dm.StartDialogue(dialogue);
+        _indiciceDialogoActual++;
+        dm.StartDialogue(dialogos[_indiciceDialogoActual]);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER) && !wasOpen)
-        {
-            TriggerDialogue();
-            wasOpen = true;
-        }
+    public void SiguienteFrase(){
+        dm.DisplayNextSentence();
     }
-
 
     public void  SiguienteNivel() {
         int sceneID = SceneManager.GetActiveScene().buildIndex + 1;
@@ -41,6 +34,7 @@ public class GestorPantallaInicio : MonoBehaviour
     }
 
     public void ActivarTimeline(){
+        Cursor.visible = false;
         _timeline.SetActive(true);
     }
 
