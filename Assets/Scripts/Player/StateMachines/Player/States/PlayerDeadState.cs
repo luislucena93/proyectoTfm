@@ -14,6 +14,9 @@ public class PlayerDeadState : PlayerBaseState
 
     public override void Enter() {
         //Debug.Log("Enter Move");
+        stateMachine._camaraDead.SetActive(true);
+        stateMachine._camaraFree.SetActive(false);
+
         stateMachine.animator.SetBool(GameConstants.isDead, true);
         stateMachine.characterController.enabled = false;
         stateMachine._goTriggerMuerto.SetActive(true);
@@ -38,6 +41,12 @@ public class PlayerDeadState : PlayerBaseState
 
 
     public override void Exit() {
+        
+        stateMachine._camaraFree.transform.position = stateMachine._posicionCamaraSanado.transform.position;
+        stateMachine._camaraFree.transform.rotation = stateMachine._posicionCamaraSanado.transform.rotation;
+        
+        stateMachine._camaraFree.SetActive(true);
+        stateMachine._camaraDead.SetActive(false);
         stateMachine.characterController.enabled = true;
         stateMachine._goTriggerMuerto.SetActive(false);
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using Unity.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 
 public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDetectadoPushableListener
 {
@@ -102,6 +103,13 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDe
     AnimatorOverrideController _animatiorOverrideController;
 
 
+    public GameObject _camaraFree;
+
+    public GameObject _camaraDead;
+    public GameObject _posicionCamaraSanado;
+
+    public CinemachineBrain _cinemachineBrain;
+
     private void Start()
     {
         animator.runtimeAnimatorController = _animatiorOverrideController;
@@ -117,7 +125,8 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDe
             }
         }
 
-
+        _camaraFree.transform.position = _posicionCamaraSanado.transform.position;
+        _camaraFree.transform.rotation = _posicionCamaraSanado.transform.rotation;
         // Estado inicial, dando como referencia este PlayerStateMachine
         SwitchState(new PlayerIdleState(this));
 

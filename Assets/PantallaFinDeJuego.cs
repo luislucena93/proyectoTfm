@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class PantallaFinDeJuego : MonoBehaviour
 {
     public void FinalizarEscena(){
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu 1");
     }
 }

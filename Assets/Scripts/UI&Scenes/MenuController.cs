@@ -59,12 +59,14 @@ public class MenuController : MonoBehaviour
             _textoDead.SetActive(false);
             _textoPausa.SetActive(true);
             if (menu.GetBool("menuIsOpen") == false) {
+                Cursor.visible = true;
                 menu.SetBool("menuIsOpen", true);
                 EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(InitialButton);
                 Time.timeScale = 0f;
             }
             else {
+                Cursor.visible = false;
                 Time.timeScale = 1f;
                 menu.SetBool("menuIsOpen", false);
             }
@@ -179,6 +181,7 @@ public class MenuController : MonoBehaviour
     }
 
     public void AbrirColeccionables(){
+        Cursor.visible = true;
         _textoDead.SetActive(false);
         _textoPausa.SetActive(false);
         menu.SetBool("menuIsOpen", false);

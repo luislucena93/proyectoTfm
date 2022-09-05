@@ -4908,8 +4908,8 @@ GameObject:
   - component: {fileID: 5723303397955495486}
   - component: {fileID: 5695280919833394252}
   - component: {fileID: 5703840903792217500}
-  - component: {fileID: 2107682340464587392}
   - component: {fileID: 3493951101959033894}
+  - component: {fileID: 6308181364288947095}
   m_Layer: 0
   m_Name: "BotiquinPeque\xF1o"
   m_TagString: Untagged
@@ -4982,19 +4982,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2107682340464587392
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5727023049120251068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.52224535, y: 0.39850315, z: 0.3188803}
-  m_Center: {x: 0, y: 0.19925158, z: 0}
 --- !u!114 &3493951101959033894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,3 +4997,16 @@ MonoBehaviour:
   _puntosRecupera: 500
   _fuenteCorazones: {fileID: 524213096047843562}
   _tiempoEmitiendoCorazones: 1
+--- !u!135 &6308181364288947095
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727023049120251068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.96
+  m_Center: {x: 0.0000038146973, y: 0.19925158, z: 0.0000076293945}
