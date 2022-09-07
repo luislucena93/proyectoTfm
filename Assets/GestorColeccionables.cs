@@ -33,7 +33,7 @@ public class GestorColeccionables : MonoBehaviour
 
     private void Awake() {
         //Reset coleccionables
-        PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,"");
+        //PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,"");
     }
 
     // Start is called before the first frame update

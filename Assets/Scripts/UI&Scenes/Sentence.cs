@@ -7,7 +7,8 @@ public enum Characters
 {
     player1,
     player2,
-    npc1
+    npc1,
+    npc1OjosCerrados
 }
 
 [System.Serializable]

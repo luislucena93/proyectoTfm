@@ -14,6 +14,7 @@ public class PlayerDeadState : PlayerBaseState
 
     public override void Enter() {
         //Debug.Log("Enter Move");
+        stateMachine._camaraDead.transform.parent = stateMachine.transform.parent;
         stateMachine._camaraDead.SetActive(true);
         stateMachine._camaraFree.SetActive(false);
 
@@ -47,6 +48,7 @@ public class PlayerDeadState : PlayerBaseState
         
         stateMachine._camaraFree.SetActive(true);
         stateMachine._camaraDead.SetActive(false);
+        stateMachine._camaraDead.transform.parent = stateMachine.gameObject.transform;
         stateMachine.characterController.enabled = true;
         stateMachine._goTriggerMuerto.SetActive(false);
     }

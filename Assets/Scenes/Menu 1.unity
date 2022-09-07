@@ -22857,12 +22857,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'finger_03_r'\n\tTransform 'Foot_R'\n\tTransform
-    'Foot_L'\n\tTransform 'ball_r'\n\tTransform 'head'\n\tTransform 'spine_01'\n\tTransform
-    'indexFinger_03_r'\n\tTransform 'finger_03_l'\n\tTransform 'lowerarm_l'\n\tTransform
-    'UpperArm_L'\n\tand more ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -23089,7 +23084,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -28696,9 +28691,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872138625627899877}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 112844026}
+        m_TargetAssemblyTypeName: GestorPantallaInicio, Assembly-CSharp
+        m_MethodName: SalirDelJuego
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

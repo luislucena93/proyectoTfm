@@ -38,5 +38,9 @@ public class GestorPantallaInicio : MonoBehaviour
         _timeline.SetActive(true);
     }
 
+    public void SalirDelJuego(){
+        Application.Quit();
+    }
+
 }
 
