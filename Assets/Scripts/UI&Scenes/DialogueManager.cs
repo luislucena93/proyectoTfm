@@ -48,13 +48,13 @@ public class DialogueManager : MonoBehaviour
         
         switch (sentence.character)
         {
-            case Characters.player1:
+            case Characters.player1El:
                 p1Avatar.enabled = true;
                 p2Avatar.enabled = false;
                 npc1Avatar.enabled = false;
                 npc1AvatarOjosCerrados.enabled = false;
                 break;
-            case Characters.player2:
+            case Characters.player2Ella:
                 p1Avatar.enabled = false;
                 p2Avatar.enabled = true;
                 npc1Avatar.enabled = false;

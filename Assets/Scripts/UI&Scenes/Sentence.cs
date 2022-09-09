@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public enum Characters
 {
-    player1,
-    player2,
+    player1El,
+    player2Ella,
     npc1,
     npc1OjosCerrados
 }
