@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image p1Avatar;
     [SerializeField] private Image p2Avatar;
     [SerializeField] private Image npc1Avatar;
+    [SerializeField] private Image npc1AvatarOjosCerrados;
     [SerializeField] private Canvas dialogueUI;
     public bool dialogOpen = false;
 
@@ -47,20 +48,29 @@ public class DialogueManager : MonoBehaviour
         
         switch (sentence.character)
         {
-            case Characters.player1:
+            case Characters.player1El:
                 p1Avatar.enabled = true;
                 p2Avatar.enabled = false;
                 npc1Avatar.enabled = false;
+                npc1AvatarOjosCerrados.enabled = false;
                 break;
-            case Characters.player2:
+            case Characters.player2Ella:
                 p1Avatar.enabled = false;
                 p2Avatar.enabled = true;
                 npc1Avatar.enabled = false;
+                npc1AvatarOjosCerrados.enabled = false;
                 break;
             case Characters.npc1:
                 p1Avatar.enabled = false;
                 p2Avatar.enabled = false;
                 npc1Avatar.enabled = true;
+                npc1AvatarOjosCerrados.enabled = false;
+                break;
+            case Characters.npc1OjosCerrados:
+                p1Avatar.enabled = false;
+                p2Avatar.enabled = false;
+                npc1Avatar.enabled = false;
+                npc1AvatarOjosCerrados.enabled = true;
                 break;
         }
 

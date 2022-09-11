@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Nave_1/Nave_01_Parte_03.unity
     guid: bc8008fed83081f4a8676cedee2ed786
   - enabled: 1
+    path: Assets/Scenes/Nave_1/Nave_02_Parte_05.unity
+    guid: fdc2f93aa613fc545a96f412c3b67d50
+  - enabled: 1
     path: Assets/Scenes/Tutorial aencB trozo 0.unity
     guid: 7ab0ac461c20214458f478560fdca146
   - enabled: 1

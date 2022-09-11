@@ -6144,7 +6144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 99329
+    m_Bits: 1147905
   m_IgnoreTag: 
   m_TransparentLayers:
     serializedVersion: 2
@@ -12042,6 +12042,7 @@ MonoBehaviour:
   _camaraFree: {fileID: 2229412708425268466}
   _camaraDead: {fileID: 8178536756618100262}
   _posicionCamaraSanado: {fileID: 2791691526243775518}
+  _cinemachineBrain: {fileID: 0}
 --- !u!114 &7892422474110522362
 MonoBehaviour:
   m_ObjectHideFlags: 0
