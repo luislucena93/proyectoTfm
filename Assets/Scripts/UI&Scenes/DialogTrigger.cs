@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
 {
+    [SerializeField]
+    DialogueManager _dialogManager;
     public Dialogue dialogue;
-    private DialogueManager dm;
+
     private bool wasOpen = false;
 
     private void Start()
     {
-        dm = FindObjectOfType<DialogueManager>();
+        _dialogManager = FindObjectOfType<DialogueManager>();
     }
     public void TriggerDialogue()
     {
-        dm.StartDialogue(dialogue);
+        _dialogManager.StartDialogue(dialogue);
     }
 
     private void OnTriggerEnter(Collider other)

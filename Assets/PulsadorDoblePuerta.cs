@@ -24,7 +24,7 @@ public class PulsadorDoblePuerta : MonoBehaviour, IInteraccionable
     private static string MENSAJE_VACIO = "";
     private static string MENSAJE_MANTENER_ABRIR= "Manten pulsado\npara abrir";
 
-    private static string MENSAJE_PUELTA_ABIERTA= "Puerta Abierta";
+    private static string MENSAJE_PUELTA_ABIERTA= "Puerta\nAbierta";
 
     void Start()
     {

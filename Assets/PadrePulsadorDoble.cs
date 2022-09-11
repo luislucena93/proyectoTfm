@@ -9,6 +9,10 @@ public class PadrePulsadorDoble : MonoBehaviour
     IPuerta _iPuerta;
     // Start is called before the first frame update
 
+    [SerializeField]
+    PulsadorDoblePuerta _pulsador1;
+    PulsadorDoblePuerta _pulsador2;
+
     int _pulsados = 0;
     bool _puertaAbierta;
     void Start()

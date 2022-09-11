@@ -15,6 +15,13 @@ public class DialogueManager : MonoBehaviour
     public bool dialogOpen = false;
 
     public Queue<Sentence> sentences;
+
+    [SerializeField]
+    bool _pasarSiguienteDialogoAuto;
+
+    [SerializeField]
+    [Range(0.1f,5)]
+    float _tiempoSiguienteDialogo = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,7 +94,10 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
-
+        if(_pasarSiguienteDialogoAuto){
+            yield return new WaitForSeconds(_tiempoSiguienteDialogo);
+            DisplayNextSentence();
+        }
     }
 
     public void EndDialogue()
