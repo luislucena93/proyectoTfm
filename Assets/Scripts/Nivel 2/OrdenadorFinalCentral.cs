@@ -94,8 +94,11 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
     [SerializeField]
     JoyaFinalNivel2 _joya;
 
+    GeneradorDialogosSalaNivel2 _generadorDialogos;
 
     void Start(){
+        _generadorDialogos = GetComponent<GeneradorDialogosSalaNivel2>();
+
         _pcSecundarioA.SetEnumPC(EnumPCFinalZona3.A, this);
         _pcSecundarioB.SetEnumPC(EnumPCFinalZona3.B, this);
         _pcSecundarioC.SetEnumPC(EnumPCFinalZona3.C, this);
@@ -200,9 +203,11 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
                 _corutinaActual = StartCoroutine(CorutinaFase02());
             break;
             case EnumEstadoPCFinalZona3.E03:
+                _generadorDialogos.GenerarDialogo(_estadoFase);
                 MostrarRepetimos();
             break;
             case EnumEstadoPCFinalZona3.E04:
+                _generadorDialogos.GenerarDialogo(_estadoFase);
                 MostrarEnhorabuena();
                 _depositoA.CambioVerde();
                 StartCoroutine(CorutinaFase04());
@@ -225,9 +230,11 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
                 _corutinaActual = StartCoroutine(CorutinaFase07());
             break;
             case EnumEstadoPCFinalZona3.E08:
+                _generadorDialogos.GenerarDialogo(_estadoFase);
                 MostrarRepetimos();
             break;
             case EnumEstadoPCFinalZona3.E09:
+                _generadorDialogos.GenerarDialogo(_estadoFase);
                 MostrarEnhorabuena();
                 _depositoB.CambioVerde();
                 StartCoroutine(CorutinaFase09());
@@ -250,9 +257,11 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
                 _corutinaActual = StartCoroutine(CorutinaFase12());
             break;
             case EnumEstadoPCFinalZona3.E13:
+                _generadorDialogos.GenerarDialogo(_estadoFase);
                 MostrarRepetimos();
             break;
             case EnumEstadoPCFinalZona3.E14:
+                _generadorDialogos.GenerarDialogo(_estadoFase);
                 MostrarEnhorabuena();
                 _depositoC.CambioVerde();
                 StartCoroutine(CorutinaFase14());
@@ -454,7 +463,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
         if(pulsado == _pcPulsarActual){
             _pcsEstado7Actual--;
             if(_pcsEstado7Actual > 0){
-                int s = Random.Range(0,1);
+                int s = Random.Range(0,10)%2;
                 EnumPCFinalZona3 pcSiguiente = EnumPCFinalZona3.PRINCIPAL;
                 switch(_pcPulsarActual){
                     case EnumPCFinalZona3.PRINCIPAL:

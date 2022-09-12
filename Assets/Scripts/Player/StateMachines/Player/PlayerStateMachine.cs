@@ -368,4 +368,8 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDe
         hitPushable = detectado;
         _iPushableDetectado = iPushable;
     }
+
+    public bool isAlive(){
+        return _nivelSalud>0;
+    }
 }
