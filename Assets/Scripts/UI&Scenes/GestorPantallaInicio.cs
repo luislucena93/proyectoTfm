@@ -17,6 +17,7 @@ public class GestorPantallaInicio : MonoBehaviour
     private void Start()
     {
         dm = FindObjectOfType<DialogueManager>();
+        Cursor.visible = true;
     }
     public void SiguienteDialogo()
     {

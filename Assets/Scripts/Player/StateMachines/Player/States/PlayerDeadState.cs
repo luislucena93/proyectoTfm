@@ -21,10 +21,14 @@ public class PlayerDeadState : PlayerBaseState
         stateMachine.animator.SetBool(GameConstants.isDead, true);
         stateMachine.characterController.enabled = false;
         stateMachine._goTriggerMuerto.SetActive(true);
-        stateMachine._menuController.CheckMuertos();
     }
 
     public override void Tick(float deltaTime) {
+        if(!_recuperado && stateMachine._finAnimDead){
+            stateMachine._finAnimDead = false;
+            stateMachine._menuController.CheckMuertos();
+        }
+
 
         if(!_recuperado && stateMachine._nivelSalud>0){
             _recuperado = true;

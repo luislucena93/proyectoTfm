@@ -47,6 +47,7 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDe
     RaycastHit hit;
 
     public bool _finLevantado;
+    public bool _finAnimDead;
 
 
     public bool _interaccionCurarDisponible;
@@ -262,6 +263,10 @@ public class PlayerStateMachine : StateMachine , IDanhable, IRecuperarSalud, IDe
 
     public void FinLevantarse(){
         _finLevantado = true;
+    }
+
+    public void FinAnimDead(){
+        _finAnimDead = true;
     }
 
 

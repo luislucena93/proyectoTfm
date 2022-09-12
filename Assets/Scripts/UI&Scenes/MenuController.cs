@@ -81,7 +81,10 @@ public class MenuController : MonoBehaviour
     }
 
     public void ReloadScene() {
-        OpenCloseMenu();
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+        menu.SetBool("menuIsOpen", false);
+
         StartCoroutine(RecargaLevel());
     }
 
@@ -106,7 +109,9 @@ public class MenuController : MonoBehaviour
     }
 
     public void VolverEscenaInicio(){
+        Cursor.visible = false;
         Time.timeScale = 1f;
+        menu.SetBool("menuIsOpen", false);
         StartCoroutine(VolverPantallaInicio());
     }
 

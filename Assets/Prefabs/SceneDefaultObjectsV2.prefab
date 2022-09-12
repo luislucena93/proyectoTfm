@@ -1857,7 +1857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014808306642441187}
   - component: {fileID: 2117851502137365293}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CamaraMuerto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1871,14 +1871,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792268194388513797}
-  m_LocalRotation: {x: 9.3132224e-10, y: -0.8631929, z: 0.50487435, w: -0.000000035390244}
-  m_LocalPosition: {x: 0.05, y: 3.335, z: 0.799}
+  m_LocalRotation: {x: -0.009471243, y: -0.9824296, z: 0.18596648, w: -0.012607164}
+  m_LocalPosition: {x: -0.139, y: 1.675, z: 2.031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4653725868095544705}
   m_Father: {fileID: 7304987657783964881}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 119.354, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 158.553, y: -1.3079834, z: 180.857}
 --- !u!114 &2117851502137365293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,12 +1895,12 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
-  m_StandbyUpdate: 2
+  m_Priority: 8
+  m_StandbyUpdate: 0
   m_LookAt: {fileID: 337094327318552264}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 70
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -4162,8 +4162,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021499995979, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
-      propertyPath: m_XAxis.Value
-      value: 0
+      propertyPath: m_Rigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826526021499995979, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
+      propertyPath: m_Rigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826526021499995979, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
+      propertyPath: m_Rigs.Array.data[2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021545492747, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
