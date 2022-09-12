@@ -35,6 +35,12 @@ public class Llave : MonoBehaviour
     [Range(0.1f, 30)]
     float _velocidadLuz;
 
+    [SerializeField]
+    bool _mostrarAviso = false;
+
+    [SerializeField]
+    GestorColeccionables _gestorColeccionables;
+
     void Start()
     {        
         _intensidadOrigen =_luz.intensity;
@@ -64,6 +70,11 @@ public class Llave : MonoBehaviour
             }
             //_audioSource.Play();
             _activo = false; 
+
+            if(_mostrarAviso && _gestorColeccionables != null){
+                _gestorColeccionables.RecogidaLlave(_tipoLlave);
+            }
+            
             Desactivar();
             //Invoke("Desactivar", _audioSource.clip.length); // Desactivamos el GO cuando termine el clip.
         }

@@ -140,4 +140,9 @@ public class GestorColeccionables : MonoBehaviour
         }
         Debug.Log("RecuperarCadena "+_cadenaColeccionables);
     }
+
+    public void RecogidaLlave(TipoLlaveEnum enumLlave){
+        _animatorDialogoRecogido.SetBool("Animar",true);
+        _textoDialogColeccionable.text = "Llave "+enumLlave.ToString()+" recogida.";
+    }
 }
