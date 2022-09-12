@@ -2073,6 +2073,8 @@ MonoBehaviour:
   npc1AvatarOjosCerrados: {fileID: 3025069673774274991}
   dialogueUI: {fileID: 4433950500369839724}
   dialogOpen: 0
+  _pasarSiguienteDialogoAuto: 0
+  _tiempoSiguienteDialogo: 2
 --- !u!1 &6974709221501547279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,6 +3156,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7921605253827783167, guid: d4123f5025d17b54fa0afbd7eff660b0, type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e98b1a1bdcb77ce4c8fc1dbdb730d51f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4123f5025d17b54fa0afbd7eff660b0, type: 3}
 --- !u!114 &4433950499271515882 stripped
@@ -4141,11 +4147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826526020992984384, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021199520155, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021499995977, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_Strategy
@@ -4155,9 +4161,13 @@ PrefabInstance:
       propertyPath: PlayerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5826526021499995979, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
+      propertyPath: m_XAxis.Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5826526021545492747, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_XAxis.Value
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5826526021611001781, guid: 4a881667fb1231f43949bec4ee977375, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4445,7 +4455,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184373056343044888, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: 84.36905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 184373056343044888, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_FollowOffset.z
@@ -4557,7 +4567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2229412708425268464, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: 84.36905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2229412708425268465, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4609,7 +4619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080627171347507152, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: 84.36905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4080627171347507152, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_FollowOffset.z
@@ -4629,7 +4639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5367805455271947622, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_XAxis.Value
-      value: 84.36905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5367805455271947622, guid: 8f2166808182d314f9ac5116606d4f24, type: 3}
       propertyPath: m_FollowOffset.z

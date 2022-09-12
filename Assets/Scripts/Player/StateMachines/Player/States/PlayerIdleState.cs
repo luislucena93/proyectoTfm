@@ -13,6 +13,8 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Tick(float deltaTime) 
     {
+
+       // Debug.Log(stateMachine.gameObject.name+ " valor "+stateMachine.inputReader.lookAction.ReadValue<Vector2>());
 //        Debug.Log("Ejecutando estado Idle");
 
         stateMachine.LogicaEscudoEnTikEstados();

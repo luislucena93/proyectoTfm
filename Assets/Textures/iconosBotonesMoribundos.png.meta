@@ -16,13 +16,31 @@ TextureImporter:
     second: boyOjosCerrados
   - first:
       213: -4321487021502692016
-    second: botonX
+    second: botonX_PS
   - first:
       213: 7908076062933183959
-    second: botonaA
+    second: botonaA_Xbox
   - first:
       213: 4533713799511154062
     second: botonShift
+  - first:
+      213: 5927570547733197364
+    second: botonCirculo_PS
+  - first:
+      213: -2509758918507258739
+    second: botonB_Xbox
+  - first:
+      213: -5239476115309255007
+    second: botonCuadrado_PS
+  - first:
+      213: 198859806272265165
+    second: botonX_Xbox
+  - first:
+      213: -6258766521158446434
+    second: btnSpace
+  - first:
+      213: 98164244261129139
+    second: botonCtrl
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -132,7 +150,7 @@ TextureImporter:
         width: 203
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,7 +171,7 @@ TextureImporter:
         width: 203
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,7 +192,7 @@ TextureImporter:
         width: 189
         height: 241
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,7 +213,7 @@ TextureImporter:
         width: 188
         height: 241
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,14 +226,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: botonX
+      name: botonX_PS
       rect:
         serializedVersion: 2
-        x: 44
-        y: 460
-        width: 220
-        height: 221
-      alignment: 0
+        x: 52
+        y: 470
+        width: 199
+        height: 199
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -229,14 +247,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: botonaA
+      name: botonaA_Xbox
       rect:
         serializedVersion: 2
-        x: 305
+        x: 298
         y: 476
-        width: 185
-        height: 189
-      alignment: 0
+        width: 184
+        height: 185
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -255,10 +273,10 @@ TextureImporter:
         serializedVersion: 2
         x: 564
         y: 471
-        width: 404
-        height: 197
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 402
+        height: 199
+      alignment: 9
+      pivot: {x: 0.047482163, y: 0.9266692}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,6 +284,132 @@ TextureImporter:
       bones: []
       spriteID: e8d16251eacfaee30800000000000000
       internalID: 4533713799511154062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonCirculo_PS
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 236
+        width: 202
+        height: 205
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43274bee106f24250800000000000000
+      internalID: 5927570547733197364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonB_Xbox
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 256
+        width: 176
+        height: 181
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c91869f8b8b2dd0800000000000000
+      internalID: -2509758918507258739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonCuadrado_PS
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 16
+        width: 200
+        height: 202
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a629d9ab34a947b0800000000000000
+      internalID: -5239476115309255007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonX_Xbox
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 31
+        width: 172
+        height: 182
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb16f0b0fd72c200800000000000000
+      internalID: 198859806272265165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnSpace
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 34
+        width: 392
+        height: 197
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e925e3662056429a0800000000000000
+      internalID: -6258766521158446434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botonCtrl
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 247
+        width: 324
+        height: 195
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb44dc2cdfbc5100800000000000000
+      internalID: 98164244261129139
       vertices: []
       indices: 
       edges: []
