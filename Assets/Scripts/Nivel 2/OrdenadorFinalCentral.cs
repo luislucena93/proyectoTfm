@@ -63,8 +63,8 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
 
     private static string MENSAJE_VACIO = "";
     private static string MENSAJE_BIENVENIDA = "Bienvenidos";
-    private static string MENSAJE_LISTO = "Listos?";
-    private static string MENSAJE_REPETIMOS = "Repetimos?";
+    private static string MENSAJE_LISTO = "¿Listos?";
+    private static string MENSAJE_REPETIMOS = "¿Repetimos?";
     private static string MENSAJE_FASE2 = "Fase 2";
     private static string MENSAJE_FASE3 = "Fase 3";
     private static string MENSAJE_ENHORABUENA = "ENHORABUENA";

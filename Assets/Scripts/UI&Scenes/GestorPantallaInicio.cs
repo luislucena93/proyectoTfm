@@ -39,6 +39,12 @@ public class GestorPantallaInicio : MonoBehaviour
         _timeline.SetActive(true);
     }
 
+
+    public void BotonResetColeccionables(){
+        PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_COLECCIONABLES,"");
+        SalirDelJuego();
+    }
+
     public void SalirDelJuego(){
         Application.Quit();
     }
