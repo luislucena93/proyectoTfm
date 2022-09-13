@@ -13,11 +13,17 @@ public class boxInArea : MonoBehaviour
     private bool boxIn = false;
     public GameObject light;
     private Renderer renderer;
+
+    [SerializeField]
+    Color _colorInvalido;
+    [SerializeField]
+    Color _colorValido;
+
     // Start is called before the first frame update
     void Start()
     {
         renderer = light.GetComponent<Renderer>();
-        renderer.material.SetColor("_TintColor", Color.red);
+        renderer.material.SetColor("_TintColor", _colorInvalido);
     }
 
     // Update is called once per frame
@@ -31,7 +37,7 @@ public class boxInArea : MonoBehaviour
         if (other.gameObject.tag == "Pushable")
         {
             boxIn = true;
-            renderer.material.SetColor("_TintColor", Color.green);
+            renderer.material.SetColor("_TintColor", _colorValido);
 
             IPuerta iPuerta = _puerta.GetComponent<IPuerta>();
             if(iPuerta != null){
@@ -47,7 +53,7 @@ public class boxInArea : MonoBehaviour
         if (other.gameObject.tag == "Pushable")
         {
             boxIn = false;
-            renderer.material.SetColor("_TintColor", Color.red);
+            renderer.material.SetColor("_TintColor", _colorInvalido);
 
             IPuerta iPuerta = _puerta.GetComponent<IPuerta>();
             if (iPuerta != null) {
