@@ -11,9 +11,9 @@ public class PadrePulsadorDoble : MonoBehaviour
 
     [SerializeField]
     PulsadorDoblePuerta _pulsador1;
+    [SerializeField]
     PulsadorDoblePuerta _pulsador2;
 
-    int _pulsados = 0;
     bool _puertaAbierta;
     void Start()
     {
@@ -31,17 +31,14 @@ public class PadrePulsadorDoble : MonoBehaviour
     }
 
     public void PulsadoHijo(){
-        _pulsados ++;
-        Debug.Log("pulsado hijo "+_pulsados);
-        if(!_puertaAbierta && _pulsados >= 2){
+        if(_pulsador1.isInteraccionando() && _pulsador2.isInteraccionando() && !_puertaAbierta){
             _iPuerta.Abrir();
             _puertaAbierta = true;
         }
-
     }
 
     public void SoltadoHijo(){
-        _pulsados --;
+
     }
 
     public bool GetPuertaAbierta(){

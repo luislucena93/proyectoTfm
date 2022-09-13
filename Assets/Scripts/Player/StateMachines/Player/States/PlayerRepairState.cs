@@ -47,6 +47,7 @@ public class PlayerRepairState : PlayerBaseState
         } else{
             _interaccionable.FinalizarInteraccion();
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+            return;
         }
     }
 

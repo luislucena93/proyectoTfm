@@ -37,14 +37,15 @@ public class PlayerInteraccionState : PlayerBaseState
         if (stateMachine.inputReader.interactAction.inProgress) {
 
         } else{
-            _interaccionable.FinalizarInteraccion();
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+            return;
         }
     }
 
     public override void Exit() {
     //            Debug.Log("Exit interaccion");
         stateMachine._ikRigMano.weight = 0;
+        _interaccionable.FinalizarInteraccion();
         stateMachine.animator.SetBool("isPressingButton", false);
     }
 

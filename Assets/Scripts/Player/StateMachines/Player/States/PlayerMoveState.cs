@@ -26,6 +26,7 @@ public class PlayerMoveState : PlayerBaseState
         {
             if(stateMachine._iPushableDetectado != null && !stateMachine._iPushableDetectado.IsPushing()){
                 stateMachine.SwitchState(new PlayerPushState(stateMachine));
+                return;
             }
             
         }
@@ -44,6 +45,7 @@ public class PlayerMoveState : PlayerBaseState
         if (stateMachine.inputReader.jumpAction.triggered && stateMachine.isGrounded) 
         {
             stateMachine.SwitchState(new PlayerJumpState(stateMachine));
+            return;
         }
 
         stateMachine.movementValue = stateMachine.inputReader.moveAction.ReadValue<Vector2>();

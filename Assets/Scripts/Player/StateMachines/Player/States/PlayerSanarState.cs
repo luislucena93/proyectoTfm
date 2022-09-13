@@ -19,6 +19,7 @@ public class PlayerSanarState : PlayerBaseState
         if(stateMachine._elementoCurable == null){
             Debug.Log("Error Enter PlayerSanarState, curable null");
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+            return;
         }
         
         stateMachine._goFuenteCorazones.SetActive(true);
@@ -38,12 +39,13 @@ public class PlayerSanarState : PlayerBaseState
         if(_tiempoCuracion<=0){
             stateMachine._elementoCurable.RecuperarSalud(PUNTOS_RECURAR_SANAR);
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+            return;
         }
 
 
         if (!stateMachine.inputReader.interactAction.inProgress) {
-            
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));
+            return;
         }
     }
 

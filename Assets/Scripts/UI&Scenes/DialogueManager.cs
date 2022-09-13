@@ -89,10 +89,20 @@ public class DialogueManager : MonoBehaviour
     IEnumerator SetDialogueText(string text)
     {
         dialogueText.text = "";
+        bool simbolo = false;
         foreach(char letter in text.ToCharArray())
         {
+            
             dialogueText.text += letter;
-            yield return null;
+            if(letter != '<' && letter !='>' && !simbolo){
+                yield return null;
+            }   else if(letter == '<'){
+                simbolo = true;
+            }   else if(letter == '>'){
+                simbolo = false;
+                yield return null;
+            }
+            
         }
         if(_pasarSiguienteDialogoAuto){
             yield return new WaitForSeconds(_tiempoSiguienteDialogo);

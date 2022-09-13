@@ -18,7 +18,7 @@ public class PulsadorDoblePuerta : MonoBehaviour, IInteraccionable
     GameObject _goPosicionarMano;
 
     PadrePulsadorDoble _padrePulsadorDoble;
-
+    [SerializeField]
     private bool _interaccionando;
 
     private static string MENSAJE_VACIO = "";
@@ -62,19 +62,20 @@ public class PulsadorDoblePuerta : MonoBehaviour, IInteraccionable
     }
 
     public void ComenzarInteraccion(){
+        Debug.Log("Comienza "+gameObject.name);
         _interaccionando = true;
         _goCanvasTextoPulsador.SetActive(true);
         _padrePulsadorDoble.PulsadoHijo();
     }
 
     public void PausarInteraccion(){
+         Debug.Log("Pausa "+gameObject.name);
         _interaccionando = false;
-        _padrePulsadorDoble.SoltadoHijo();
     }
 
     public void FinalizarInteraccion(){
+         Debug.Log("Finaliza "+gameObject.name);
         _interaccionando = false;
-        _padrePulsadorDoble.SoltadoHijo();
     }
 
 
@@ -130,5 +131,9 @@ public class PulsadorDoblePuerta : MonoBehaviour, IInteraccionable
 
     public Transform GetTransform(){
         return _goPosicionarMano.transform;
+    }
+
+    public bool isInteraccionando(){
+        return _interaccionando;
     }
 }

@@ -40,6 +40,7 @@ public class PlayerIdleState : PlayerBaseState
         if (stateMachine.inputReader.jumpAction.triggered || !stateMachine.isGrounded) 
         {
             stateMachine.SwitchState(new PlayerJumpState(stateMachine));
+            return;
         }
 
         if (stateMachine.inputReader.moveAction.ReadValue<Vector2>() != Vector2.zero) 
@@ -69,6 +70,7 @@ public class PlayerIdleState : PlayerBaseState
         if(stateMachine._elementoCurable != null && stateMachine._interaccionCurarDisponible){
             //        Debug.Log("switch interaccionable");
             stateMachine.SwitchState(new PlayerSanarState(stateMachine));
+            return;
         }
 
         //Debug.Log(stateMachine.hitPushable);
@@ -91,6 +93,7 @@ public class PlayerIdleState : PlayerBaseState
         if (stateMachine.hitPushable)
         {
             stateMachine.SwitchState(new PlayerPushState(stateMachine));
+            return;
         }
     }
 }
