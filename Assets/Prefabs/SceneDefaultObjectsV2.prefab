@@ -2812,6 +2812,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7773976283314239457}
     - target: {fileID: 3771259630569660473, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
+      propertyPath: _dialogManager
+      value: 
+      objectReference: {fileID: 7764473255324682030}
+    - target: {fileID: 3771259630569660473, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
       propertyPath: _goCanvasColeccionables
       value: 
       objectReference: {fileID: 1077723356334968463}
@@ -2891,6 +2895,18 @@ PrefabInstance:
       propertyPath: _goColeccionable
       value: 
       objectReference: {fileID: 2227424750064204274}
+    - target: {fileID: 5091961723525507070, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.90099996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091961723525507070, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.838623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091961723525507070, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49901536
+      objectReference: {fileID: 0}
     - target: {fileID: 5199524367139928526, guid: df95c4af3d389b74ca9205e57c2f375b, type: 3}
       propertyPath: _gestor
       value: 

@@ -29,6 +29,9 @@ public class GestorColeccionables : MonoBehaviour
     [SerializeField]
     TMP_Text _textoDialogColeccionable;
 
+    [SerializeField]
+    DialogueManager _dialogManager;
+
     
 
     private void Awake() {
@@ -142,7 +145,9 @@ public class GestorColeccionables : MonoBehaviour
     }
 
     public void RecogidaLlave(TipoLlaveEnum enumLlave){
-        _animatorDialogoRecogido.SetBool("Animar",true);
-        _textoDialogColeccionable.text = "Llave "+enumLlave.ToString()+" recogida.";
+        if(!_dialogManager.isDialogueOpen()){
+            _animatorDialogoRecogido.SetBool("Animar",true);
+            _textoDialogColeccionable.text = "Llave "+enumLlave.ToString()+" recogida.";
+        }
     }
 }

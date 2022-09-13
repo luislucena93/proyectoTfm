@@ -105,4 +105,8 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.enabled = false;
         dialogOpen = false;
     }
+
+    public bool isDialogueOpen(){
+        return dialogOpen;
+    }
 }
