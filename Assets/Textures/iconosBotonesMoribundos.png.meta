@@ -37,7 +37,7 @@ TextureImporter:
     second: botonX_Xbox
   - first:
       213: -6258766521158446434
-    second: btnSpace
+    second: btnEsudoXbox
   - first:
       213: 98164244261129139
     second: botonCtrl
@@ -373,13 +373,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: btnSpace
+      name: btnEsudoXbox
       rect:
         serializedVersion: 2
-        x: 584
+        x: 609
         y: 34
-        width: 392
-        height: 197
+        width: 339
+        height: 191
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

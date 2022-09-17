@@ -22,6 +22,7 @@ public class PlayerInteraccionState : PlayerBaseState
         stateMachine._ikRigMano.weight =0.7f;
 
         stateMachine.transform.forward = -stateMachine._objetoInteraccionable.GetTransform().forward;
+        stateMachine.transform.eulerAngles = new Vector3(0,stateMachine.transform.eulerAngles.y,0);
         stateMachine.animator.SetBool("isPressingButton", true);
 
     }

@@ -15,4 +15,6 @@ public class Tags
 
     public static int TAG_LAYER_TRIGGER_MUERTO = 12;
 
+
+    public static string TAG_PANTALLA_CARGA= "PantallaCarga";
 }

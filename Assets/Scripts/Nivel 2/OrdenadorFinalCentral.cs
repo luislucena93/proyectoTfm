@@ -615,6 +615,7 @@ public class OrdenadorFinalCentral : MonoBehaviour, IInteraccionable{ [Serialize
     }
 
     private void DesactivarPC(){
+        _mostrarIndicarInteraccion = false;
         _textoNumero.text = MENSAJE_VACIO;
         _goPensando.SetActive(false);
         _goLuz.SetActive(false);

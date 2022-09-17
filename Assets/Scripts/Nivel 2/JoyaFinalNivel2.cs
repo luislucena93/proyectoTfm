@@ -24,6 +24,11 @@ public class JoyaFinalNivel2 : MonoBehaviour
 
     [SerializeField]
     MenuController _menuController;
+
+    [SerializeField]
+    Renderer _rendererJoya;
+
+    bool _activo = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +72,9 @@ public class JoyaFinalNivel2 : MonoBehaviour
     }
 
     private void OnEnter(Collider other){
-        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER)){
+        if(other.gameObject.CompareTag(GameConstants.TAG_PLAYER) && _activo){
+            _activo = false;
+            _rendererJoya.enabled = false;
             _menuController.SiguienteEscena();
         }
     }

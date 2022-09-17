@@ -3899,6 +3899,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6847022847794616285, guid: f12ba01a17573164dac23d57ca78f6a8, type: 3}
   m_PrefabInstance: {fileID: 216906385}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &218668939 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8571998052815576038, guid: 16eb196fe664d3046ae6a19cf9b6423b, type: 3}
+  m_PrefabInstance: {fileID: 2107116933785230894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &219994778
 GameObject:
   m_ObjectHideFlags: 0
@@ -19129,7 +19134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900991477450069452, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -81.80966
+      value: -81.81525
       objectReference: {fileID: 0}
     - target: {fileID: 5900991477450069452, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19137,7 +19142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900991477450069452, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.2946053
+      value: -7.2946434
       objectReference: {fileID: 0}
     - target: {fileID: 5979824615282714962, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19457,7 +19462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7304987658280633672, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.013566807
+      value: 0.01356681
       objectReference: {fileID: 0}
     - target: {fileID: 7304987658280633672, guid: e2982f39896f13344a337cc81026b041, type: 3}
       propertyPath: m_LocalRotation.y
@@ -28086,6 +28091,7 @@ MonoBehaviour:
   _duracion: 3
   _velocidadRotacion: 84.6
   _menuController: {fileID: 99991703}
+  _rendererJoya: {fileID: 218668939}
 --- !u!1 &1094605834
 GameObject:
   m_ObjectHideFlags: 0
@@ -45536,7 +45542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988483208400518570, guid: 16eb196fe664d3046ae6a19cf9b6423b, type: 3}
       propertyPath: m_Radius
-      value: 0.74
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 3988483208400518570, guid: 16eb196fe664d3046ae6a19cf9b6423b, type: 3}
       propertyPath: m_IsTrigger
@@ -46008,6 +46014,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1097332601373267064, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a67fae9e714cfc84e948b7fe88ff9c63, type: 2}
+    - target: {fileID: 1097332601373267064, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7182059967357729812, guid: a67fae9e714cfc84e948b7fe88ff9c63, type: 2}
     - target: {fileID: 2186477591631788729, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: m_text
       value: ENHORABUENA
@@ -46050,15 +46064,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: _duracionFase1
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: _duracionFase2
-      value: 45
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: _duracionFase3
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2327214040245002209, guid: 6b8721a217209254bb0a1bdb1344496e, type: 3}
       propertyPath: _pcSecundarioA

@@ -104,7 +104,7 @@ public class MenuController : MonoBehaviour
     private IEnumerator RecargaLevel() {
         transitions.SetTrigger("NextScene");
         yield return new WaitForSeconds(1);
-        int sceneID = SceneManager.GetActiveScene().buildIndex;
+        int sceneID = SceneManager.GetActiveScene().buildIndex-1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

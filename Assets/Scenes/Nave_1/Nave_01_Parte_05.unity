@@ -3824,7 +3824,7 @@ RectTransform:
   m_Children:
   - {fileID: 156187074}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6304,7 +6304,7 @@ Transform:
   - {fileID: 1149303692}
   - {fileID: 991460978}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &537845746
 AudioListener:
@@ -6800,7 +6800,7 @@ Transform:
   m_Children:
   - {fileID: 446725464}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 2.125, y: -88.672, z: 0.029}
 --- !u!95 &621923247
 Animator:
@@ -7817,7 +7817,7 @@ Transform:
   - {fileID: 312894991}
   - {fileID: 387090709}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764426115
 GameObject:
@@ -9423,7 +9423,7 @@ Transform:
   - {fileID: 1767691555}
   - {fileID: 216440103}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1017870962
 MonoBehaviour:
@@ -10396,137 +10396,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.12319341, y: 0.013909772, z: -0.000000059604645}
     m_Extent: {x: 0.8323082, y: 0.3015712, z: 1.0247452}
   m_DirtyAABB: 0
---- !u!1 &1101238373
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1101238376}
-  - component: {fileID: 1101238375}
-  - component: {fileID: 1101238374}
-  - component: {fileID: 1101238377}
-  m_Layer: 0
-  m_Name: GestorInicio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1101238374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101238373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e7b168d35f9364588f432bd78ce698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeline: {fileID: 0}
-  dialogos:
-  - sentences:
-    - character: 0
-      text: Frase1
-    - character: 1
-      text: Frase2
-  - sentences:
-    - character: 0
-      text: FraseA
-    - character: 1
-      text: FraseB
-    - character: 2
-      text: FraseC
---- !u!114 &1101238375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101238373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 18dbbffae8311a24abe45a29292753ae, type: 2}
-    - {fileID: 11400000, guid: 7cf92f1c28aff8d4cabdc11026599f07, type: 2}
-    - {fileID: 11400000, guid: de3a06e41350e02478dc69c9d3903f69, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1101238374}
-          m_TargetAssemblyTypeName: GestorPantallaInicio, Assembly-CSharp
-          m_MethodName: SiguienteNivel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1101238374}
-          m_TargetAssemblyTypeName: GestorPantallaInicio, Assembly-CSharp
-          m_MethodName: SiguienteDialogo
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1101238374}
-          m_TargetAssemblyTypeName: GestorPantallaInicio, Assembly-CSharp
-          m_MethodName: SiguienteFrase
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!4 &1101238376
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101238373}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.505873, y: 0.4294052, z: 46.558445}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1101238377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101238373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 425d1ebd583c49c48b668ffdb2ae51f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1104367455
 GameObject:
   m_ObjectHideFlags: 0
@@ -10847,7 +10716,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1118307502
 MonoBehaviour:
@@ -10950,6 +10819,7 @@ MonoBehaviour:
   - sentences:
     - character: 0
       text: ...
+  _mostrarCursorIniciar: 0
 --- !u!4 &1118800577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5471547913654306123, guid: f49cc2fd6d2d2e041904300d7b564023, type: 3}
@@ -14072,7 +13942,7 @@ Transform:
   m_Children:
   - {fileID: 1503876198}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1477210804
 GameObject:
@@ -14542,7 +14412,7 @@ Transform:
   m_Children:
   - {fileID: 135425723}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 40.351, z: 0}
 --- !u!95 &1506446533
 Animator:
@@ -17459,7 +17329,7 @@ Transform:
   m_Children:
   - {fileID: 416103664}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 29.722, z: 0}
 --- !u!1 &1804790270
 GameObject:
@@ -17713,7 +17583,7 @@ Transform:
   m_Children:
   - {fileID: 1144101076}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 17.782, z: 0}
 --- !u!1 &1864369425
 GameObject:
@@ -23136,7 +23006,7 @@ Transform:
   - {fileID: 662287181}
   - {fileID: 2088238049}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034605551
 GameObject:

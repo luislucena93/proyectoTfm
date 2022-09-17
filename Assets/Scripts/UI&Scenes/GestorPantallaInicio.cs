@@ -14,10 +14,22 @@ public class GestorPantallaInicio : MonoBehaviour
 
     int _indiciceDialogoActual = -1;
 
+    [SerializeField]
+    bool _mostrarCursorIniciar = true;
+
     private void Start()
     {
         dm = FindObjectOfType<DialogueManager>();
-        Cursor.visible = true;
+        Cursor.visible = _mostrarCursorIniciar;
+        DesactivaPantallaCarga();
+    }
+
+    IEnumerator DesactivaPantallaCarga(){
+        yield return new WaitForEndOfFrame();
+        GameObject go = GameObject.FindGameObjectWithTag(Tags.TAG_PANTALLA_CARGA);
+        if(go != null){
+            go.SetActive(false);
+        }
     }
     public void SiguienteDialogo()
     {
